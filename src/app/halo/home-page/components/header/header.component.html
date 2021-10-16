@@ -1,0 +1,149 @@
+<header class="header-area header-desktop">
+    <div class="header-menu-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="menu-full-width">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                        </div>
+                        <div class="main-menu-content">
+                            <nav>
+                                <ul>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="home">Trang chủ</a>
+                                    </li>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="jobs">Việc làm</a>
+                                    </li>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="employer">Công ty</a>
+                                    </li>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="home">Dịch vụ</a>
+                                    </li>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="about-us">Về chúng tôi</a>
+                                    </li>
+                                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                        <a routerLink="contact">Liên hệ</a>
+                                    </li>
+                                    
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="logo-right-content" *ngIf="isLogin">
+                            <div class="header-action-button d-flex align-items-center">
+                                <div class="user-action-wrap">
+                                    <div class="notification-item">
+                                        <div class="dropdown">{{username}}
+                                            <button class="notification-btn dot-status online-status dropdown-toggle" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               <img src="assets/images/avatar-mac-dinh-1.png" alt="John-doe">
+                                            </button>
+                                            
+                                            <div class="dropdown-menu" aria-labelledby="userDropdownMenu">
+                                                <div class="mess-dropdown">
+                                                    <div class="mess__title d-flex align-items-center">
+                                                        <div class="image dot-status online-status">
+                                                            <a href="#">
+                                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="username">
+                                                            </a>
+                                                        </div>
+                                                        <div class="content">
+                                                            <h4 class="widget-title font-size-16">
+                                                                <a href="javascript:void(0)">{{username}}</a>
+                                                            </h4>
+                                                            <span class="email">username@email.com</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mess__body">
+                                                        <ul class="list-items" *ngIf="roles[0].name == 'ROLE_CANDIDATE'">
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" class="d-block">
+                                                                    <i class="la la-user"></i> Trang quản trị
+                                                                </a>
+                                                            </li>
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
+                                                                    <i class="la la-power-off"></i> Đăng xuất
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="list-items" *ngIf="roles[0].name == 'ROLE_EMPLOYER'">
+                                                            <li class="mb-0">
+                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                    <i class="la la-user"></i> Trang quản trị
+                                                                </a>
+                                                            </li>
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
+                                                                    <i class="la la-plus"></i> Đăng tin tuyển dụng
+                                                                </a>
+                                                            </li>
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
+                                                                    <i class="la la-users"></i> Quản lý ứng viên
+                                                                </a>
+                                                            </li>
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
+                                                                    <i class="la la-power-off"></i> Đăng xuất
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="list-items" *ngIf="roles[0].name == 'ROLE_ADMIN' || roles[0].name == 'ROLE_STAFF'">
+                                                            <li class="mb-0">
+                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                    <i class="la la-user"></i> Trang quản trị
+                                                                </a>
+                                                            </li>
+                                                            <li class="mb-0">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
+                                                                    <i class="la la-power-off"></i> Đăng xuất
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-toggler d-flex align-items-center">
+                                <div class="side-menu-open">
+                                    <span class="menu__bar"></span>
+                                    <span class="menu__bar"></span>
+                                    <span class="menu__bar"></span>
+                                </div>
+                                <div class="user-menu-open">
+                                    <i class="la la-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-right-content" *ngIf="!isLogin">
+                            <ul class="author-access-list">
+                                <li *ngIf="!username">
+                                    <a href="javascript:void()" (click)="routerLogin()">Đăng nhập</a>
+                                    <span class="or-text">/</span>
+                                    <a routerLink="register">Đăng ký</a>
+                                </li>
+                                <li>
+                                    <a href="employer-dashboard-post-job.html" class="theme-btn">
+                                        <span class="la la-plus"></span>
+                                        Đăng tin
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="side-menu-open">
+                                <span class="menu__bar"></span>
+                                <span class="menu__bar"></span>
+                                <span class="menu__bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

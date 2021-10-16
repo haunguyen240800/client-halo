@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.p-dropdown {
+    width: 100%;
+    border: 1px solid rgba(128, 137, 150, 0.3) !important;
+}
+.p-inputtext{
+    font-family: "Poppins", sans-serif !important;
+    color: #797f87 !important;
+    font-size: 15px !important;
+    font-weight: 410;
+}
+.p-dropdown-item {
+    font-family: "Poppins", sans-serif !important;
+    color: #797f87 !important;
+    font-size: 15px !important;
+    font-weight: 410 !important;
+}
+.p-dropdown .p-dropdown-label {
+    padding-left: 16px;
+}

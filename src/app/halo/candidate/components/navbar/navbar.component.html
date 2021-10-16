@@ -1,0 +1,46 @@
+<div class="dashboard-sidebar">
+    <div class="dashboard-nav-trigger">
+        <div class="dashboard-nav-trigger-btn">
+            <i class="la la-bars"></i> Dashboard Navigation
+        </div>
+    </div>
+    <div class="dashboard-nav-container">
+        <div class="humburger-menu">
+            <div class="humburger-menu-lines side-menu-close"></div>
+        </div>
+        <div class="side-menu-wrap">
+            <ul class="side-menu-ul">
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="dashboard"><i class="la la-dashboard icon-element"></i> Thống kê</a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="apply-job"><i class="la la-receipt icon-element"></i>Công việc đã ứng tuyển <span class="badge badge-info radius-rounded p-1">3</span></a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="saved-job"><i class="la la-bookmark icon-element"></i> Công việc đã lưu</a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="resume"><i class="la la-file-text icon-element"></i> Thôgn tin Cv </a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="alert"><i class="la la-bell-o icon-element"></i>Thông báo</a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="account"><i class="la la-cog icon-element"></i>Cài đặt <span class="la la-caret-down btn-toggle"></span></a>
+                    <ul class="dropdown-menu-item">
+                        <li><a href="candidate-dashboard-edit-profile.html">Thông tin tài khoản</a></li>
+                        <li><a href="candidate-dashboard-change-password.html">Đổi mật khẩu</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" (click)="logout()"><i class="la la-power-off icon-element"></i> Đăng xuất</a></li>
+            </ul>
+        </div>
+        <!-- <div class="skillbar-wrap mt-4">
+            <h3 class="widget-title font-size-16">Skill Percentage</h3>
+            <div class="skillbar" data-percent="85%">
+                <div class="skill-item"><span>85%</span></div>
+            </div>
+            <p>You're almost done set "Cover Image" field to increase your skill up to "15%"</p>
+        </div> -->
+    </div>
+</div>

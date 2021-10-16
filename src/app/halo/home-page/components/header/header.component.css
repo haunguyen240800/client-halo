@@ -1,0 +1,13 @@
+.main-menu-content nav ul li{
+    padding-right: 35px !important;
+    font-weight: 600;
+}
+.active a{
+    color: #26ae61;
+}
+.header-desktop .header-menu-wrapper .logo{
+    border-right: none !important;
+}
+.header-desktop .main-menu-content{
+    padding-left: 85px !important;
+}

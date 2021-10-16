@@ -1,0 +1,13 @@
+<div class="page-navigation-wrap mt-4">
+    <div class="page-navigation mx-auto">
+        <a href="javascript:void(0)" (click)="prev()" class="page-go page-prev">
+            <i class="la la-arrow-left"></i>
+        </a>
+        <ul class="page-navigation-nav">
+            <li *ngFor="let page of pages" ><a href="javascript:void(0)" (click)="onClickPage(page)" class="page-go-link">{{page}}</a></li>
+        </ul>
+        <a href="javascript:void(0)" (click)="next()" class="page-go page-next">
+            <i class="la la-arrow-right"></i>
+        </a>
+    </div>
+</div>

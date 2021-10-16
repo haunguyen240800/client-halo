@@ -1,0 +1,78 @@
+
+<section class="hero-wrapper hero-wrapper-3">
+    
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-content-wrapper">
+                    <div class="hero-heading">
+                        <div class="section-heading">
+                            <h2 class="sec__title line-height-65">Khám phá hàng nghìn công việc xung quanh bạn, tạo tài khoản người dùng miễn phí</h2>
+                            <p class="sec__desc line-height-30 font-size-17 font-weight-medium color-white-rgba">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum voluptatem quaerat qui quo dignissimos magnam iusto illum quasi expedita, nam voluptatum vero ipsum corporis temporibus cumque odio, cupiditate consequuntur deleniti.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="btn-box margin-top-35px">
+                        <a href="job-grid-view.html" class="theme-btn mr-2">Tìm kiếm công việc</a>
+                        <a href="employer-dashboard-post-job.html" class="theme-btn bg-3">Đăng tin tuyển dụng</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-form-wrap position-relative">
+                    <div class="billing-form-item">
+                        <div class="billing-title-wrap">
+                            <h3 class="widget-title pb-0">Tìm kiếm công việc phù hợp của bạn</h3>
+                            <div class="title-shape margin-top-10px"></div>
+                        </div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <form method="post">
+                                    <div class="input-box">
+                                        <label class="label-text">Bạn Muốn Công Việc Gì??</label>
+                                        <div class="form-group">
+                                            <span class="la la-briefcase form-icon"></span>
+                                            <input class="form-control" type="text" name="text" placeholder="Tên công viêc...">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label class="label-text">Danh mục công việc</label>
+                                        
+                                        <div class="form-group">
+                                            <p-dropdown [options]="categories" [(ngModel)]="selectedCity"                 optionLabel="cateName" [filter]="true" filterBy="cateName" name="cateName"
+	                                        [showClear]="false" placeholder="Chọn địa chỉ">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">Địa chỉ?</label>
+                                      <div class="form-group">
+                                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity"                 optionLabel="provinceName" [filter]="true" filterBy="cateName" name="cityName"
+                                        [showClear]="false" placeholder="Chọn danh mục công việc">
+                                        </p-dropdown>
+                                      </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">Loại hình công việc</label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="jobTypes" [(ngModel)]="selectedCity"                 optionLabel="jobTypeName" [filter]="true" filterBy="jobTypeName" name="jobTypeName"
+	                                        [showClear]="false" placeholder="Chọn loại hình công việc">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+                                    <div class="btn-box">
+                                        <button class="button theme-btn border-0" type="submit">Tìm việc làm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-shape"></div>
+</section>
