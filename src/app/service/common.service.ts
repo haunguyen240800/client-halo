@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../core/service/auth.service';
 import { SavedJobService } from './saved-job.service';
@@ -29,27 +28,34 @@ export class CommonService {
           jobPostId: jobId
         };
         this.savedJobService.savedJob(data).subscribe(res=>{
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Lưu thành công',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          this.getAlertSuccess("Lưu thành công !")
         },(error:HttpErrorResponse) =>{
-          Swal.fire({
-            icon: 'error',
-            title: 'Lỗi...',
-            text: error.error.message + '!',
-            // footer: '<a href="">Why do I have this issue?</a>'
-          })
+          this.getAlertError(error.error.message);
        })
       }else{
-        $('#exampleModalCenter').modal('show');
+        this.getAlertError("Vui lòng đăng nhập");
       }
     }else{
-      $('#exampleModalCenter').modal('show');
+      this.getAlertError("Vui lòng đăng nhập");
     }
+  }
+
+  getAlertSuccess(text: any){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: text,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  getAlertError(text :any){
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi...',
+      text: text,
+    })
   }
 
   applyJob(jobId: any){
@@ -62,37 +68,16 @@ export class CommonService {
           jobPostId: jobId
         }
         this.jobPostActivityService.createJobApply(data).subscribe(res=>{
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Ứng tuyển thành công',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          this.getAlertSuccess("Ứng tuyển thành công !");
         },(error:HttpErrorResponse) =>{
-          Swal.fire({
-            icon: 'error',
-            title: 'Lỗi...',
-            text: 'Công việc đã ứng tuyển !',
-            // footer: '<a href="">Why do I have this issue?</a>'
-          })
+          this.getAlertError("Công việc đã ứng tuyển !");
         });
       }else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Lỗi...',
-          text: 'Vui lòng đăng nhập vào tài khoản ứng viên !',
-          // footer: '<a href="">Why do I have this issue?</a>'
-        })
+        this.getAlertError("Vui lòng đăng nhập vào tài khoản ứng viên !");
       }
       
     }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Lỗi...',
-        text: 'Vui lòng đăng nhập !',
-        // footer: '<a href="">Why do I have this issue?</a>'
-      })
+      this.getAlertError("Vui lòng đăng nhập !");
     }
   }
 }

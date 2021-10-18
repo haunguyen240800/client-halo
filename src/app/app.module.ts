@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './halo/login/login.component';
 import { ShareModule } from './share/share.module';
 import { NotFoundComponent } from './halo/not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RestPasswordComponent } from './halo/rest-password/rest-password.component';
+import { Interceptor } from './core/interceptor/interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { RestPasswordComponent } from './halo/rest-password/rest-password.compon
     ReactiveFormsModule,
     ShareModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   exports: [ShareModule]
 })

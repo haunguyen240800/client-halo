@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guard/auth.guard';
 import { LoginComponent } from './halo/login/login.component';
 import { NotFoundComponent } from './halo/not-found/not-found.component';
 
@@ -15,15 +16,27 @@ const routes: Routes = [
   },
   {
     path: 'can',
-    loadChildren: () => import("./halo/candidate/candidate.module").then(m=>m.CandidateModule)
+    loadChildren: () => import("./halo/candidate/candidate.module").then(m=>m.CandidateModule),
+    canActivate: [AuthGuard],
+    data: {
+      roles: ["ROLE_CANDIDATE"]
+    }
   },
   {
     path: 'emp',
-    loadChildren: () => import("./halo/employer/employer.module").then(m=>m.EmployerModule)
+    loadChildren: () => import("./halo/employer/employer.module").then(m=>m.EmployerModule),
+    canActivate: [AuthGuard],
+    data: {
+      roles: ["ROLE_EMPLOYER"]
+    }
   },
   {
     path: 'admin',
-    loadChildren: () => import("./halo/admin/admin.module").then(m=>m.AdminModule)
+    loadChildren: () => import("./halo/admin/admin.module").then(m=>m.AdminModule),
+    canActivate: [AuthGuard],
+    data: {
+      roles: ["ROLE_ADMIN","ROLE_STAFF"]
+    }
   },
   {
     path: 'login',

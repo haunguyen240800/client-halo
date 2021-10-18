@@ -18,6 +18,10 @@ export class AccountService {
     return this.http.get<any>(this.apiUrl+"users/find-by-username?username="+username);
   }
 
+  getAccount(accId: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"users/findByAccId?accId="+accId);
+  }
+
   findRoleByUsername(username: any):Observable<any>{
     return this.http.get<any>(this.apiUrl+"roles/acc?username="+username);
   }

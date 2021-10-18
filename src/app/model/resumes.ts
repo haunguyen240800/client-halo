@@ -11,6 +11,7 @@ export class Resumes{
     currentSalary?: string;
     expectedSalary?: string;
     educationLevel?: string;
+    imageUrl?: string;
     objAdd: Address={};
     targetDescription?: string;
     accId?: string;

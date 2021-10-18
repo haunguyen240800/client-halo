@@ -33,6 +33,10 @@ export class JobPostService {
     return this.http.post<any>(this.apiUrl+"job-posts/search-job",data);
   }
 
+  getJobByCate(cateId :any): Observable<any>{
+    return this.http.get<any>(this.apiUrl+ "job-posts/category?cateId="+cateId);
+  }
+
   getJobPostByAccount(accId: any):Observable<any>{
     return this.http.get<any>(this.apiUrl+"job-posts/account?accId="+accId);
   }

@@ -19,6 +19,10 @@ export class ResumesService {
   createResume(resume: any):Observable<any>{
     return this.http.post<any>(this.apiUrl+"resumes",resume);
   }
+
+  update(resume: any):Observable<any>{
+    return this.http.put<any>(this.apiUrl+"resumes",resume);
+  }
   
   findByAccId(accId: any): Observable<Resumes>{
     return this.http.get<Resumes>(this.apiUrl+"resumes/accId?accId="+accId);

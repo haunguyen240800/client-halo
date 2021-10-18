@@ -18,3 +18,20 @@
 .p-dropdown .p-dropdown-label {
     padding-left: 16px;
 }
+.err{
+    color: red;
+    font-size: 13px;
+}
+.p-slider .p-slider-range {
+    background: #26ae61 !important;
+}
+.p-slider .p-slider-handle {
+    height: 1.143rem;
+    width: 1.143rem;
+    background: #26ae61;
+    border: 2px solid #26ae61 !important;   
+}
+.p-slider:not(.p-disabled) .p-slider-handle:hover {
+    background: #26ae61 !important;
+    border-color: #26ae61 !important;
+}

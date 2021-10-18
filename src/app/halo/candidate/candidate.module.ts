@@ -6,6 +6,8 @@ import { CandidateComponent } from './candidate.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CandidateComponent,
     HeaderComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
-    CandidateRoutingModule
+    CandidateRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CandidateModule { }

@@ -59,13 +59,13 @@
                         <div class="sidebar-option mb-4">
                             <h3 class="widget-title">Danh mục công việc</h3>
                             <p-dropdown [options]="categories" [(ngModel)]="dataSearch.cateId"                 optionLabel="cateName" optionValue="id" [filter]="true" filterBy="cateName" name="cateName"
-	                        [showClear]="false" (onChange)="onChange()" placeholder="Chọn địa chỉ">
+	                        [showClear]="true" (onChange)="onChange()" placeholder="Chọn danh mục">
                             </p-dropdown>
                         </div>
                         <div class="sidebar-option">
                             <h3 class="widget-title">Địa chỉ</h3>
                             <p-dropdown [options]="cities" [(ngModel)]="dataSearch.cityName"                optionLabel="provinceName" optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" (onChange)="onChange()"
-	                        [showClear]="false" placeholder="Chọn địa chỉ">
+	                        [showClear]="true" placeholder="Chọn địa chỉ">
                             </p-dropdown>
                         </div>
                     </div>
@@ -277,9 +277,9 @@
                 </div>
             </div>
         </div>
-        <div class="row" *ngIf="this.jobs.length > 0">
+        <div class="row" *ngIf="jobs.length > 0">
             <div class="col-lg-12">
-                <app-pagination [rows]="10" [totalRecords]="this.jobs.length" (onChange)="onChangePage($event)"></app-pagination>
+                <app-pagination [rows]="10" [totalRecords]="jobs.length" (onChange)="onChangePage($event)"></app-pagination>
             </div>
         </div>
     </div>

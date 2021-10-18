@@ -77,6 +77,9 @@ export class ListComponent implements OnInit {
   // }
 
   onChange(){
+    if (this.dataSearch.cityName== null){
+      this.dataSearch.cityName ="";
+    }
     this.jobPostService.searchJob(this.dataSearch).subscribe(res=>{
       this.jobs = res;
       this.jobsPagi = this.jobs.slice(0,10);
@@ -117,12 +120,9 @@ export class ListComponent implements OnInit {
   }
 
   onChangePage(event: any){
-    
     let start = event.page * event.rows;
     let end = (event.page * event.rows) + event.rows;
-    console.log(event)
     this.jobsPagi = this.jobs.slice(start,end);
-    console.log(this.jobsPagi)
   }
 
 

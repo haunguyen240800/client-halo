@@ -204,22 +204,22 @@
         }),
       e(b).length && e(b).circlechart(),
       e('[data-toggle="tooltip"]').tooltip(),
-      e("#map").length &&
-        initMap("map", 40.717499, -74.044113, "images/map-marker.png"),
-      e(y).length &&
-        e(y).jqte({
-          placeholder: "Write your job description",
-          formats: [
-            ["p", "Paragraph"],
-            ["h1", "Heading 1"],
-            ["h2", "Heading 2"],
-            ["h3", "Heading 3"],
-            ["h4", "Heading 4"],
-            ["h5", "Heading 5"],
-            ["h6", "Heading 6"],
-            ["pre", "Preformatted"],
-          ],
-        }),
+      // e("#map").length &&
+      //   initMap("map", 40.717499, -74.044113, "images/map-marker.png"),
+      // e(y).length &&
+      //   e(y).jqte({
+      //     placeholder: "Write your job description",
+      //     formats: [
+      //       ["p", "Paragraph"],
+      //       ["h1", "Heading 1"],
+      //       ["h2", "Heading 2"],
+      //       ["h3", "Heading 3"],
+      //       ["h4", "Heading 4"],
+      //       ["h5", "Heading 5"],
+      //       ["h6", "Heading 6"],
+      //       ["pre", "Preformatted"],
+      //     ],
+      //   }),
       e(H).length &&
         e(H).jqte({
           placeholder: "Briefly describe about your company",

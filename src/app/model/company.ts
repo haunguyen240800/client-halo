@@ -8,6 +8,7 @@ export class Company{
     description!: string;
     websiteUrl!: string;
     email!: string;
+    rating!: number;
     telephone!: string;
     founderDate!: Date; 
     objAddress: Address = new Address();

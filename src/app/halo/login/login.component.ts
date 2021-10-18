@@ -7,6 +7,8 @@ import { AccountService } from 'src/app/service/account.service';
 import { LoginService } from 'src/app/service/login.service';
 import Swal from 'sweetalert2'
 
+declare var $: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.loadScript();
   }
 
   loginRequest = this.form.group({
@@ -50,7 +53,6 @@ export class LoginComponent implements OnInit {
           icon: 'error',
           title: 'Lỗi...',
           text: 'Đăng nhập không thành công!',
-          // footer: '<a href="">Why do I have this issue?</a>'
         })
        })
     }else{
@@ -58,9 +60,19 @@ export class LoginComponent implements OnInit {
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
-        // footer: '<a href="">Why do I have this issue?</a>'
       })
     }
+
+  }
+
+  loadScript(){
+    $(".toggle-password").on("click", function (this :any) {
+      $(this).toggleClass("active");
+      var t = $(".password-field");
+      "password" === t.attr("type")
+        ? t.attr("type", "text")
+        : t.attr("type", "password");
+    });
   }
 
 }

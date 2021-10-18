@@ -1,0 +1,18 @@
+.ttp .job-card .company-avatar{
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.ttp .job-card {
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: none !important;
+    border-radius: none !important;
+    border: none !important;
+    padding: 15px !important;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}

@@ -1,0 +1,215 @@
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <div class="candidate-resume-wrap">
+            <div class="billing-form-item">
+                <div class="billing-title-wrap">
+                    <h3 class="widget-title pb-0">Thông tin chung</h3>
+                    <div class="title-shape margin-top-10px"></div>
+                </div>
+                <div class="billing-content">
+                    <div class="contact-form-action">
+                        <form [formGroup]="dataForm">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Họ và tên</label>
+                                        <div class="form-group">
+                                            <span class="la la-user form-icon"></span>
+                                            <input class="form-control" type="text" placeholder="Nhập họ và tên" formControlName="fullname">
+                                        </div>
+                                        <div *ngIf="getData.fullname.invalid &&(getData.fullname.dirty || getData.fullname.touched)">
+                                            <div *ngIf="getData.fullname.errors">
+                                                <div *ngIf="getData.fullname.errors.required">
+                                                    <span class="err">Họ tên còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Ngày sinh</label>
+                                        <div class="form-group">
+                                            <span class="la la-calendar-alt form-icon"></span>
+                                            <input class="form-control" type="date" formControlName="dateOfBirth">
+                                        </div>
+                                        <div *ngIf="getData.dateOfBirth.invalid &&(getData.dateOfBirth.dirty || getData.dateOfBirth.touched)">
+                                            <div *ngIf="getData.dateOfBirth.errors">
+                                                <div *ngIf="getData.dateOfBirth.errors.required">
+                                                    <span class="err">Ngày sinh còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Địa chỉ email</label>
+                                        <div class="form-group">
+                                            <span class="la la-envelope-o form-icon"></span>
+                                            <input class="form-control" type="text" placeholder="Nhập email" formControlName="email">
+                                        </div>
+                                        <div *ngIf="getData.email.invalid &&(getData.email.dirty || getData.email.touched)">
+                                            <div *ngIf="getData.email.errors">
+                                                <div *ngIf="getData.email.errors.required">
+                                                    <span class="err">Email trí còn trống !</span>
+                                                </div>
+                                                <div *ngIf="getData.email.errors.email">
+                                                    <span class="err">Email không đúng dịnh dạng !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Số điện thoại</label>
+                                        <div class="form-group">
+                                            <span class="la la-phone form-icon"></span>
+                                            <input class="form-control" type="text" formControlName="telephone" placeholder="Nhập số điện thoại">
+                                        </div>
+                                        <div *ngIf="getData.telephone.invalid &&(getData.telephone.dirty || getData.telephone.touched)">
+                                            <div *ngIf="getData.telephone.errors">
+                                                <div *ngIf="getData.telephone.errors.required">
+                                                    <span class="err">Số điện thoại còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Mức lương hiên tại</label>
+                                        <div class="form-group">
+                                            <span class="la la-dollar-sign form-icon"></span>
+                                            <input class="form-control" type="text" placeholder="Mức lương hiên tại" formControlName="currentSalary">
+                                        </div>
+                                        <div *ngIf="getData.currentSalary.invalid &&(getData.currentSalary.dirty || getData.currentSalary.touched)">
+                                            <div *ngIf="getData.currentSalary.errors">
+                                                <div *ngIf="getData.currentSalary.errors.required">
+                                                    <span class="err">Mức lương hiên tại còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Mức lương mong muốn</label>
+                                        <div class="form-group">
+                                            <span class="la la-dollar-sign form-icon"></span>
+                                            <input class="form-control" type="text" formControlName="expectedSalary" placeholder="Nhập mức lương mong muốn">
+                                        </div>
+                                        <div *ngIf="getData.expectedSalary.invalid &&(getData.expectedSalary.dirty || getData.expectedSalary.touched)">
+                                            <div *ngIf="getData.expectedSalary.errors">
+                                                <div *ngIf="getData.expectedSalary.errors.required">
+                                                    <span class="err">Mức lương mong muốn còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Kinh nghiệm </label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="experiences" formControlName="experience" optionLabel="label" optionValue="label" placeholder="Chọn kinh nghiệm"></p-dropdown>
+                                        </div>
+                                        <div *ngIf="getData.experience.invalid &&(getData.experience.dirty || getData.experience.touched)">
+                                            <div *ngIf="getData.experience.errors">
+                                                <div *ngIf="getData.experience.errors.required">
+                                                    <span class="err">Kinh nghiệm còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box">
+                                        <label class="label-text">Trình độ học vấn</label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="educations" formControlName="educationLevel" optionLabel="label" optionValue="label" placeholder="Chọn trình độ học vấn"></p-dropdown>
+                                        </div>
+                                        <div *ngIf="getData.educationLevel.invalid &&(getData.educationLevel.dirty || getData.educationLevel.touched)">
+                                            <div *ngIf="getData.educationLevel.errors">
+                                                <div *ngIf="getData.educationLevel.errors.required">
+                                                    <span class="err">Trình độ học vấn còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-lg-12">
+                                    <div class="input-box">
+                                        <label class="label-text">Giới tính</label>
+                                        <div class="custom-label">
+                                            <div class="form-group mb-0 d-flex align-items-center">
+                                                <div class="label-wrap mr-3">
+                                                    <label class="label-container">
+                                                        <input type="radio" value="Nam" formControlName="gender">
+                                                        <span class="label-mark"></span>
+                                                        Nam
+                                                    </label>
+                                                </div>
+                                                <div class="label-wrap">
+                                                    <label class="label-container">
+                                                        <input type="radio"  value="Nữ" formControlName="gender">
+                                                        <span class="label-mark"></span>
+                                                        Nữ
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="getData.gender.invalid &&(getData.gender.dirty || getData.gender.touched)">
+                                            <div *ngIf="getData.gender.errors">
+                                                <div *ngIf="getData.gender.errors.required">
+                                                    <span class="err">Giới tính còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-lg-12">
+                                    <div class="input-box">
+                                        <label class="label-text">Mục tiêu nghề nghiệp</label>
+                                        <div class="form-group mb-0">
+                                            <p-editor formControlName="targetDescription" [style]="{'height':'320px'}">
+                                                
+                                            </p-editor>
+                                        </div>
+                                        <div *ngIf="getData.targetDescription.invalid &&(getData.targetDescription.dirty || getData.targetDescription.touched)">
+                                            <div *ngIf="getData.targetDescription.errors">
+                                                <div *ngIf="getData.targetDescription.errors.required">
+                                                    <span class="err">Mục tiêu nghề nghiệp còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- <div class="col-lg-4">
+                                    <div class="input-box">
+                                        <label class="label-text">Upload your photo <i class="la la-question tip ml-1" data-toggle="tooltip" data-placement="top" title="Max. file size: 10 MB"></i></label>
+                                        <div class="file-upload-wrap file-upload-wrap-2">
+                                            <input type="file" name="files[]" class="multi file-upload-input with-preview" multiple maxlength="1">
+                                            <span class="file-upload-text"><i class="la la-photo mr-2"></i>Upload Photo</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-submit-wrap">
+                
+                <div class="btn-box mt-4">
+                    <button type="button" (click)="onSubmit()" class="theme-btn border-0"><i class="la la-plus"></i> Lưu thông tin</button>
+                </div>
+            </div>
+        </div>
+    </div>           
+</div>

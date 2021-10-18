@@ -45,7 +45,7 @@
                                                 <div class="mess-dropdown">
                                                     <div class="mess__title d-flex align-items-center">
                                                         <div class="image dot-status online-status">
-                                                            <a href="#">
+                                                            <a href="javascript:void(0)">
                                                                 <img src="assets/images/avatar-mac-dinh-1.png" alt="username">
                                                             </a>
                                                         </div>
@@ -53,13 +53,13 @@
                                                             <h4 class="widget-title font-size-16">
                                                                 <a href="javascript:void(0)">{{username}}</a>
                                                             </h4>
-                                                            <span class="email">username@email.com</span>
+                                                            <!-- <span class="email">username@email.com</span> -->
                                                         </div>
                                                     </div>
                                                     <div class="mess__body">
                                                         <ul class="list-items" *ngIf="roles[0].name == 'ROLE_CANDIDATE'">
                                                             <li class="mb-0">
-                                                                <a href="javascript:void(0)" class="d-block">
+                                                                <a href="can/dashboard" class="d-block">
                                                                     <i class="la la-user"></i> Trang quản trị
                                                                 </a>
                                                             </li>
@@ -71,7 +71,7 @@
                                                         </ul>
                                                         <ul class="list-items" *ngIf="roles[0].name == 'ROLE_EMPLOYER'">
                                                             <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                <a href="emp/dashboard" class="d-block">
                                                                     <i class="la la-user"></i> Trang quản trị
                                                                 </a>
                                                             </li>
@@ -93,7 +93,7 @@
                                                         </ul>
                                                         <ul class="list-items" *ngIf="roles[0].name == 'ROLE_ADMIN' || roles[0].name == 'ROLE_STAFF'">
                                                             <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                <a href="admin/dashboard" class="d-block">
                                                                     <i class="la la-user"></i> Trang quản trị
                                                                 </a>
                                                             </li>

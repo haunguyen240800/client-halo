@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CandidateComponent } from './candidate.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'account',
         loadChildren: () => import("./account/account.module").then(m=>m.AccountModule)
+      },
+      {
+        path: 'account/change-password',
+        component: ChangePasswordComponent
       },
       {
         path: 'resume',
