@@ -1,6 +1,6 @@
 
 <section class="hero-wrapper hero-wrapper-3">
-    
+
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="row align-items-center">
@@ -15,8 +15,8 @@
                         </div>
                     </div>
                     <div class="btn-box margin-top-35px">
-                        <a href="job-grid-view.html" class="theme-btn mr-2">Tìm kiếm công việc</a>
-                        <a href="employer-dashboard-post-job.html" class="theme-btn bg-3">Đăng tin tuyển dụng</a>
+                        <a href="javascript:void(0)" (click)="routerJobs()" class="theme-btn mr-2">Tìm kiếm công việc</a>
+                        <a href="javascript:void(0)" (click)="postJobs()" class="theme-btn bg-3">Đăng tin tuyển dụng</a>
                     </div>
                 </div>
             </div>
@@ -37,13 +37,13 @@
                                             <input class="form-control" type="text" name="text" placeholder="Tên công viêc...">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="input-box">
                                         <label class="label-text">Danh mục công việc</label>
-                                        
+
                                         <div class="form-group">
                                             <p-dropdown [options]="categories" [(ngModel)]="selectedCity"                 optionLabel="cateName" [filter]="true" filterBy="cateName" name="cateName"
-	                                        [showClear]="false" placeholder="Chọn địa chỉ">
+	                                        [showClear]="false" placeholder="Chọn danh mục công việc">
                                             </p-dropdown>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                         <label class="label-text">Địa chỉ?</label>
                                       <div class="form-group">
                                         <p-dropdown [options]="cities" [(ngModel)]="selectedCity"                 optionLabel="provinceName" [filter]="true" filterBy="cateName" name="cityName"
-                                        [showClear]="false" placeholder="Chọn danh mục công việc">
+                                        [showClear]="false" placeholder="Chọn địa chỉ">
                                         </p-dropdown>
                                       </div>
                                     </div>

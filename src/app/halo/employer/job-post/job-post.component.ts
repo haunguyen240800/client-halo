@@ -10,6 +10,7 @@ export class JobPostComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
-
+  
 }

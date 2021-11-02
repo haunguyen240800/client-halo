@@ -2476,7 +2476,7 @@ body {
   border-color: rgba(128, 137, 150, 0.3);
 }
 .jqte * {
-  font-family: "Noto Sans JP", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 .jqte dl,
 .jqte ol,
@@ -2967,7 +2967,7 @@ body {
 }
 .contact-form-action .form-control {
   height: auto;
-  line-height: inherit;
+  /* line-height: inherit; */
   padding: 12px 20px 12px 40px;
   font-size: 13px;
   color: #2c2c51;
@@ -3567,7 +3567,7 @@ body {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .breadcrumb-content .list-items {
@@ -4635,7 +4635,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1010;
+  z-index: 1000;
 }
 .header-menu-wrapper {
   background-color: #fff;

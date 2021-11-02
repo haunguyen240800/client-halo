@@ -35,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import("./halo/admin/admin.module").then(m=>m.AdminModule),
     canActivate: [AuthGuard],
     data: {
-      roles: ["ROLE_ADMIN","ROLE_STAFF"]
+      roles: ["ROLE_ADMIN","ROLE_STAFF","ROLE_EMPLOYER"]
     }
   },
   {

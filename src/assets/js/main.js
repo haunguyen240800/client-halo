@@ -294,13 +294,6 @@
             .done(j)
             .fail(M);
         }, 2e3);
-    }),
-      e(".toggle-password").on("click", function () {
-        e(this).toggleClass("active");
-        var t = e(".password-field");
-        "password" === t.attr("type")
-          ? t.attr("type", "text")
-          : t.attr("type", "password");
-      });
+    })
   });
 })(jQuery);

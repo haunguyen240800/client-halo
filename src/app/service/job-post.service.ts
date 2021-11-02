@@ -10,8 +10,16 @@ import { environment } from 'src/environments/environment';
 export class JobPostService {
   apiUrl: any = environment.apiUrl;
   jobPost!: JobPost;
-  
+
   constructor(private http: HttpClient) { }
+
+  createJob(job: any):Observable<JobPost>{
+    return this.http.post<JobPost>(this.apiUrl+"job-posts",job);
+  }
+
+  update(job: any): Observable<any>{
+    return this.http.put<any>(this.apiUrl+"job-posts",job);
+  }
 
   findJobActive():Observable<any>{
     return this.http.get<any>(this.apiUrl+"job-posts/active");
@@ -39,5 +47,17 @@ export class JobPostService {
 
   getJobPostByAccount(accId: any):Observable<any>{
     return this.http.get<any>(this.apiUrl+"job-posts/account?accId="+accId);
+  }
+
+  updateStatus(data: any){
+    return this.http.put(this.apiUrl+ "job-posts/updateStatus",data);
+  }
+
+  getJobUUD():Observable<any>{
+    return this.http.get<any>(this.apiUrl+ "job-posts/getJobUUD");
+  }
+
+  countJobByMonth(accId: any,year: any){
+    return this.http.get<any>(this.apiUrl+ "job-posts/countJobByMonth?accId="+accId+"&year="+year);
   }
 }

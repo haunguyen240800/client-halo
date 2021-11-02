@@ -1,0 +1,176 @@
+<div class="dashboard-content-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="section-heading">
+                        <h2 class="sec__title">Quản lý thông tin công ty</h2>
+                    </div>
+                    <ul class="list-items d-flex align-items-center">
+                        <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="active__list-item">Thông kê</li>
+                        <li>Thông tin công ty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="billing-form-item">
+                    <div class="billing-title-wrap">
+                        <h3 class="widget-title pb-0">Thông tin chung</h3>
+                        <div class="title-shape margin-top-10px"></div>
+                    </div>
+                    <div class="billing-content">
+                        <div class="contact-form-action">
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Tên công ty</label>
+                                            <div class="form-group">
+                                                <span class="la la-briefcase form-icon"></span>
+                                                <input class="form-control" type="text" name="companyName" [(ngModel)]="company.companyName" placeholder="Nhập tên công ty">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Địa chỉ email</label>
+                                            <div class="form-group">
+                                                <span class="la la-envelope-o form-icon"></span>
+                                                <input class="form-control" type="text" name="email" [(ngModel)]="company.email" placeholder="Nhập địa chỉ email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Số điện thoại</label>
+                                            <div class="form-group">
+                                                <i class="la la-phone form-icon"></i>
+                                                <input class="form-control" type="text" name="telephone" [(ngModel)]="company.telephone" placeholder="Nhập số điện thoại">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Website link (optional)</label>
+                                            <div class="form-group">
+                                                <span class="la la-globe form-icon"></span>
+                                                <input class="form-control" type="text" name="websiteUrl" [(ngModel)]="company.websiteUrl" placeholder="https://kma.com/">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Quy mô công ty</label>
+                                            <div class="form-group">
+                                                <p-dropdown [options]="companySizeList" [(ngModel)]="company.companySize" placeholder="Chọn quy mô công ty" optionLabel="label" name="companySize" optionValue="value"></p-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Ngày thành lập</label>
+                                            <div class="form-group">
+                                                <span class="la la-map form-icon"></span>
+                                                <input class="form-control" type="date" name="founderDate" [(ngModel)]="company.founderDate" placeholder="Enter city name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Giới thiệu về công ty</label>
+                                            <div class="form-group">
+                                                <p-editor [(ngModel)]="company.description"name="description" [style]="{'height':'320px'}">
+                                                    <ng-template pTemplate="header">
+                                                        <span class="ql-formats">
+                                                            <button type="button" class="ql-bold" aria-label="Bold"></button>
+                                                            <button type="button" class="ql-italic" aria-label="Italic"></button>
+                                                            <button type="button" class="ql-underline" aria-label="Underline"></button>
+                                                            <button value="ordered" aria-label="Ordered List" type="button" class="ql-list">             
+                                                            </button>
+                                                            <button value="bullet" aria-label="Unordered List" type="button" class="ql-list"></button>
+                                                        </span>
+                                                    </ng-template>
+                                                </p-editor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="billing-form-item">
+                    <div class="billing-title-wrap">
+                        <h3 class="widget-title pb-0">Địa chỉ</h3>
+                        <div class="title-shape margin-top-10px"></div>
+                    </div>
+                    <div class="billing-content">
+                        <div class="contact-form-action">
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Tỉnh / Thành phố</label>
+                                            <div class="form-group">
+                                                <p-dropdown [options]="provinces" (onChange)="onChangeCity($event.value)" [(ngModel)]="company.objAddress.cityName" optionLabel="provinceName" optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" placeholder="Chọn thành phố">
+                                                </p-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Quận / Huyện</label>
+                                            <div class="form-group">
+                                                <p-dropdown [options]="districts" (onChange)="onChangeDistrict($event.value)" [(ngModel)]="company.objAddress.districtName" optionLabel="districtName" optionValue="districtName" [filter]="true" filterBy="districtName" name="districtName" placeholder="Chọn thành phố">
+                                                </p-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Phường / Xã </label>
+                                            <div class="form-group">
+                                                <p-dropdown [options]="wards" [(ngModel)]="company.objAddress.wardName" optionLabel="wardName" optionValue="wardName" [filter]="true" filterBy="wardName" name="wardName" placeholder="Chọn thành phố">
+                                                </p-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 column-lg-full">
+                                        <div class="input-box">
+                                            <label class="label-text">Địa chỉ chi tiết</label>
+                                            <div class="form-group">
+                                                <span class="la la-map-marker form-icon"></span>
+                                                <input class="form-control" type="text" name="fullAddress" [(ngModel)]="company.objAddress.fullAddress" placeholder="Đại chỉ chi tiết">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="btn-box mt-4">
+                    <button type="button" (click)="onSubmit()" class="theme-btn border-0"> Lưu thông tin</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="copy-right margin-top-30px padding-top-20px padding-bottom-20px">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

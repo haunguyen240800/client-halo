@@ -5,6 +5,8 @@ import { AuthService } from '../core/service/auth.service';
 import { SavedJobService } from './saved-job.service';
 import Swal from 'sweetalert2'
 import { JobPostActivityService } from './job-post-activity.service';
+import { JobPostService } from './job-post.service';
+import { AlertService } from './alert.service';
 
 declare var $:any;
 
@@ -16,11 +18,13 @@ export class CommonService {
   constructor(private http: HttpClient,
     private authService: AuthService,
     private savedJobService: SavedJobService,
-    private jobPostActivityService: JobPostActivityService) { }
+    private jobPostActivityService: JobPostActivityService,
+    private jobPostService: JobPostService,
+    private alertService: AlertService) { }
 
   savedJob(jobId: any){
     if (this.authService.isLoggedIn()){
-      let decodeToken = this.authService.decodeToken(); 
+      let decodeToken = this.authService.decodeToken();
       if (decodeToken.roles[0].name == 'ROLE_CANDIDATE'){
         let accId = this.authService.getAccId();
         let data: any ={
@@ -75,9 +79,32 @@ export class CommonService {
       }else{
         this.getAlertError("Vui lòng đăng nhập vào tài khoản ứng viên !");
       }
-      
+
     }else{
       this.getAlertError("Vui lòng đăng nhập !");
     }
+  }
+
+  checkJob(job: any){
+    let time1 = new Date(job.deadline).getTime();
+    let time2 = new Date().getTime()
+    if ( time1  < time2){
+      this.jobPostService.updateStatus("EXPIRE").subscribe(res=>{
+        console.log(res);
+      })
+    }
+  }
+
+  async createAlert(accId: any, content: any, title?: any){
+    let alert = {
+      accId: accId,
+      content: content,
+      status: true,
+      title: title
+    }
+    console.log(alert);
+    await this.alertService.create(alert).toPromise().then(res=>{
+
+    })
   }
 }

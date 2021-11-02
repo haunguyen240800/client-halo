@@ -1,0 +1,83 @@
+<div class="dashboard-sidebar">
+    <div class="dashboard-nav-trigger">
+        <div class="dashboard-nav-trigger-btn">
+            <i class="la la-bars"></i> Dashboard Navigation
+        </div>
+    </div>
+    <div class="dashboard-nav-container">
+        <div class="humburger-menu">
+            <div class="humburger-menu-lines side-menu-close"></div>
+        </div>
+        <div class="side-menu-wrap">
+            <ul class="side-menu-ul">
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="dashboard"><i class="la la-dashboard icon-element"></i> Thống kê</a>
+                </li>
+
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="mn-job"><i class="la la-briefcase icon-element"></i> Quản lý công việc</a>
+                </li>
+
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a href="javascript:void(0)"><i class="la la-cog icon-element"></i>Quản trị website <span class="la la-caret-down btn-toggle"></span></a>
+                    <ul class="dropdown-menu-item">
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account">Quản trị banner</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account">Danh mục công việc</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account/change-password">Vị trí công việc</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account/change-password">Loại hình công việc</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a href="javascript:void(0)"><i class="la la-cog icon-element"></i>Quản lý tài khoản <span class="la la-caret-down btn-toggle"></span></a>
+                    <ul class="dropdown-menu-item">
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account">Tài khoản nhà tuyển dụng</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account">Tài khoản ứng viên</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account/change-password">Thêm tài khoản</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="contact"><i class="la la-envelope icon-element"></i> Liên hệ</a>
+                </li>
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="alert"><i class="la la-bell-o icon-element"></i>Thông báo</a>
+                </li>
+                
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a href="javascript:void(0)"><i class="la la-cog icon-element"></i>Cài đặt <span class="la la-caret-down btn-toggle"></span></a>
+                    <ul class="dropdown-menu-item">
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account">Thông tin tài khoản</a>
+                        </li>
+                        <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                            <a routerLink="account/change-password">Đổi mật khẩu</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" (click)="logout()"><i class="la la-power-off icon-element"></i> Đăng xuất</a></li>
+            </ul>
+        </div>
+        <!-- <div class="skillbar-wrap mt-4">
+            <h3 class="widget-title font-size-16">Skill Percentage</h3>
+            <div class="skillbar" data-percent="85%">
+                <div class="skill-item"><span>85%</span></div>
+            </div>
+            <p>You're almost done set "Cover Image" field to increase your skill up to "15%"</p>
+        </div> -->
+    </div>
+</div>

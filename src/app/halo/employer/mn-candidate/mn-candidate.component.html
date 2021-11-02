@@ -1,1 +1,167 @@
-<p>mn-candidate works!</p>
+<div class="dashboard-content-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="section-heading">
+                        <h2 class="sec__title">Quản lý ứng viên</h2>
+                    </div>
+                    <ul class="list-items d-flex align-items-center">
+                        <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="active__list-item"><a href="index.html">Thống kê</a></li>
+                        <li>Ứng viên</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="billing-form-item">
+                    <div class="billing-title-wrap">
+                        <h3 class="widget-title pb-0">Danh sách ứng viên</h3>
+                        <div class="title-shape margin-top-10px"></div>
+                    </div>
+                    <div class="billing-content pb-0">
+                        <ng-container *ngFor="let can of candidates">
+                            <div class="manage-candidate-wrap d-flex align-items-center justify-content-between pb-4">
+                                <div class="bread-details d-flex">
+                                    <div class="bread-img flex-shrink-0">
+                                        <a href="candidate-details.html" class="d-block">
+                                            <img src="assets/images/small-team1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="manage-candidate-content">
+                                        <h2 class="widget-title pb-2">
+                                          <a routerLink="{{can.objResume.id}}" class="color-text-2">{{can.objResume.fullname}}&ensp;
+                                            <span *ngIf= "can.status == 'PENDING'" class="badge badge-primary p-1 ng-star-inserted" style="font-size: 11px;"> Đang chờ duyệt</span>
+                                            <span *ngIf= "can.status == 'REJECTED'" class="badge badge-danger p-1 ng-star-inserted" style="font-size: 11px;"> Đã từ chối</span>
+                                            <span *ngIf= "can.status == 'AGREE'" class="badge badge-success p-1 ng-star-inserted" style="font-size: 11px;"> Đã đồng ý</span>
+                                          </a>
+                                        </h2>
+
+                                        <p class="font-size-15">
+                                            <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.objResume.email}}</a></span>
+
+                                        </p>
+                                        <p class="mt-1 font-size-15">
+                                            <span class="mr-2"><i class="la la-phone mr-1"></i>{{can.objResume.telephone}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bread-details d-flex">
+                                    <div class="manage-candidate-content">
+                                        <h2 class="widget-title pb-2"><a href="javascript:void(0)" class="color-text-2">{{can.objJob.jobTitle}}</a></h2>
+                                        <p class="font-size-15">
+                                            <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="javascript:void(0)" class="color-text-3">Ngày đăng: {{can.objJob.createDate | date: 'dd/MM/yyyy'}}</a></span>
+
+                                        </p>
+                                        <p class="mt-1 font-size-15">
+                                            <span class="mr-2"><i class="la la-phone mr-1"></i>Hạn ứng tuyển: {{can.objJob.deadline | date: 'dd/MM/yyyy'}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bread-details d-flex">
+                                    <div class="manage-candidate-content">
+                                        <h2 class="widget-title pb-2">Ngày ứng tuyển</h2>
+                                        <p class="font-size-15">
+                                            <span class="mr-2"><i class="las la-history mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.applyDate | date: 'dd/MM/yyyy'}}</a></span>
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="bread-action">
+                                    <ul class="info-list">
+                                        <li class="d-inline-block mb-0">
+                                            <a routerLink="{{can.objResume.id}}" >
+                                                <i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"></i>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block mb-0">
+                                            <a href="javascript:void(0)" (click)="opentFormContact(can.objResume.email,can.accId,can.jobId)">
+                                                <i class="la la-envelope-o" data-toggle="tooltip" data-placement="top" title="Gửi thông tin phỏng vấn"></i>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block mb-0">
+                                            <a href="javascript:void(0)" (click)="remove(can.accId,can.jobId)">
+                                                <i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <app-pagination [rows]="10" [totalRecords]="candidates.length" (onChange)="onChangePage($event)"></app-pagination>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="copy-right margin-top-30px padding-top-20px padding-bottom-20px">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-popup-interview [contactDialog]="contactDialog" (hide)="hideDialog($event)" (submit)="submitContact($event)" [toEmail]="toEmail"></app-popup-interview>
+
+<!-- <p-dialog [(visible)]="contactDialog" [style]="{width: '40%'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="header">
+        <div class="billing-title-wrap">
+            <h3 class="widget-title pb-0">Nhập thông liên hệ với ứng viên</h3>
+            <div class="title-shape margin-top-10px"></div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="billing-form-item">
+
+                    <div class="billing-content">
+                        <div class="contact-form-action">
+                            <form  class="contact-form">
+                                <div class="input-box">
+                                    <label class="label-text">Email người nhận</label>
+                                    <div class="form-group">
+                                        <span class="la la-envelope-o form-icon"></span>
+                                        <input id="email" class="form-control" type="email" name="email" placeholder="Địa chỉ email">
+                                    </div>
+                                </div>
+                                <div class="input-box">
+                                    <label class="label-text">Chủ đề</label>
+                                    <div class="form-group">
+                                        <span class="la la-heading form-icon"></span>
+                                        <input id="name" class="form-control" type="text" name="name" placeholder="Họ và tên">
+                                    </div>
+                                </div>
+
+                                <div class="input-box">
+                                    <label class="label-text">Nội dung </label>
+                                    <div class="form-group">
+                                        <span class="la la-pencil form-icon"></span>
+                                        <textarea id="message" class="message-control form-control" name="message" placeholder="Nội dung liên hệ..."></textarea>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="btn-box">
+            <button type="button" class="theme-btn border-0" (click)="submitContact()">Gửi thông tin</button>
+            <button type="button" class="theme-btn border-0" (click)="hideDialog()" style="background-color: rgb(221, 51, 51);">Hủy</button>
+        </div>
+    </ng-template>
+</p-dialog> -->

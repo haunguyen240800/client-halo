@@ -22,6 +22,7 @@
     color: red;
     font-size: 13px;
 }
+
 .p-slider .p-slider-range {
     background: #26ae61 !important;
 }
@@ -35,3 +36,26 @@
     background: #26ae61 !important;
     border-color: #26ae61 !important;
 }
+.p-slider.p-slider-horizontal {
+    height: 1rem !important;
+}
+.p-slider {
+    border-radius: 10px !important;
+}
+.p-slider .p-slider-range {
+    border-radius: 10px;
+}
+
+.contact-form-action .form-group .form-icon {
+    top: 14px !important;
+}
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #26ae61 !important;
+    border-color: #26ae61 !important;
+    color: #fff !important;
+}
+.p-paginator .p-paginator-pages .p-paginator-page {
+    border-radius: 50% !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

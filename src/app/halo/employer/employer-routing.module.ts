@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { EmployerComponent } from './employer.component';
+import { ProfileCompanyComponent } from './profile-company/profile-company.component';
+import { UpdateJobComponent } from './update-job/update-job.component';
+import { ViewCanComponent } from './view-can/view-can.component';
 
 const routes: Routes = [
   {
@@ -39,6 +42,10 @@ const routes: Routes = [
         loadChildren: () => import("./account/account.module").then(m=>m.AccountModule)
       },
       {
+        path: 'contact',
+        loadChildren: () => import("./contact/contact.module").then(m=>m.ContactModule)
+      },
+      {
         path: 'account/change-password',
         component: ChangePasswordComponent
       },
@@ -46,6 +53,18 @@ const routes: Routes = [
         path: 'transactions',
         loadChildren: () => import("./transactions/transactions.module").then(m=>m.TransactionsModule)
       },
+      {
+        path: 'profile-company',
+        component: ProfileCompanyComponent
+      },
+      {
+        path: 'mn-candidate/:id',
+        component: ViewCanComponent
+      },
+      {
+        path: 'job-post/upadte/:id',
+        component: UpdateJobComponent
+      }
     ]
   }
 ];

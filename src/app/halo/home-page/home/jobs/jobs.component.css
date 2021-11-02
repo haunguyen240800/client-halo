@@ -1,0 +1,17 @@
+.job-card .company-avatar {
+    width: 50px !important;
+    height: 50px !important;
+}
+.job-card .card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.job-card .card-sub {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mr-33{
+    margin-right: -6px!important;
+}

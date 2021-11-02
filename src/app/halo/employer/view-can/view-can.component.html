@@ -1,0 +1,241 @@
+
+<div class="dashboard-content-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="section-heading">
+                        <h2 class="sec__title">Thông tin CV ứng viên</h2>
+                    </div>
+                    <ul class="list-items d-flex align-items-center">
+                        <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="active__list-item">Thông kê</li>
+                        <li>Thông tin cv</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="breadcrumb-area margin-top-70px">
+            <div class="breadcrumb-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcrumb-content candidate-breadcrumb d-flex flex-wrap justify-content-between align-items-center">
+                                <div class="bread-details">
+                                    <div class="bread-candidate-detail d-flex align-items-center">
+                                        <div class="bread-img radius--rounded">
+                                            <img src="assets/images/small-team1.jpg" alt="" class="radius--rounded">
+                                        </div>
+                                        <div class="bread-candidate-inner">
+                                            <div class="candidate-content">
+                                                <h2 class="widget-title font-size-30 text-white pb-1 d-flex align-items-center">{{resume.fullname}} <i class="la la-check verified-badge ml-1" data-toggle="tooltip" data-placement="top" title="Verified"></i></h2>
+                                                <p class="font-size-16 line-height-28 text-white">
+                                                    <span class="d-block font-size-15"><i class="la la-envelope-o mr-1"></i>{{resume.email}}</span>
+                                                    <span class="d-block font-size-15"><i class="la la-phone mr-1"></i>{{resume.telephone}}</span>
+                                                    <span class="d-block font-size-15"><i class="la la-map-marker-alt mr-1"></i>{{resume.objAdd.fullAddress}}, {{resume.objAdd.wardName}}, {{resume.objAdd.districtName}}, {{resume.objAdd.cityName}}</span>
+                                                </p>
+                                            </div>
+                                            <!-- <ul class="social-profile mt-2">
+                                                <li><a href="#"><i class="la la-facebook"></i></a></li>
+                                                <li><a href="#"><i class="la la-twitter"></i></a></li>
+                                                <li><a href="#"><i class="la la-instagram"></i></a></li>
+                                                <li><a href="#"><i class="la la-dribbble"></i></a></li>
+                                            </ul> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bread-action">
+                                    <ul class="listing-info">
+                                        <li>
+                                            <button type="button" class="theme-btn mr-1"><i class="la la-cloud-download font-size-16"></i> Tải xuống CV</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="theme-btn border-0"><i class="la la-clock font-size-16"></i> Hẹn phỏng vấn</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="candidate-details padding-top-30px padding-bottom-80px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single-employer-wrap">
+                            <div class="candidate-description padding-bottom-35px">
+                                <h2 class="widget-title">Thông tin chung</h2>
+                                <div class="title-shape"></div>
+                                <div class="row mt-5">
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="la la-clock-o"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Kinh nghiệm</h4>
+                                                <p class="info__desc">{{resume.experience}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="las la-calendar"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Ngày sinh</h4>
+                                                <p class="info__desc">{{resume.dateOfBirth | date: 'dd-MM-yyyy'}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="la la-money"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Mức lương hiện tại</h4>
+                                                <p class="info__desc">$ {{resume.currentSalary | number}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="la la-bullhorn"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Mức lương mong muốn</h4>
+                                                <p class="info__desc">$ {{resume.currentSalary | number}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="las la-transgender"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Giới tính</h4>
+                                                <p class="info__desc">{{resume.gender}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 column-lg-half column-sd-full">
+                                        <div class="icon-box candidate-info d-flex align-items-center">
+                                            <div class="icon-element flex-shrink-0">
+                                                <i class="la la-graduation-cap"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info__title">Trình độ học vấn</h4>
+                                                <p class="info__desc">{{resume.educationLevel}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <p class="mb-3">
+                                    {{resume.targetDescription}}
+                                </p> -->
+                                
+                            </div>
+                            <div class="candidate-education padding-bottom-40px">
+                                <h2 class="widget-title">Mục tiêu nghề nghiệp</h2>
+                                <div class="title-shape"></div>
+                                <div class="timeline-dashboard padding-bottom-40px">
+                                    <div class="timeline-body pt-3">
+                                        <div class="mess__body">
+                                            <p>{{resume.targetDescription}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="candidate-education padding-bottom-40px">
+                                <h2 class="widget-title">Trình độ học vấn</h2>
+                                <div class="title-shape"></div>
+                                <div class="timeline-dashboard padding-bottom-40px">
+                                    <div class="timeline-body pt-3">
+                                        <div class="mess__body">
+                                            <div class="mess__item" *ngFor="let edu of resume.listEdu">
+                                                <div class="ring-icon ring-bg-1"></div>
+                                                <div class="content">
+                                                    <p class="color-text-2">{{edu.educationTitle}} <span class="color-text-3" style="float: right;">{{edu.startDate | date: 'dd-MM-yyyy'}} / {{edu.endDate | date: 'dd-MM-yyyy'}}</span></p>
+                                                    <p class="mb-1 font-size-15">{{edu.institute}}</p>
+                                                    <!-- <span class="time color-text-3 d-block line-height-26">
+                                                    </span> -->
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="widget-title">Kinh nghiệp làm việc</h2>
+                                <div class="title-shape"></div>
+                                <div class="timeline-dashboard">
+                                    <div class="timeline-body pt-3">
+                                        <div class="mess__body">
+                                            <div class="mess__item" *ngFor="let exp of resume.listExp">
+                                                <div class="ring-icon ring-bg-1"></div>
+                                                <div class="content">
+                                                    <p class="color-text-2">{{exp.jobTitle}} <span class="color-text-3" style="float: right;">{{exp.startDate | date: 'dd-MM-yyyy'}} / {{exp.endDate | date: 'dd-MM-yyyy'}}</span></p>
+                                                    <p class="mb-1 font-size-15">{{exp.companyName}}</p>
+                                                    <span class="time color-text-3 d-block line-height-26">
+                                                        {{exp.description}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="widget-title">Giải thưởng đạt được</h2>
+                                <div class="title-shape"></div>
+                                <div class="timeline-dashboard">
+                                    <div class="timeline-body pt-3">
+                                        <div class="mess__body">
+                                            <div class="mess__item" *ngFor="let a of resume.listAward">
+                                                <div class="ring-icon ring-bg-1"></div>
+                                                <div class="content">
+                                                    <p class="color-text-2">{{a.awardName}} <span class="color-text-3" style="float: right;">{{a.date | date: 'dd-MM-yyyy'}}</span></p>
+                                                    <!-- <p class="mb-1 font-size-15">{{exp.companyName}}</p> -->
+                                                    <span class="time color-text-3 d-block line-height-26">
+                                                        {{a.description}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-bar-wrap padding-bottom-30px">
+                                <h2 class="widget-title">Kỹ năng</h2>
+                                <div class="title-shape"></div>
+                                <div class="row ">
+                                    <div class="col-lg-12 responsive-column margin-top-30px" *ngFor="let skill of resume.listSkill">
+                                        {{skill.skillName}}
+                                        <p-slider [(ngModel)]="skill.percent" [min]="0" [max]="100" [disabled] = "true"></p-slider>
+                                        <!-- <div class="circlechart circlechart-bg1" data-percentage="90">
+                                            
+                                        </div> -->
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="margin-top-30px padding-top-20px padding-bottom-20px">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

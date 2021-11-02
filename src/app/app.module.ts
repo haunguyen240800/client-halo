@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FileUploadModule} from 'primeng/fileupload';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RestPasswordComponent } from './halo/rest-password/rest-password.component';
 import { Interceptor } from './core/interceptor/interceptor';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,14 @@ import { Interceptor } from './core/interceptor/interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ShareModule
+    ShareModule,
+    FileUploadModule,
+    DropdownModule,
+    NgxPayPalModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+    DatePipe
   ],
   bootstrap: [AppComponent],
   exports: [ShareModule]

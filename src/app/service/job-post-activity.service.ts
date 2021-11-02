@@ -19,10 +19,23 @@ export class JobPostActivityService {
     return this.http.post<any>(this.apiUrl+"job-post-apply",data).pipe(catchError(this.handleError));
   }
 
+  getCandidate(jobId: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"job-post-apply/getCandidate?jobId="+jobId);
+  }
+
   delete(accId: number, jobPostId: number):Observable<any>{
     let params = new HttpParams();
     params.set('accId',accId).set('jobPostId',jobPostId);
     return this.http.delete<any>(this.apiUrl+"job-post-apply?accId="+accId+"&&jobPostId="+jobPostId);
+  }
+
+  updateStatus(accId: number, jobPostId: number, status: any){
+    let data = {
+      accId: accId,
+      jobPostId: jobPostId,
+      status: status
+    }
+    return this.http.put(this.apiUrl+ "job-post-apply",data);
   }
 
   handleError(error: HttpErrorResponse){

@@ -1,0 +1,10 @@
+.breadcrumb-area {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    position: relative;
+    z-index: 1;
+    background-image: none !important;
+}
+:host ::ng-deep .p-slider .p-slider-handle{
+    display: none;
+}

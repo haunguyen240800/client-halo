@@ -1,7 +1,7 @@
 <section class="form-shared padding-top-100px padding-bottom-100px">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-lg-7 mx-auto">
                 <div class="user-action-form">
                     <div class="tab-shared tab-shared-3">
                         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -19,41 +19,11 @@
                     </div>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="login-nav" role="tabpanel" aria-labelledby="login-tab">
-                            <div class="billing-form-item mb-0">
-                                <!-- <div class="billing-title-wrap border-bottom-0 text-center">
-                                    <h3 class="widget-title font-size-28 pb-2">Login to Your Account</h3>
-                                    <p>with your social network, Note: Zobstar will never <br> post content to your social pages.</p>
-                                </div> -->
+                            <div class="billing-form-item mb-0">  
                                 <div class="billing-content">
                                     <div class="contact-form-action">
                                         <form [formGroup]="loginRequest">
                                             <div class="row">
-                                                <!-- <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-7 border-0 w-100" type="submit">
-                                                            <i class="la la-google mr-2"></i> Google
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-5 border-0 w-100" type="submit">
-                                                            <i class="la la-facebook-f mr-2"></i> Facebook
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-6 border-0 w-100" type="submit">
-                                                            <i class="la la-twitter mr-2"></i> Twitter
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="account-assist mt-4 mb-4 text-center">
-                                                        <p class="account__desc">or</p>
-                                                    </div>
-                                                </div> -->
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label class="label-text">Tên tài khoản</label>
@@ -106,115 +76,297 @@
                         <div class="tab-pane fade" id="signup-nav" role="tabpanel" aria-labelledby="signup-tab">
                             <div class="billing-form-item mb-0">
                                 <div class="billing-title-wrap border-bottom-0 text-center">
-                                    <h3 class="widget-title font-size-28 pb-2">Create Your Account!</h3>
-                                    <p>Create an account to get recommended jobs that matches
-                                        <br> your resume and apply to multiple jobs in seconds! <br>
-                                        <strong class="color-text-2 font-weight-medium">Already have an account? <a href="login.html" class="color-text">Sign In</a></strong>
-                                    </p>
-                                </div><!-- billing-title-wrap -->
+                                    <h3 class="widget-title font-size-28 pb-2">Tạo tài khoản của bạn</h3>         
+                                </div>
                                 <div class="billing-content">
                                     <div class="contact-form-action">
-                                        <form method="post">
+                                        <form [formGroup]="formRegister">
+                                            <div class="row mb-3">
+                                                <div class="col-lg-6 responsive-column">
+                                                    <div class="form-group">
+                                                        <button class="theme-btn border-0 w-100" [class]="btnBg1" type="button" (click)="onClickCan()">
+                                                             Ứng viên
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 responsive-column">
+                                                    <div class="form-group">
+                                                        <button class="theme-btn border-0 w-100" [class]="btnBg2" type="button" (click)="onClickEmp()">
+                                                            Nhà tuyển dụng
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
                                             <div class="row">
-                                                <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-7 border-0 w-100" type="submit">
-                                                            <i class="la la-google mr-2"></i> Google
-                                                        </button>
-                                                    </div>
-                                                </div><!-- end col-lg-4 -->
-                                                <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-5 border-0 w-100" type="submit">
-                                                            <i class="la la-facebook-f mr-2"></i> Facebook
-                                                        </button>
-                                                    </div>
-                                                </div><!-- end col-lg-4 -->
-                                                <div class="col-lg-4 responsive-column">
-                                                    <div class="form-group">
-                                                        <button class="theme-btn bg-6 border-0 w-100" type="submit">
-                                                            <i class="la la-twitter mr-2"></i> Twitter
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="account-assist mt-4 mb-4 text-center">
-                                                        <p class="account__desc">or</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="input-box">
-                                                <label class="label-text">First name</label>
-                                                <div class="form-group">
-                                                    <i class="la la-user form-icon"></i>
-                                                    <input class="form-control" type="text" name="text" placeholder="First name">
-                                                </div>
-                                            </div>
-                                            <div class="input-box">
-                                                <label class="label-text">Last name</label>
-                                                <div class="form-group">
-                                                    <i class="la la-user form-icon"></i>
-                                                    <input class="form-control" type="text" name="text" placeholder="Last name">
-                                                </div>
-                                            </div>
-                                            <div class="input-box">
-                                                <label class="label-text">Email</label>
-                                                <div class="form-group">
-                                                    <i class="la la-envelope-o form-icon"></i>
-                                                    <input class="form-control" type="email" name="text" placeholder="Enter email address">
-                                                </div>
-                                            </div>
-                                            <div class="input-box mb-3">
-                                                <label class="label-text">Password</label>
-                                                <div class="form-group mb-0">
-                                                    <i class="la la-lock form-icon"></i>
-                                                    <input class="form-control password-field" type="password" name="password" placeholder="Password">
-                                                    <a href="javascript:void(0)" class="btn toggle-password" title="Toggle show/hide password">
-                                                        <i class="la la-eye eye-on"></i>
-                                                        <i class="la la-eye-slash eye-off"></i>
-                                                    </a>
-                                                </div>
-                                                <span class="mt-1">Must use 8-15 characters and one number or symbol.</span>
-                                            </div>
-                                            <div class="input-box">
-                                                <label class="label-text">Confirm Password</label>
-                                                <div class="form-group">
-                                                    <i class="la la-lock form-icon"></i>
-                                                    <input class="form-control password-field" type="password" name="password" placeholder="Confirm password">
-                                                </div>
-                                            </div>
-                                            <div class="input-box">
-                                                <label class="label-text">Email me career-related Zobstar updates and job opportunities</label>
-                                                <div class="form-group">
-                                                    <div class="job-alert">
-                                                        <div class="radio-option d-inline-block mr-4">
-                                                            <label for="radio-1" class="radio-trigger font-weight-medium mb-3">
-                                                                <input type="radio" id="radio-1" name="radio" checked="">
-                                                                <span class="checkmark"></span>
-                                                                <span class="color-text-3">Yes</span>
-                                                            </label>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Tên tài khoản</label>
+                                                        <div class="form-group">
+                                                            <i class="la la-user form-icon"></i>
+                                                            <input class="form-control" type="text" formControlName="username" placeholder="Nhập tên tài khoản">
                                                         </div>
-                                                        <div class="radio-option d-inline-block">
-                                                            <label for="radio-2" class="radio-trigger font-weight-medium mb-3">
-                                                                <input type="radio" id="radio-2" name="radio">
-                                                                <span class="checkmark"></span>
-                                                                <span class="color-text-3">No</span>
-                                                            </label>
+                                                        <div *ngIf="dataFormRegister.username.invalid &&
+                                                        (dataFormRegister.username.dirty || dataFormRegister.username.touched)">
+                                                            <div *ngIf="dataFormRegister.username.errors">
+                                                                <div *ngIf="dataFormRegister.username.errors.required">
+                                                                    <span class="err">Tên tài khoản còn trống !</span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <span class="font-size-15">Zobstar will automatically email job postings that are relevant to you. You can unsubscribe on the Manage Saved Searches page or with the opt-out link in the email.</span>
                                                 </div>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Email</label>
+                                                        <div class="form-group">
+                                                            <i class="la la-envelope-o form-icon"></i>
+                                                            <input class="form-control" type="email" formControlName="email"placeholder="Nhập địa chỉ email">
+                                                        </div>
+                                                        <div *ngIf="dataFormRegister.email.invalid &&
+                                                        (dataFormRegister.email.dirty || dataFormRegister.email.touched)">
+                                                            <div *ngIf="dataFormRegister.email.errors">
+                                                                <div *ngIf="dataFormRegister.email.errors.required">
+                                                                    <span class="err">Email còn trống !</span>
+                                                                </div>
+                                                                <div *ngIf="dataFormRegister.email.errors.email">
+                                                                    <span class="err">Email không dúng định dạng !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box mb-3">
+                                                        <label class="label-text">Mật khẩu</label>
+                                                        <div class="form-group mb-0">
+                                                            <i class="la la-lock form-icon"></i>
+                                                            <input class="form-control password-field" type="password" formControlName="password" placeholder="Nhập mật khẩu">
+                                                            <a href="javascript:void(0)" class="btn toggle-password" title="Toggle show/hide password">
+                                                                <i class="la la-eye eye-on"></i>
+                                                                <i class="la la-eye-slash eye-off"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="dataFormRegister.password.invalid &&
+                                                                (dataFormRegister.password.dirty || dataFormRegister.password.touched)">
+                                                            <div *ngIf="dataFormRegister.password.errors">
+                                                                <div *ngIf="dataFormRegister.password.errors.required">
+                                                                    <span class="err">Mật khẩu còn trống !</span>
+                                                                </div>
+                                                                <div *ngIf="dataFormRegister.password.errors.pattern">
+                                                                    <span class="err">Tối thiểu tám ký tự, ít nhất một chữ hoa, một chữ thường và một số !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Xác nhận mật khẩu</label>
+                                                        <div class="form-group">
+                                                            <i class="la la-lock form-icon"></i>
+                                                            <input class="form-control" type="password" formControlName="confirmPassword" placeholder="Xác nhận lại mật khẩu">
+                                                        </div>
+                                                        <div
+                                                            *ngIf="dataFormRegister.confirmPassword.invalid &&
+                                                                (dataFormRegister.confirmPassword.dirty || dataFormRegister.confirmPassword.touched)">
+                                                            <div *ngIf="dataFormRegister.confirmPassword.errors">
+                                                                <div *ngIf="dataFormRegister.confirmPassword.errors.required">
+                                                                    <span class="err">Xác nhận mật khẩu còn trống !</span>
+                                                                </div>
+                                                                <div *ngIf="dataFormRegister.confirmPassword.errors.confirmedValidator">
+                                                                    <span class="err">Xác nhận mật khẩu không trùng khớp !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Số điện thoại</label>
+                                                        <div class="form-group">
+                                                            <i class="la la-phone-volume form-icon"></i>
+                                                            <input class="form-control" type="email" formControlName="telephone" placeholder="Nhập số điện thoại">
+                                                        </div>
+                                                        <div
+                                                            *ngIf="dataFormRegister.telephone.invalid &&
+                                                                (dataFormRegister.telephone.dirty || dataFormRegister.telephone.touched)">
+                                                            <div *ngIf="dataFormRegister.telephone.errors">
+                                                                <div *ngIf="dataFormRegister.telephone.errors.required">
+                                                                    <span class="err">Số điện thoại còn trống !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Ngày sinh</label>
+                                                        <div class="form-group">
+                                                            <i class="la la-calendar-alt form-icon"></i>
+                                                            <input class="form-control" type="date" formControlName="birthday" placeholder="Nhập số điện thoại">
+                                                        </div>
+                                                        <div
+                                                            *ngIf="dataFormRegister.birthday.invalid &&
+                                                                (dataFormRegister.birthday.dirty || dataFormRegister.birthday.touched)">
+                                                            <div *ngIf="dataFormRegister.birthday.errors">
+                                                                <div *ngIf="dataFormRegister.birthday.errors.required">
+                                                                    <span class="err">Ngày sinh còn trống !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 column-lg-full">
+                                                    <div class="input-box">
+                                                        <label class="label-text">Giới tính</label>
+                                                        <div class="form-group">
+                                                            <div class="job-alert">
+                                                                <div class="radio-option d-inline-block mr-4">
+                                                                    <label for="radio-1" class="radio-trigger font-weight-medium mb-3">
+                                                                        <input type="radio" id="radio-1" value="Nam" formControlName="gender" checked="">
+                                                                        <span class="checkmark"></span>
+                                                                        <span class="color-text-3">Nam</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio-option d-inline-block">
+                                                                    <label for="radio-2" class="radio-trigger font-weight-medium mb-3">
+                                                                        <input type="radio" value="Nữ" id="radio-2" formControlName="gender">
+                                                                        <span class="checkmark"></span>
+                                                                        <span class="color-text-3">Nữ</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="dataFormRegister.gender.invalid &&
+                                                                (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                            <div *ngIf="dataFormRegister.gender.errors">
+                                                                <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                    <span class="err">Giới tính còn trống !</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <ng-container *ngIf="selected">
+                                                    <div class="col-lg-12">
+                                                        <h4 class="widget-title font-size-20 pb-2">Thông tin công ty</h4>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Tên công ty</label>
+                                                            <div class="form-group">
+                                                                
+                                                                <i class="las la-building form-icon"></i>
+                                                                <input class="form-control" type="text" formControlName="username" placeholder="Nhập tên công ty">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Địa chỉ email công ty</label>
+                                                            <div class="form-group">
+                                                                <i class="las la-envelope form-icon"></i>
+                                                                <input class="form-control" type="email" formControlName="username" placeholder="Nhập địa chỉ email">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Số điện thoại công ty</label>
+                                                            <div class="form-group">
+                                                                <i class="las la-phone-volume form-icon"></i>
+                                                                <input class="form-control" type="text" formControlName="username" placeholder="Nhập số điện thoại">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Website</label>
+                                                            <div class="form-group">
+                                                                <i class="la la-globe form-icon"></i>
+                                                                <input class="form-control" type="date" formControlName="username" placeholder="Nhập link website">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Quy mô công ty</label>
+                                                            <div class="form-group">
+                                                                <p-dropdown [options]="companySizeList"  optionLabel="label" optionValue="value" placeholder="Chọn quy mô công ty" formControlName="username"></p-dropdown>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Ngày thành lập</label>
+                                                            <div class="form-group">
+                                                                <i class="la la-calendar-alt form-icon"></i>
+                                                                <input class="form-control" type="date" formControlName="username" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Mô tả công ty</label>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" rows="7"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Tỉnh / Thành phố</label>
+                                                            <div class="form-group">
+                                                                <p-dropdown [options]="provinces" (onChange)="onChangeCity($event.value)" optionLabel="provinceName" formControlName="username"optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" placeholder="Chọn thành phố">
+                                                                </p-dropdown>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Quận / Huyện</label>
+                                                            <div class="form-group">
+                                                                <p-dropdown [options]="districts" (onChange)="onChangeDistrict($event.value)" optionLabel="districtName" optionValue="districtName" [filter]="true" filterBy="districtName" formControlName="username"name="districtName" placeholder="Chọn thành phố">
+                                                                </p-dropdown>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Phường / Xã </label>
+                                                            <div class="form-group">
+                                                                <p-dropdown [options]="wards"  optionLabel="wardName" optionValue="wardName" [filter]="true" formControlName="username"filterBy="wardName" name="wardName" placeholder="Chọn thành phố">
+                                                                </p-dropdown>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                    <div class="col-lg-6 column-lg-full">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Địa chỉ chi tiết</label>
+                                                            <div class="form-group">
+                                                                <span class="la la-map-marker form-icon"></span>
+                                                                <input class="form-control" type="text" formControlName="username"name="fullAddress" placeholder="Đại chỉ chi tiết">
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                    
+                                                </ng-container>
                                             </div>
+                                                                                     
+                                            
                                             <div class="input-box">
                                                 <div class="form-group">
                                                     <div class="custom-checkbox d-block mr-0">
                                                         <input type="checkbox" id="chb3">
-                                                        <label for="chb3">I Agree to Zobstar's <a href="#" class="color-text">Privacy Policy</a> and <a href="#" class="color-text">Terms of Services</a></label>
+                                                        <label for="chb3">Tôi đồng ý với <a href="#" class="color-text">Chính sách quyền riêng tư</a> và <a href="#" class="color-text">Điều khoản dịch vụ</a> của HaloJob</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="btn-box margin-top-30px">
-                                                <button class="theme-btn border-0" type="submit">Create Account</button>
+                                                <button class="theme-btn border-0" type="button" (click)="ngSubmit()">Tạo tài khoản</button>
                                             </div>
                                         </form>
                                     </div>

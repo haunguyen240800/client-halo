@@ -23,12 +23,14 @@ export class AuthGuard implements CanActivate {
       let token: any = this.authService.getToken();
       let helper = new JwtHelperService();
       let decodeToken = helper.decodeToken(token);
-      console.log(route.data.roles[0])
-      if (route.data.roles[0]===decodeToken.roles[0].name){
-        return true;
-      }else{
-        this.router.navigateByUrl('ct/home');
-      } 
+      let roles: any = route.data.roles;
+      // console.log(route.data.roles[0])
+      for(let i=0;i<roles.length;i++){
+        if (route.data.roles[i]===decodeToken.roles[0].name){
+          return true;
+        } 
+      }
+      this.router.navigateByUrl('ct/home');
       return false;
   }
   

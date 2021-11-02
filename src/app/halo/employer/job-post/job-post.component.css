@@ -1,0 +1,60 @@
+.contact-form-action .form-group .form-icon {
+  top: 14px !important;
+}
+.nav-tabs.nav-tabs-03 li {
+  position: relative;
+}
+.nav-tabs.nav-tabs-03 li i {
+  border: none;
+}
+.nav-tabs.nav-tabs-03 li:last-child:after {
+  border: none;
+}
+.nav-tabs.nav-tabs-03 li:after {
+  position: absolute;
+  content: "";
+  border: 1px dashed #26ae61;
+  left: 45%;
+  top: 32%;
+  width: 100%;
+}
+.nav-tabs.nav-tabs-03 .nav-item span {
+    font-weight: 500;
+    color: #2c2c51;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+.nav-tabs.nav-tabs-03 .feature-info-icon {
+    background: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    margin: 0 auto;
+    font-size: 30px;
+    border: 1px solid #dfdfdf;
+    position: relative;
+    z-index: 99;
+    color: #26ae61;
+    margin-bottom: 15px;
+}
+
+.nav-tabs.nav-tabs-03 .nav-item.active .feature-info-icon {
+    background: #26ae61;
+    color: #ffffff;
+    border-color: #26ae61;
+}
+.nav-tabs.nav-tabs-03 .nav-item.active span {
+    color: #26ae61;
+}
+
+.mmm3{
+    margin-top: 1rem!important;
+}
+.ssss{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

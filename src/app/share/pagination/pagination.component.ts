@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
@@ -13,9 +15,11 @@ export class PaginationComponent implements OnInit {
   @Output() onChange = new EventEmitter();
   pages: number[]=[];
   selected: number = 1;
+  active: any = ""
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   ngOnChanges(): void {
@@ -33,12 +37,12 @@ export class PaginationComponent implements OnInit {
     }
   }
 
-  onClickPage(page: any){
-    this.selected = page;
-    let event: any = {
-      page: page-1,
-      rows: this.rows
-    }
+  onClickPage(event: any){
+    // this.selected = page;
+    // let event: any = {
+    //   page: page-1,
+    //   rows: this.rows
+    // }
     this.onChange.emit(event);
   }
 
@@ -50,11 +54,11 @@ export class PaginationComponent implements OnInit {
   }
 
   next(){
-    console.log(this.selected, this.pages.length)
     if (this.selected < this.pages.length){
       this.selected = this.selected +1;
       this.onClickPage(this.selected);
     }  
   }
+
 
 }
