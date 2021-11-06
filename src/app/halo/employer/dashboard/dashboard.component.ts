@@ -16,17 +16,47 @@ export class DashboardComponent implements OnInit {
   charDoughnuttOptions: any;
   year = new Date().getFullYear();
   dataLine: any[] = [];
+  jobs: any[] = [];
+  cActive = 0;
+  cPending = 0;
+  cExpiry = 0;
 
   constructor(private authService: AuthService,
     private jobService: JobPostService
   ) { }
 
   async ngOnInit(): Promise<void> {
+    await this.getJob();
     this.getUsername();
     await this.countJobByMonth();
     this.init();
 
   }
+
+  getJob(){
+    let accId = this.authService.getAccId();
+    let cActive = 0;
+    let cPending = 0;
+    let cExpiry = 0;
+    this.jobService.getJobPostByAccount(accId).toPromise().then(res=>{
+      this.jobs = res;
+      for(let i=0;i<this.jobs.length;i++){
+        if (this.jobs[i].status == 'ACTIVE'){
+          cActive = cActive + 1;
+        }
+        if (this.jobs[i].status == 'PENDING'){
+          cPending = cPending + 1;
+        }
+        if (this.jobs[i].status == 'EXPIRE'){
+          cExpiry = cExpiry + 1;
+        }
+      }
+      this.cActive = cActive;
+      this.cPending = cPending;
+      this.cExpiry = cExpiry;
+    })
+  }
+
 
   getUsername(){
     let decodeToken = this.authService.decodeToken();
@@ -43,6 +73,7 @@ export class DashboardComponent implements OnInit {
 
   init(){
     let data = [0,0,0,0,0,0,0,0,0,0,0,0];
+
     if(this.dataLine.length > 0){
         for(let i=0;i< this.dataLine.length;i++){
             data[this.dataLine[i].month] = this.dataLine[i].total;
@@ -115,17 +146,17 @@ export class DashboardComponent implements OnInit {
       // labels: ['A','B','C'],
       datasets: [
           {
-              data: [300, 50, 60, 100],
+              data: [this.jobs.length, this.cActive, this.cPending, this.cExpiry],
               backgroundColor: [
                   "#FF6384",
-                  "#36A2EB",
                   "#26ae61",
+                  "#36A2EB",
                   "#FFCE56"
               ],
               hoverBackgroundColor: [
                   "#FF6384",
-                  "#36A2EB",
                   "#26ae61",
+                  "#36A2EB",
                   "#FFCE56"
               ]
           }

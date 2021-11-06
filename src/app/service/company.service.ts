@@ -29,6 +29,14 @@ export class CompanyService {
     return this.http.get<Company>(this.apiUrl+"companies/account?accId="+accId);
   }
 
+  getComUUD3(request: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"companies/getComUUD3?packageCode="+request);
+  }
+
+  search(request: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"companies/search?cityName="+request.cityName+"&name="+request.name);
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(error);
   }

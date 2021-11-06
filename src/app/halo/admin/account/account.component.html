@@ -1,1 +1,113 @@
-<p>account works!</p>
+<div class="dashboard-content-wrap">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                  <div class="section-heading">
+                      <h2 class="sec__title">Quản lý công việc</h2>
+                  </div>
+                  <ul class="list-items d-flex align-items-center">
+                      <li class="active__list-item"><a href="ct/home">Trang chủ</a></li>
+                      <li class="active__list-item"><a href="index.html">Thống kê</a></li>
+                      <li>Quản lý tài khoản</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-5">
+          <div class="col-lg-12">
+              <div class="billing-form-item">
+                  <div class="billing-title-wrap">
+                      <!-- <h3 class="widget-title pb-0">Danh sách công việc đã đăng</h3> -->
+                      <div class="contact-form-action">
+                        <div class="row">
+                            <div class="col-lg-3 column-lg-full">
+                              <div class="input-box">
+                                  <label class="label-text">Tên tài khoản</label>
+                                  <div class="form-group">
+                                      <span class="la la-briefcase form-icon"></span>
+                                      <input class="form-control" type="text" name="text" placeholder="Tên công việc" [(ngModel)]="search.name" (change)="doSearch()">
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 column-lg-full">
+                              <div class="input-box">
+                                  <label class="label-text">Chức vụ</label>
+                                  <div class="form-group">
+                                    <p-dropdown [options]="listRole" [(ngModel)]="search.role" optionLabel="label" optionValue="value" name="status" (onChange)="doSearch()"></p-dropdown>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="title-shape margin-top-10px">
+                      </div>
+                  </div>
+                  <div class="billing-content pb-0">
+                      <div class="manage-job-wrap">
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th>Tên tài khoản</th>
+                                          <th>email</th>
+                                          <th>Chức vụ</th>
+                                          <th>Trạng thái</th>
+                                          <th class="text-center">Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let acc of accountPagi">
+                                          <td>
+                                              <div class="manage-candidate-wrap">
+                                                  <h2 class="widget-title pb-1"><a href="javascript:void(0)" class="color-text-2">{{acc.username}}</a></h2>
+                                              </div>
+                                          </td>
+                                          <td>{{ acc.email }}</td>
+                                          <td>
+                                            <span *ngIf="acc.roles[0].name == 'ROLE_CANDIDATE' " class="alert alert-primary p-1">Ứng viên</span>
+                                            <span *ngIf="acc.roles[0].name == 'ROLE_EMPLOYER' " class="alert alert-success p-1">Nhà tuyển dụng</span>
+                                            <span *ngIf="acc.roles[0].name == 'ROLE_STAFF' " class="alert alert-info p-1">Nhân viên</span>
+                                            <span *ngIf="acc.roles[0].name == 'ROLE_ADMIN' " class="alert alert-dark p-1">Quản trị</span>
+                                          </td>
+                                          <td>
+                                            <span *ngIf="acc.active == true " class="badge badge-success p-1">ACTIVE</span>
+                                            <span *ngIf="acc.active == false " class="badge badge-danger p-1">DELETED</span>
+                                          </td>
+                                          <td class="text-center">
+                                              <div class="manage-candidate-wrap">
+                                                  <div class="bread-action pt-0">
+                                                      <ul class="info-list">
+                                                          <!-- <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerDetail(job.id)" ><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Chi tiết công việc"></i></a></li> -->
+                                                          <li class="d-inline-block"><a href="javascript:void(0)" (click)="remove(acc)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Vô hiệu hóa"></i></a></li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <app-pagination [rows]="10" [totalRecords]="accounts.length" (onChange)="onChangePage($event)"></app-pagination>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="copy-right margin-top-30px padding-top-20px padding-bottom-20px">
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<p-toast position="top-right"></p-toast>

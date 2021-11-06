@@ -25,23 +25,11 @@
                 <div class="generic-header margin-bottom-30px">
                     <p class="showing__text text-left">Hiển thị 1 - 16 của 128 kết quả</p>
                     <div class="sort-option mr-3">
-                        <p-dropdown [options]="sortList" [(ngModel)]="selectedSort" optionLabel="label" optionValue="code" placeholder="Sắp xếp">
+                        <p-dropdown [options]="sortList" [(ngModel)]="selectedSort" optionLabel="label" optionValue="code" placeholder="Sắp xếp" (onChange)="onChangeSort()">
 
                         </p-dropdown>
-                        
+
                     </div><!-- end sort-option -->
-                    <!-- <div class="generic-nav-wrap">
-                        <nav>
-                            <div class="nav nav-tabs generic-nav" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="list-view-tab" data-toggle="tab" href="#list-view" role="tab" aria-controls="list-view" aria-selected="true">
-                                    <span class="la la-list" data-toggle="tooltip" data-placement="top" title="List View"></span>
-                                </a>
-                                <a class="nav-item nav-link" id="grid-view-tab" data-toggle="tab" href="#grid-view" role="tab" aria-controls="grid-view" aria-selected="false">
-                                    <span class="la la-th-large" data-toggle="tooltip" data-placement="top" title="Grid View"></span>
-                                </a>
-                            </div>
-                        </nav>
-                    </div> -->
                 </div>
             </div>
             <div class="col-lg-3">
@@ -196,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-lg-9">
@@ -217,13 +205,13 @@
                                                 <h4 class="card-title mb-1"><a routerLink="{{job.id}}"> {{job.jobTitle}}</a> </h4>
                                                 <p class="card-sub">
                                                     <span class="mr-2"><i class="la la-building-o color-text-2"></i> {{job.objCompany.companyName}}</span>
-                                                    
+
                                                 </p>
                                                 <p class="card-sub">
                                                     <span class="mr-2"><i class="la la-map-marker color-text-2"></i> {{job.objCompany.objAddress.districtName}}, {{job.objCompany.objAddress.cityName}}</span>
                                                     <span class="mr-2"><i class="la la-calendar color-text-2"></i> {{job.createDate | date: 'dd-MM-yyyy'}}</span>
                                                     <span class="mr-2"><i class="la la-clock-o color-text-2"></i> {{job.objJobType.jobTypeName}}</span>
-                                                    
+
                                                 </p>
                                             </div>
                                         </div>
@@ -232,12 +220,12 @@
                                         </div>
                                     </div>
                                 </div>
-                        
+
                             </div>
                             <div class="job-alert" style="margin-top: 50px;text-align: center;">
                                 <h5 *ngIf="jobs.length == 0">Không có công việc nào !!!</h5>
                             </div>
-                            
+
                         </div>
                         <!-- <div class="tab-pane fade" id="grid-view" role="tabpanel" aria-labelledby="grid-view-tab">
                             <div class="job-content">
@@ -248,7 +236,7 @@
                                                 <div class="card-head d-flex align-items-center">
                                                     <div class="company-avatar mr-3">
                                                         <a href="employer-details.html" class="d-block">
-                                                            
+
                                                         </a>
                                                     </div>
                                                     <div class="company-title-box">
@@ -269,7 +257,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div> -->

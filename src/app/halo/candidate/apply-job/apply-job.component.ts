@@ -29,6 +29,7 @@ export class ApplyJobComponent implements OnInit {
     let accId = this.authService.getAccId();
     this.applyJobService.findByAccId(accId).subscribe(res=>{
       this.jobs = res;
+      console.log(res);
       this.jobsPagi = this.jobs.slice(0,10);
     })
   }
@@ -62,7 +63,7 @@ export class ApplyJobComponent implements OnInit {
         )
       }
     })
-    
+
   }
 
   onChangePage(event: any){

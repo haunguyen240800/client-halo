@@ -15,6 +15,8 @@ declare var $:any;
 })
 export class CommonService {
   apiUrl= environment.apiUrl;
+  dataSearch: any;
+
   constructor(private http: HttpClient,
     private authService: AuthService,
     private savedJobService: SavedJobService,

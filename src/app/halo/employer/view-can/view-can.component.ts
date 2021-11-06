@@ -30,7 +30,7 @@ export class ViewCanComponent implements OnInit {
   }
 
   getResume(id :any){
-    this.resumeService.findById(id).subscribe(res=>{
+    this.resumeService.findByAccId(id).subscribe(res=>{
       this.resume =res;
       console.log(res);
     })

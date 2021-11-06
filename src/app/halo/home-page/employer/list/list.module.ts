@@ -5,6 +5,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
 import { FormsModule } from '@angular/forms';
+import { ShareModule } from 'src/app/share/share.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ListRoutingModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ShareModule
   ]
 })
 export class ListModule { }

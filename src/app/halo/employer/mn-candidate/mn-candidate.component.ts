@@ -66,31 +66,38 @@ export class MnCandidateComponent implements OnInit {
     // this.jobsPagi = this.jobs.slice(start,end);
   }
 
-  remove(accId: any, jobId: any){
-    Swal.fire({
-      title: 'Bạn có chắc không??',
-      text: "Từ chối ứng viên!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      cancelButtonText: 'Hủy',
-      confirmButtonText: 'Đồng ý'
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await this.jobPostActivityService.updateStatus(accId,jobId,"REJECTED").toPromise().then(res=>{
-          let content = "Cảm ơn bạn đã ứng tuyển, chúng tôi rất xin lỗi khi hồ sơ của bạn không phù hợp với chúng tôi"
-          this.createAlert(accId,content);
-          this.getAllCandidate();
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        })
+  remove(accId: any, jobId: any,status: any){
+    if (status == 'REJECTED'){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ứng viên này đã từ chối!',
+      })
+    }else{
+      Swal.fire({
+        title: 'Bạn có chắc không??',
+        text: "Từ chối ứng viên!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Hủy',
+        confirmButtonText: 'Đồng ý'
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await this.jobPostActivityService.updateStatus(accId,jobId,"REJECTED").toPromise().then(res=>{
+            let content = "Cảm ơn bạn đã ứng tuyển, chúng tôi rất xin lỗi khi hồ sơ của bạn không phù hợp với chúng tôi"
+            this.createAlert(accId,content);
+            this.getAllCandidate();
+            Swal.fire(
+              'Từ chối thành công!',
+            )
+          })
 
-      }
-    })
+        }
+      })
+    }
+
   }
 
   createAlert(accId: any, content: any){

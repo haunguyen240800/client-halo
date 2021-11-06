@@ -15,3 +15,25 @@
 .mr-33{
     margin-right: -6px!important;
 }
+
+.nav-item1 {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: linear 0.4s;
+}
+.nav-item1:hover{
+  background-color: #26ae61;
+  color: #fff;
+}
+.nav-item1 i{
+  text-align: center;
+  line-height: 40px;
+}
+

@@ -41,6 +41,10 @@ export class JobPostService {
     return this.http.post<any>(this.apiUrl+"job-posts/search-job",data);
   }
 
+  searchAd(data: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"job-posts/searchAd?jobName="+data.jobName+"&toDate="+data.toDate+"&fromDate="+data.fromDate+"&status="+data.status);
+  }
+
   getJobByCate(cateId :any): Observable<any>{
     return this.http.get<any>(this.apiUrl+ "job-posts/category?cateId="+cateId);
   }
@@ -59,5 +63,9 @@ export class JobPostService {
 
   countJobByMonth(accId: any,year: any){
     return this.http.get<any>(this.apiUrl+ "job-posts/countJobByMonth?accId="+accId+"&year="+year);
+  }
+
+  findAll():Observable<any>{
+    return this.http.get<any>(this.apiUrl+ "job-posts");
   }
 }

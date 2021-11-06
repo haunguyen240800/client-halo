@@ -19,11 +19,15 @@ export class TestimonialComponent implements OnInit {
     $(".testimonial-carousel-2").owlCarousel({
       loop: !0,
       items: 5,
-      nav: !1,
+      nav: 1,
       dots: !0,
       smartSpeed: 700,
       autoplay: !1,
       margin: 30,
+      navText: [
+        '<i class="la la-chevron-left"></i>',
+        '<i class="la la-chevron-right"></i>',
+      ],
       responsive: {
         0: { items: 1 },
         576: { items: 2 },

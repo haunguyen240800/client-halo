@@ -38,6 +38,10 @@ export class AccountService {
     return this.http.put<any>(this.apiUrl+"users/change-password",password);
   }
 
+  getAll(): Observable<any>{
+    return this.http.get<any>(this.apiUrl+"users");
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(error);
   }

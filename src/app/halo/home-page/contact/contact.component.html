@@ -29,7 +29,7 @@
             <div class="col-lg-4">
                 <div class="icon-box">
                     <h4 class="info__title mb-3">Bạn là nhà tuyển dụng?</h4>
-                    <p class="info__desc"> 
+                    <p class="info__desc">
                         Nếu vậy, <a href="employer-dashboard-post-job.html" class="color-text">hãy nhấp vào đây</a> to để đăng công việc, đặt câu hỏi về tài khoản của bạn hoặc nhận hỗ trợ.
                     </p>
                 </div>
@@ -82,44 +82,82 @@
                     </div>
                     <div class="billing-content">
                         <div class="contact-form-action">
-                            <form action="https://techydevs.com/demos/themes/html/zobstar-demo/zobstar/php/contact.php" class="contact-form">
+                            <form class="contact-form" [formGroup]="formContact">
                                 <div class="input-box">
                                     <label class="label-text">Họ và tên</label>
                                     <div class="form-group">
                                         <span class="la la-user form-icon"></span>
-                                        <input id="name" class="form-control" type="text" name="name" placeholder="Họ và tên">
+                                        <input id="name" class="form-control" type="text" formControlName="fullname" placeholder="Họ và tên">
+                                    </div>
+                                    <div *ngIf="dataForm.fullname.invalid &&(dataForm.fullname.dirty || dataForm.fullname.touched)">
+                                      <div *ngIf="dataForm.fullname.errors">
+                                          <div *ngIf="dataForm.fullname.errors.required">
+                                              <span class="err">Họ tên còn trống !</span>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="input-box">
                                     <label class="label-text">Địa chỉ email</label>
                                     <div class="form-group">
                                         <span class="la la-envelope-o form-icon"></span>
-                                        <input id="email" class="form-control" type="email" name="email" placeholder="Địa chỉ email">
+                                        <input id="email" class="form-control" type="email" formControlName="email" placeholder="Địa chỉ email">
+                                    </div>
+                                    <div *ngIf="dataForm.email.invalid &&(dataForm.email.dirty || dataForm.email.touched)">
+                                      <div *ngIf="dataForm.email.errors">
+                                          <div *ngIf="dataForm.email.errors.required">
+                                              <span class="err">Email còn trống !</span>
+                                          </div>
+                                          <div *ngIf="dataForm.email.errors.email">
+                                            <span class="err">Email không đúng định dạng!</span>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="input-box">
                                     <label class="label-text">Số điện thoại</label>
                                     <div class="form-group">
                                         <span class="la la-phone form-icon"></span>
-                                        <input id="phone" class="form-control" type="text" name="phone" placeholder="Số điện thoại">
+                                        <input id="phone" class="form-control" type="text" formControlName="telephone" placeholder="Số điện thoại">
+                                    </div>
+                                    <div *ngIf="dataForm.telephone.invalid &&(dataForm.telephone.dirty || dataForm.telephone.touched)">
+                                      <div *ngIf="dataForm.telephone.errors">
+                                          <div *ngIf="dataForm.telephone.errors.required">
+                                              <span class="err">Số điện thoại còn trống !</span>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                                  <div class="input-box">
                                     <label class="label-text">Ứng viên / Nhà tuyển dụng</label>
                                     <div class="form-group">
                                         <span class="la la-book form-icon"></span>
-                                        <input id="subject" class="form-control" type="text" name="subject" placeholder="">
+                                        <input id="subject" class="form-control" type="text" formControlName="type"placeholder="">
+                                    </div>
+                                    <div *ngIf="dataForm.type.invalid &&(dataForm.type.dirty || dataForm.type.touched)">
+                                      <div *ngIf="dataForm.type.errors">
+                                          <div *ngIf="dataForm.type.errors.required">
+                                              <span class="err">Còn trống !</span>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="input-box">
                                     <label class="label-text">Nội dung liên hệ</label>
                                     <div class="form-group">
                                         <span class="la la-pencil form-icon"></span>
-                                        <textarea id="message" class="message-control form-control" name="message" placeholder="Nội dung liên hệ..."></textarea>
+                                        <textarea id="message" class="message-control form-control" formControlName="content" placeholder="Nội dung liên hệ..."></textarea>
+                                    </div>
+                                    <div *ngIf="dataForm.content.invalid &&(dataForm.content.dirty || dataForm.content.touched)">
+                                      <div *ngIf="dataForm.content.errors">
+                                          <div *ngIf="dataForm.content.errors.required">
+                                              <span class="err">Nội dung liên hệ còn trống !</span>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="btn-box">
-                                    <button id="send-message-btn" type="submit" class="theme-btn border-0">Gửi thông tin</button>
+                                    <button id="send-message-btn" type="button" (click)="onSubmit()" class="theme-btn border-0">Gửi thông tin</button>
                                 </div>
                             </form>
                         </div>
@@ -287,3 +325,6 @@
         </div>
     </div>
 </section>
+
+<p-toast position="top-right"></p-toast>
+

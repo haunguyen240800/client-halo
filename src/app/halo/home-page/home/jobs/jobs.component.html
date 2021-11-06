@@ -29,13 +29,13 @@
                                 Mới nhất
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <div class="tab-content margin-top-35px" id="myTabContent">
                     <div class="tab-pane fade show active" id="all-job" role="tabpanel" aria-labelledby="all-tab">
                         <div class="row">
-                            <div class="col-lg-4 responsive-column" *ngFor="let job of jobs">
+                            <div class="col-lg-4 responsive-column" *ngFor="let job of jobPagi">
                                 <div class="job-card">
                                     <div class="job-card-content">
                                         <div class="card-head row">
@@ -45,30 +45,38 @@
                                                 </a>
                                             </div>
                                             <div class="company-title-box col-lg-8">
-                                                <h4 class="card-title mb-1"><a href="employer-details.html">{{job.jobTitle}}</a> </h4>
+                                                <h4 class="card-title mb-1"><a routerLink="/ct/jobs/{{job.id}}">{{job.jobTitle}}</a> </h4>
                                                 <p class="card-sub"><i class="la la-map-marker"></i> {{job.objCompany.objAddress.fullAddress}}, {{job.objCompany.objAddress.wardName}}, {{job.objCompany.objAddress.districtName}}, {{job.objCompany.objAddress.cityName}}</p>
                                             </div>
                                         </div>
-                                        <!-- <div class="card-foot d-flex align-items-center justify-content-between mt-4">
-                                            <span class="color-text-2 font-size-13"><i class="la la-briefcase"></i> Full Time</span>
-                                            <span class="color-text-2 font-size-13"><i class="la la-clock-o"></i> 3 hours ago</span>
-                                            <span class="color-text-2 font-size-13"> $20 - $25 /hr</span>
-                                        </div> -->
+                                        <div class="card-foot d-flex align-items-center justify-content-between mt-4">
+                                            <span class="color-text-2 font-size-13"><i class="la la-briefcase"></i> {{job.objJobType.jobTypeName}}</span>
+                                            <span class="color-text-2 font-size-13"><i class="la la-clock-o"></i> {{job.deadline | date: 'dd/MM/yyyy'}}</span>
+                                            <span class="color-text-2 font-size-13"> {{job.salary | currency: 'USD'}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="job-nav">
+                          <div class="nav-item1 left" style="left: 13px;" (click)="onPre()">
+                            <i class="la la-chevron-left " style="padding-left: 10px;"></i>
+                          </div>
+                          <div class="nav-item1 right" style="right: -25px;" (click)="onNext()">
+                            <i class="la la-chevron-right " style="padding-left: 12px;"></i>
+                          </div>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-12">
                 <div class="btn-box text-center mt-4">
                     <a href="job-grid-view.html" class="theme-btn">Tất cả công việc</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

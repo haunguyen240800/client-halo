@@ -20,6 +20,13 @@ export class BannerComponent implements OnInit {
   cities: any[]=[];
   jobTypes: any[]=[];
   selectedCity: any;
+  dataSearch = {
+    jobTitle: "",
+    cateId: null,
+    jobTypeId: null,
+    cityName: "",
+    positionId: null,
+  }
 
   constructor(private cateService: CategoryService,
     private addressService: AddressService,
@@ -55,7 +62,13 @@ export class BannerComponent implements OnInit {
   routerJobs(){
     this.router.navigateByUrl("ct/jobs")
   }
-  
+
+  submitSearch(){
+    console.log(this.dataSearch)
+    this.commomService.dataSearch = this.dataSearch;
+    this.router.navigateByUrl("ct/jobs");
+  }
+
   postJobs(){
     let role = this.authService.getRoles();
     if (this.authService.isLoggedIn()){
@@ -64,7 +77,7 @@ export class BannerComponent implements OnInit {
       }else{
         this.commomService.getAlertError("Vui lòng đăng nhập vào tài khoản nhà tuyển dụng");
       }
-      
+
     }else{
       this.commomService.getAlertError("Vui lòng đăng nhập");
     }

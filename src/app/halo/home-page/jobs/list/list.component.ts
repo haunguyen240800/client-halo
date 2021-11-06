@@ -12,6 +12,7 @@ import { JobTypeService } from 'src/app/service/job-type.service';
 import { PositionService } from 'src/app/service/position.service';
 import { SavedJobService } from 'src/app/service/saved-job.service';
 import { environment } from 'src/environments/environment';
+import { sortBy } from 'sort-by-typescript';
 
 declare var $:any;
 
@@ -51,7 +52,14 @@ export class ListComponent implements OnInit {
     private positionService: PositionService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.findAllJob();
+    if (this.commonService.dataSearch){
+      this.dataSearch = this.commonService.dataSearch;
+      this.commonService.dataSearch = "";
+      this.onChange();
+    }else{
+      await this.findAllJob();
+    }
+
     this.findAllCity();
     this.findAllCate();
     this.findAllPosition();
@@ -86,6 +94,24 @@ export class ListComponent implements OnInit {
     })
   }
 
+  onChangeSort(){
+    if (this.selectedSort == 'SORT-04'){
+      this.jobs = this.jobs.sort(sortBy('jobTitle'));
+      this.jobsPagi = this.jobs.slice(0,10);
+    }
+
+    if (this.selectedSort == 'SORT-01'){
+      this.findAllJob();
+    }
+    if (this.selectedSort == 'SORT-02'){
+      this.jobs = this.jobs.sort(sortBy('jobTitle'));
+      this.jobsPagi = this.jobs.slice(0,10);
+    }
+    if (this.selectedSort == 'SORT-03'){
+      this.jobs = this.jobs.sort(sortBy('salary'));
+      this.jobsPagi = this.jobs.slice(0,10);
+    }
+  }
 
   findAllJobType(){
     this.jobTypeService.findAllJobType().subscribe(res=>{

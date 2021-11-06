@@ -24,11 +24,11 @@ export class ListComponent implements OnInit {
     // { label: "Sắp xếp", code: "SR-01" },
   ];
   dataSearch: any = {
-    companyName: "",
+    name: "",
     cityName: "",
   }
-
-
+  indexStart: any = 1;
+  indexEnd: any = 10;
   constructor(private comService: CompanyService,
     private addressService: AddressService) { }
 
@@ -40,8 +40,8 @@ export class ListComponent implements OnInit {
   findAllCom(){
     this.comService.findAll().subscribe(res=>{
       this.companies = res;
-      console.log(res);
       this.companiesPagi = this.companies.slice(0,10);
+      this.indexEnd = this.companiesPagi.length;
     })
   }
 
@@ -61,4 +61,24 @@ export class ListComponent implements OnInit {
     this.companiesPagi = this.companies.slice(indexStart, indexStart+event.row)
   }
 
+  onChangePage(event: any){
+    let start = event.page * event.rows;
+    if (start = 0){
+      this.indexStart = 1;
+    }else{
+      this.indexStart = start;
+    }
+
+    let end = (event.page * event.rows) + event.rows;
+    this.indexEnd = end;
+    this.companiesPagi = this.companies.slice(start, end);
+  }
+
+  search(){
+    this.comService.search(this.dataSearch).subscribe(res=>{
+      this.companies = res;
+      this.companiesPagi = this.companies.slice(0,10);
+      this.indexEnd = this.companiesPagi.length;
+    })
+  }
 }

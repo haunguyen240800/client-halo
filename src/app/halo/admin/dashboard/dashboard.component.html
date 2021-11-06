@@ -1,1 +1,124 @@
-<p>dashboard works!</p>
+<div class="dashboard-content-wrap">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                  <div class="section-heading">
+                      <h2 class="sec__title line-height-45">Chào mừng, {{username}}!</h2>
+                  </div>
+                  <ul class="list-items d-flex align-items-center">
+                      <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
+                      <!-- <li class="active__list-item">Employers</li> -->
+                      <li>Thống kê</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-5">
+          <div class="col-lg-6 column-lg-half responsive-column">
+              <div class="overview-item">
+                  <div class="icon-box bg-1 mb-0 d-flex align-items-center">
+                      <div class="icon-element flex-shrink-0">
+                          <i class="la la-cloud-upload"></i>
+                      </div>
+                      <div class="info-content">
+                          <span class="info__count">11</span>
+                          <h4 class="info__title font-size-16 mt-2">Công việc đã đăng</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 column-lg-half responsive-column">
+              <div class="overview-item">
+                  <div class="icon-box bg-2 mb-0 d-flex align-items-center">
+                      <div class="icon-element flex-shrink-0">
+                          <i class="la la-file-text-o"></i>
+                      </div>
+                      <div class="info-content">
+                          <span class="info__count">121</span>
+                          <h4 class="info__title font-size-16 mt-2">Ứng viên</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="col-lg-3 column-lg-half responsive-column">
+              <div class="overview-item">
+                  <div class="icon-box bg-3 mb-0 d-flex align-items-center">
+                      <div class="icon-element flex-shrink-0">
+                          <i class="la la-eye"></i>
+                      </div>
+                      <div class="info-content">
+                          <span class="info__count">504</span>
+                          <h4 class="info__title font-size-16 mt-2">This Month Views</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 column-lg-half responsive-column">
+              <div class="overview-item">
+                  <div class="icon-box bg-4 mb-0 d-flex align-items-center">
+                      <div class="icon-element flex-shrink-0">
+                          <i class="la la-phone"></i>
+                      </div>
+                      <div class="info-content">
+                          <span class="info__count">10</span>
+                          <h4 class="info__title font-size-16 mt-2">Call for interview</h4>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+      </div>
+      <div class="row mt-2">
+          <div class="col-lg-12 column-lg-full">
+              <div class="chart-box chart-item">
+                  <div class="chart-headline d-flex align-items-center justify-content-between mb-4">
+                      <h3 class="widget-title font-size-16 pb-0"><i class="font-size-20 la la-bar-chart mr-1"></i>Biểu đồ thống kê</h3>
+                      <!-- <div class="user-chosen-select-container">
+                          <select class="user-chosen-select">
+                              <option value="this-week">This Week</option>
+                              <option value="this-month">This Month</option>
+                              <option value="last-months">Last 6 Months</option>
+                              <option value="this-year">This Year</option>
+                          </select>
+                      </div> -->
+                  </div>
+                  <div class="card">
+                      <p-chart type="line" [data]="multiAxisData" [options]="multiAxisOptions"></p-chart>
+                  </div>
+                  <!-- <div class="chart-legend mt-4">
+                      <ul>
+                          <li><span class="legend__item legend__one"></span>Green</li>
+                      </ul>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+      <!-- <div class="row margin-top-30px">
+          <div class="col-lg-6">
+              <div class="chart-box">
+                  <div class="chart-headline margin-bottom-40px">
+                      <h3 class="widget-title font-size-16 pb-0"><i class="font-size-20 la la-chart-line mr-1"></i>Static Analytics</h3>
+                  </div>
+                  <p-chart type="doughnut" [data]="dataDoughnut" [style]="{'width': '40%'}"></p-chart>
+                  <div class="chart-legend margin-top-40px">
+                      <ul>
+                          <li><span class="legend__item" style="background-color: #FF6384;"></span>Công việc đã đăng</li>
+                          <li><span class="legend__item legend__bg-1" style="background-color: #36A2EB;"></span>Đang đăng</li>
+                          <li><span class="legend__item legend__bg-1" style="background-color: #26ae61;"></span>Đang chờ duyệt</li>
+                          <li><span class="legend__item legend__bg-2" style="background-color: #FFCE56;"></span>Đã hết hạn</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+
+      </div> -->
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="margin-top-40px padding-top-20px padding-bottom-20px">
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

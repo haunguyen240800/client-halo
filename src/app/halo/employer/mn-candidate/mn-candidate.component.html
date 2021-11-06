@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="manage-candidate-content">
                                         <h2 class="widget-title pb-2">
-                                          <a routerLink="{{can.objResume.id}}" class="color-text-2">{{can.objResume.fullname}}&ensp;
+                                          <a routerLink="{{can.accId}}" class="color-text-2">{{can.objResume.fullname}}&ensp;
                                             <span *ngIf= "can.status == 'PENDING'" class="badge badge-primary p-1 ng-star-inserted" style="font-size: 11px;"> Đang chờ duyệt</span>
                                             <span *ngIf= "can.status == 'REJECTED'" class="badge badge-danger p-1 ng-star-inserted" style="font-size: 11px;"> Đã từ chối</span>
                                             <span *ngIf= "can.status == 'AGREE'" class="badge badge-success p-1 ng-star-inserted" style="font-size: 11px;"> Đã đồng ý</span>
@@ -83,7 +83,7 @@
                                             </a>
                                         </li>
                                         <li class="d-inline-block mb-0">
-                                            <a href="javascript:void(0)" (click)="remove(can.accId,can.jobId)">
+                                            <a href="javascript:void(0)" (click)="remove(can.accId,can.jobId,can.status)">
                                                 <i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i>
                                             </a>
                                         </li>

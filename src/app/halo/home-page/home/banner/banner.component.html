@@ -34,7 +34,7 @@
                                         <label class="label-text">Bạn Muốn Công Việc Gì??</label>
                                         <div class="form-group">
                                             <span class="la la-briefcase form-icon"></span>
-                                            <input class="form-control" type="text" name="text" placeholder="Tên công viêc...">
+                                            <input class="form-control" type="text" [(ngModel)]="dataSearch.jobTitle" name="jobTitle" placeholder="Tên công viêc...">
                                         </div>
                                     </div>
 
@@ -42,7 +42,7 @@
                                         <label class="label-text">Danh mục công việc</label>
 
                                         <div class="form-group">
-                                            <p-dropdown [options]="categories" [(ngModel)]="selectedCity"                 optionLabel="cateName" [filter]="true" filterBy="cateName" name="cateName"
+                                            <p-dropdown [options]="categories" [(ngModel)]="dataSearch.cateId" optionLabel="cateName" [filter]="true" filterBy="cateName" name="cateName" optionValue="id"
 	                                        [showClear]="false" placeholder="Chọn danh mục công việc">
                                             </p-dropdown>
                                         </div>
@@ -50,7 +50,7 @@
                                     <div class="input-box">
                                         <label class="label-text">Địa chỉ?</label>
                                       <div class="form-group">
-                                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity"                 optionLabel="provinceName" [filter]="true" filterBy="cateName" name="cityName"
+                                        <p-dropdown [options]="cities" [(ngModel)]="dataSearch.cityName" optionLabel="provinceName" optionValue="provinceName" [filter]="true" filterBy="cateName" name="cityName"
                                         [showClear]="false" placeholder="Chọn địa chỉ">
                                         </p-dropdown>
                                       </div>
@@ -58,13 +58,13 @@
                                     <div class="input-box">
                                         <label class="label-text">Loại hình công việc</label>
                                         <div class="form-group">
-                                            <p-dropdown [options]="jobTypes" [(ngModel)]="selectedCity"                 optionLabel="jobTypeName" [filter]="true" filterBy="jobTypeName" name="jobTypeName"
-	                                        [showClear]="false" placeholder="Chọn loại hình công việc">
+                                            <p-dropdown [options]="jobTypes" [(ngModel)]="dataSearch.jobTypeId" optionLabel="jobTypeName" [filter]="true" filterBy="jobTypeName" name="jobTypeName" optionValue="id"
+	                                          [showClear]="false" placeholder="Chọn loại hình công việc">
                                             </p-dropdown>
                                         </div>
                                     </div>
                                     <div class="btn-box">
-                                        <button class="button theme-btn border-0" type="submit">Tìm việc làm</button>
+                                        <button class="button theme-btn border-0" type="button" (click)="submitSearch()">Tìm việc làm</button>
                                     </div>
                                 </form>
                             </div>
