@@ -41,8 +41,8 @@ export class DetailComponent implements OnInit {
     this.commonService.savedJob(this.job.id);
   }
 
-  applyJob(id: any){
-    this.commonService.applyJob(id);
+  applyJob(id: any,accId: any){
+    this.commonService.applyJob(id,accId);
   }
 
   getJobByCate(){

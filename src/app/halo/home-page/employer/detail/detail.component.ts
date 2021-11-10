@@ -74,8 +74,8 @@ export class DetailComponent implements OnInit {
     })
   }
 
-  applyJob(id: any){
-    this.commonService.applyJob(id);
+  applyJob(id: any,accId: any){
+    this.commonService.applyJob(id,accId);
   }
 
   onSubmitRouter(id: any){

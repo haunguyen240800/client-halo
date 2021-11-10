@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -35,6 +35,18 @@ export class CompanyService {
 
   search(request: any):Observable<any>{
     return this.http.get<any>(this.apiUrl+"companies/search?cityName="+request.cityName+"&name="+request.name);
+  }
+
+  uploadLogo(file: any):Observable<any>{
+    const formData = new FormData();
+    formData.append('file', file);
+    const req = new HttpRequest('POST', this.apiUrl+"companies/logo", formData,{
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+    // return this.http.post<any>(this.apiUrl + "companies/logo", file);
   }
 
   handleError(error: HttpErrorResponse){

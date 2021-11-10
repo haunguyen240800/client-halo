@@ -58,23 +58,25 @@ export class CommonService {
 
   getAlertError(text :any){
     Swal.fire({
-      icon: 'error',
-      title: 'Lỗi...',
+      // icon: 'error',
+      // title: 'Lỗi...',
       text: text,
     })
   }
 
-  applyJob(jobId: any){
+  applyJob(jobId: any,accId: any){
     if (this.authService.isLoggedIn()){
       let decodeToken = this.authService.decodeToken();
       if (decodeToken.roles[0].name == 'ROLE_CANDIDATE'){
-        let accId = this.authService.getAccId();
+        let accIdCan = this.authService.getAccId();
         let data = {
-          accId: accId,
+          accId: accIdCan,
           jobPostId: jobId
         }
         this.jobPostActivityService.createJobApply(data).subscribe(res=>{
           this.getAlertSuccess("Ứng tuyển thành công !");
+          let username = decodeToken.sub;
+          this.createAlert(accId, username +" đã ứng tuyển vào công việc của bạn", "Ứng viên");
         },(error:HttpErrorResponse) =>{
           this.getAlertError("Công việc đã ứng tuyển !");
         });
@@ -104,7 +106,6 @@ export class CommonService {
       status: true,
       title: title
     }
-    console.log(alert);
     await this.alertService.create(alert).toPromise().then(res=>{
 
     })

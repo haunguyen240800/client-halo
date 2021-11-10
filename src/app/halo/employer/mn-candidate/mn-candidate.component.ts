@@ -50,7 +50,6 @@ export class MnCandidateComponent implements OnInit {
       })
     }
     this.candidates = data;
-    console.log(data);
   }
 
   // async getCandidateByJob(){
@@ -67,11 +66,10 @@ export class MnCandidateComponent implements OnInit {
   }
 
   remove(accId: any, jobId: any,status: any){
-    if (status == 'REJECTED'){
+    if (status == 'REJECTED' || status == 'AGREE'){
       Swal.fire({
-        icon: 'error',
         title: 'Oops...',
-        text: 'Ứng viên này đã từ chối!',
+        text: 'Bạn không thể từ chối ứng viên này!',
       })
     }else{
       Swal.fire({
@@ -122,11 +120,12 @@ export class MnCandidateComponent implements OnInit {
     this.contactDialog = false;
   }
 
-  submitContact(event: any){
-    this.mailService.sendMail(event).subscribe(async res=>{
-      this.jobPostActivityService.updateStatus(this.accId,this.jobId,"AGREE").toPromise().then(res=>{
+  async submitContact(event: any){
+    await this.mailService.sendMail(event).toPromise().then(async res=>{
+      await this.jobPostActivityService.updateStatus(this.accId,this.jobId,"AGREE").toPromise().then(res=>{
         let content = "Cảm ơn bạn đã ứng tuyển, chúng tôi đã nhận thấy rằng hồ sơ của bạn phù hợp với chúng tôi, thông báo chi tiết vui lòng xem tại" + event.mailTo;
         this.createAlert(this.accId,content);
+        this.getAllCandidate();
       });
     });
     this.commonService.getAlertSuccess("Thành công");

@@ -27,7 +27,7 @@
                                     <button type="button" (click)="savedJob()" class="theme-btn mr-1"><i class="la la-heart-o font-size-16"></i> Lưu</button>
                                 </li>
                                 <li>
-                                    <button type="button" (click)="applyJob(job.id)" class="theme-btn border-0">Ứng tuyển</button>
+                                    <button type="button" (click)="applyJob(job.id,job.objAcc.accId)" class="theme-btn border-0">Ứng tuyển</button>
                                 </li>
                             </ul>
                         </div>
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-box">
-                                        <a href="javascript:void(0)" (click)="applyJob(job.id)" class="theme-btn">Ứng tuyển</a>
+                                        <a href="javascript:void(0)" (click)="applyJob(job.id,job.objAcc.accId)" class="theme-btn">Ứng tuyển</a>
                                     </div>
                                 </div>
                             </div>

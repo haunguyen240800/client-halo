@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="generic-header margin-bottom-30px">
-                    <p class="showing__text text-left">Hiển thị 1 - 16 của 128 kết quả</p>
+                    <p class="showing__text text-left">Có {{jobs.length}} kết quả</p>
                     <div class="sort-option mr-3">
                         <p-dropdown [options]="sortList" [(ngModel)]="selectedSort" optionLabel="label" optionValue="code" placeholder="Sắp xếp" (onChange)="onChangeSort()">
 
@@ -216,7 +216,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-box">
-                                            <a href="javascript:void(0)" (click)="applyJob(job.id)" class="theme-btn">Ứng tuyển</a>
+                                            <a href="javascript:void(0)" (click)="applyJob(job.id,job.objAcc.accId)" class="theme-btn">Ứng tuyển</a>
                                         </div>
                                     </div>
                                 </div>

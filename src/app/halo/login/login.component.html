@@ -258,10 +258,18 @@
                                                     <div class="col-lg-6 column-lg-full">
                                                         <div class="input-box">
                                                             <label class="label-text">Tên công ty</label>
-                                                            <div class="form-group">
-                                                                
+                                                            <div class="form-group">                                                  
                                                                 <i class="las la-building form-icon"></i>
-                                                                <input class="form-control" type="text" formControlName="username" placeholder="Nhập tên công ty">
+                                                                <input class="form-control" type="text" formControlName="companyName" placeholder="Nhập tên công ty">
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.companyName.invalid &&
+                                                                    (dataFormRegister.companyName.dirty || dataFormRegister.companyName.touched)">
+                                                                <div *ngIf="dataFormRegister.companyName.errors">
+                                                                    <div *ngIf="dataFormRegister.companyName.errors.required">
+                                                                        <span class="err">Tên công ty còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -270,7 +278,16 @@
                                                             <label class="label-text">Địa chỉ email công ty</label>
                                                             <div class="form-group">
                                                                 <i class="las la-envelope form-icon"></i>
-                                                                <input class="form-control" type="email" formControlName="username" placeholder="Nhập địa chỉ email">
+                                                                <input class="form-control" type="email" formControlName="emailCom" placeholder="Nhập địa chỉ email">
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.emailCom.invalid &&
+                                                                    (dataFormRegister.emailCom.dirty || dataFormRegister.emailCom.touched)">
+                                                                <div *ngIf="dataFormRegister.emailCom.errors">
+                                                                    <div *ngIf="dataFormRegister.emailCom.errors.required">
+                                                                        <span class="err">Địa chỉ email còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -279,7 +296,16 @@
                                                             <label class="label-text">Số điện thoại công ty</label>
                                                             <div class="form-group">
                                                                 <i class="las la-phone-volume form-icon"></i>
-                                                                <input class="form-control" type="text" formControlName="username" placeholder="Nhập số điện thoại">
+                                                                <input class="form-control" type="text" formControlName="telephoneCom" placeholder="Nhập số điện thoại">
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.telephoneCom.invalid &&
+                                                                    (dataFormRegister.telephoneCom.dirty || dataFormRegister.telephoneCom.touched)">
+                                                                <div *ngIf="dataFormRegister.telephoneCom.errors">
+                                                                    <div *ngIf="dataFormRegister.telephoneCom.errors.required">
+                                                                        <span class="err">Số điện thoại còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -288,7 +314,16 @@
                                                             <label class="label-text">Website</label>
                                                             <div class="form-group">
                                                                 <i class="la la-globe form-icon"></i>
-                                                                <input class="form-control" type="date" formControlName="username" placeholder="Nhập link website">
+                                                                <input class="form-control" type="text" formControlName="websiteUrl" placeholder="Nhập link website">
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Website còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -296,7 +331,16 @@
                                                         <div class="input-box">
                                                             <label class="label-text">Quy mô công ty</label>
                                                             <div class="form-group">
-                                                                <p-dropdown [options]="companySizeList"  optionLabel="label" optionValue="value" placeholder="Chọn quy mô công ty" formControlName="username"></p-dropdown>
+                                                                <p-dropdown [options]="companySizeList"  optionLabel="label" optionValue="value" placeholder="Chọn quy mô công ty" formControlName="companySize"></p-dropdown>
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Quy mô công ty còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -305,7 +349,16 @@
                                                             <label class="label-text">Ngày thành lập</label>
                                                             <div class="form-group">
                                                                 <i class="la la-calendar-alt form-icon"></i>
-                                                                <input class="form-control" type="date" formControlName="username" >
+                                                                <input class="form-control" type="date" formControlName="founderDate" >
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Ngày thành lập còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -313,7 +366,16 @@
                                                         <div class="input-box">
                                                             <label class="label-text">Mô tả công ty</label>
                                                             <div class="form-group">
-                                                                <textarea class="form-control" rows="7"></textarea>
+                                                                <textarea class="form-control" rows="7" formControlName="description"></textarea>
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Mô tả công ty còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -321,8 +383,17 @@
                                                         <div class="input-box">
                                                             <label class="label-text">Tỉnh / Thành phố</label>
                                                             <div class="form-group">
-                                                                <p-dropdown [options]="provinces" (onChange)="onChangeCity($event.value)" optionLabel="provinceName" formControlName="username"optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" placeholder="Chọn thành phố">
+                                                                <p-dropdown [options]="provinces" (onChange)="onChangeCity($event.value)" optionLabel="provinceName" formControlName="cityName" optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" placeholder="Chọn thành phố">
                                                                 </p-dropdown>
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Tỉnh / Thành phố còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -330,8 +401,17 @@
                                                         <div class="input-box">
                                                             <label class="label-text">Quận / Huyện</label>
                                                             <div class="form-group">
-                                                                <p-dropdown [options]="districts" (onChange)="onChangeDistrict($event.value)" optionLabel="districtName" optionValue="districtName" [filter]="true" filterBy="districtName" formControlName="username"name="districtName" placeholder="Chọn thành phố">
+                                                                <p-dropdown [options]="districts" (onChange)="onChangeDistrict($event.value)" optionLabel="districtName" optionValue="districtName" [filter]="true" filterBy="districtName" formControlName="districtName" name="districtName" placeholder="Chọn thành phố">
                                                                 </p-dropdown>
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Quận / Huyện còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -339,8 +419,17 @@
                                                         <div class="input-box">
                                                             <label class="label-text">Phường / Xã </label>
                                                             <div class="form-group">
-                                                                <p-dropdown [options]="wards"  optionLabel="wardName" optionValue="wardName" [filter]="true" formControlName="username"filterBy="wardName" name="wardName" placeholder="Chọn thành phố">
+                                                                <p-dropdown [options]="wards"  optionLabel="wardName" optionValue="wardName" [filter]="true" formControlName="wardName" filterBy="wardName" name="wardName" placeholder="Chọn thành phố">
                                                                 </p-dropdown>
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Phường / Xã còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>  
@@ -349,22 +438,47 @@
                                                             <label class="label-text">Địa chỉ chi tiết</label>
                                                             <div class="form-group">
                                                                 <span class="la la-map-marker form-icon"></span>
-                                                                <input class="form-control" type="text" formControlName="username"name="fullAddress" placeholder="Đại chỉ chi tiết">
+                                                                <input class="form-control" type="text" formControlName="fullAddress" name="fullAddress" placeholder="Đại chỉ chi tiết">
+                                                            </div>
+                                                            <div
+                                                                *ngIf="dataFormRegister.gender.invalid &&
+                                                                    (dataFormRegister.gender.dirty || dataFormRegister.gender.touched)">
+                                                                <div *ngIf="dataFormRegister.gender.errors">
+                                                                    <div *ngIf="dataFormRegister.gender.errors.required">
+                                                                        <span class="err">Địa chỉ chi tiết còn trống !</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                                    
+                                                    </div>     
+                                                    <div class="col-lg-12">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Logo công ty</label>
+                                                            <div class="form-group">
+                                                                <p-fileUpload name="demo[]" (uploadHandler)="onUpload($event)" [customUpload]="true" [showUploadButton]="false" chooseLabel="Chọn logo"
+                                                                [showCancelButton]="false" [multiple]= "false" accept="image/*" [maxFileSize]="1000000" (onSelect)="onUpload($event)">
+                                                                    <ng-template pTemplate="content">
+                                                                        <ul *ngIf="uploadedFiles.length">
+                                                                            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                                                        </ul>
+                                                                    </ng-template>
+                                                                </p-fileUpload>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>                                               
                                                 </ng-container>
                                             </div>
                                                                                      
                                             
-                                            <div class="input-box">
+                                            <!-- <div class="input-box">
                                                 <div class="form-group">
                                                     <div class="custom-checkbox d-block mr-0">
                                                         <input type="checkbox" id="chb3">
                                                         <label for="chb3">Tôi đồng ý với <a href="#" class="color-text">Chính sách quyền riêng tư</a> và <a href="#" class="color-text">Điều khoản dịch vụ</a> của HaloJob</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="btn-box margin-top-30px">
                                                 <button class="theme-btn border-0" type="button" (click)="ngSubmit()">Tạo tài khoản</button>
                                             </div>

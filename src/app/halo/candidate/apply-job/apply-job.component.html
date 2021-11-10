@@ -22,45 +22,55 @@
                         <div class="title-shape margin-top-10px"></div>
                     </div>
                     <div class="billing-content pb-0">
-                        <div class="manage-job-wrap">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Tên công việc</th>
-                                            <th>Ngày ứng tuyển</th>
-                                            <th>Trạng thái</th>
-                                            <th class="text-center">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let job of jobsPagi">
-                                            <td>
-                                                <div class="manage-candidate-wrap">
-                                                    <h2 class="widget-title pb-1"><a href="javascript:void(0)" (click)="routerJob(job.id)" class="color-text-2">{{job.jobTitle}}</a></h2>
-                                                    <p class="mb-2">
-                                                        <span><i class="la la-desktop font-size-16"></i> {{job.objCate.cateName}}</span>                                                         
-                                                    </p>
+                        <ng-container *ngIf="this.jobs.length == 0">
+                            
+                            <div class="manage-candidate-wrap d-flex align-items-center justify-content-between pb-4" >
+                                <div class="bread-details d-flex">   
+                                    <p>Chưa lưu công việc nào</p>                             
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="this.jobs.length != 0">
+                            <div class="manage-job-wrap">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên công việc</th>
+                                                <th>Ngày ứng tuyển</th>
+                                                <th>Trạng thái</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let job of jobsPagi">
+                                                <td>
+                                                    <div class="manage-candidate-wrap">
+                                                        <h2 class="widget-title pb-1"><a href="javascript:void(0)" (click)="routerJob(job.id)" class="color-text-2">{{job.jobTitle}}</a></h2>
+                                                        <p class="mb-2">
+                                                            <span><i class="la la-desktop font-size-16"></i> {{job.objCate.cateName}}</span>                                                         
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td>{{job.applyDate | date: 'dd-MM-yyyy'}}</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    <div class="manage-candidate-wrap">
+                                                        <div class="bread-action pt-0">
+                                                            <ul class="info-list">
+                                                                <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerJob(job.id)"><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="View"></i></a></li>
+                                                                <li class="d-inline-block"><a href="javascript:void(0)" (click)="removeJobApply(job.id)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </td>
-                                            <td>{{job.applyDate | date: 'dd-MM-yyyy'}}</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <div class="manage-candidate-wrap">
-                                                    <div class="bread-action pt-0">
-                                                        <ul class="info-list">
-                                                            <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerJob(job.id)"><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="View"></i></a></li>
-                                                            <li class="d-inline-block"><a href="javascript:void(0)" (click)="removeJobApply(job.id)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>

@@ -76,6 +76,7 @@ export class ListComponent implements OnInit {
   async findAllJob(){
     await this.jobPostService.findJobActive().toPromise().then(res=>{
       this.jobs=res;
+      console.log(res);
       this.jobsPagi = this.jobs.slice(0,10);
     })
   }
@@ -121,8 +122,8 @@ export class ListComponent implements OnInit {
     })
   }
 
-  applyJob(jobId: any){
-    this.commonService.applyJob(jobId);
+  applyJob(jobId: any,accId: any){
+    this.commonService.applyJob(jobId,accId);
   }
 
   findAllCate(){

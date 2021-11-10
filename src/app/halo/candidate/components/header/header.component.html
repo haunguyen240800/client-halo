@@ -21,63 +21,29 @@
                                                 <div class="mess-dropdown">
                                                     <div class="mess__title">
                                                         <h4 class="widget-title d-flex align-items-center justify-content-between">Thông báo<a href="#" class="font-size-12 color-text-3">Đánh dấu tất cả đã đọc</a></h4>
-                                                        <p class="font-size-12 font-weight-medium">Bạn có 5 thông báo</p>
+                                                        <p class="font-size-12 font-weight-medium">Bạn có {{alerts.length}} thông báo</p>
                                                     </div>
                                                     <div class="mess__body">
-                                                        <a href="#" class="d-block">
+                                                        <a href="#" class="d-block" *ngFor="let a of alerts">
                                                             <div class="mess__item">
                                                                 <div class="icon-element">
                                                                     <i class="la la-bolt"></i>
                                                                 </div>
                                                                 <div class="content">
-                                                                    <p class="text">Hồ sơ Cv của bạn đã được cập nhật!</p>
+                                                                    <p class="text">{{a.content}}!</p>
                                                                     <span class="time">5 giờ trước</span>
                                                                 </div>
                                                             </div><!-- end mess__item -->
                                                         </a>
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-lock"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">Mật khẩu của bạn đã được thay đổi</p>
-                                                                    <span class="time">2 ngày trước</span>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-check-circle"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">Bạn đã ứng tuyển vào 1 công việc <span class="color-text">Front-end Developer</span></p>
-                                                                    <span class="time">1 ngày trước</span>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-download"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">1 nhà tuyển dụng đã đồng ý hồ sơ của bạn</p>
-                                                                    <span class="time">1 ngày trước</span>
-                                                                </div>
-                                                            </div><!-- end mess__item -->
-                                                        </a>
-                                                    </div><!-- end mess__body -->
+                                                    </div>
                                                     <div class="mess__item border-bottom-0 text-center">
                                                         <a href="#" class="theme-btn w-100">Tất cả thông báo</a>
-                                                    </div><!-- end mess__item -->
-                                                </div><!-- end mess-dropdown -->
-                                            </div><!-- end dropdown-menu -->
-                                        </div><!-- end dropdown -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="notification-item mr-3">
+                                    <!-- <div class="notification-item mr-3">
                                         <div class="dropdown">
                                             <button class="notification-btn dropdown-toggle" type="button" id="messageDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la la-envelope"></i>
@@ -88,7 +54,7 @@
                                                     <div class="mess__title">
                                                         <h4 class="widget-title d-flex align-items-center justify-content-between">Tin nhắn <a href="#" class="font-size-12 color-text-3">abcccc</a></h4>
                                                         <p class="font-size-12 font-weight-medium">Bạn có 5 tin nhắn mới</p>
-                                                    </div><!-- end mess__title -->
+                                                    </div>
                                                     <div class="mess__body">
                                                         <a href="candidate-dashboard-message.html" class="d-block">
                                                             <div class="mess__item">
@@ -157,7 +123,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="user-action-wrap">
                                     <div class="notification-item">
@@ -179,7 +145,7 @@
                                                             </h4>
                                                             <span class="email">nguyevan@gmail.com</span>
                                                         </div>
-                                                    </div><!-- end mess__title -->
+                                                    </div>
                                                     <div class="mess__body">
                                                         <ul class="list-items">
                                                             <li class="mb-0">

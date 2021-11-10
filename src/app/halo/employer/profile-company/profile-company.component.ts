@@ -45,6 +45,7 @@ export class ProfileCompanyComponent implements OnInit {
     let accId = this.authService.getAccId();
     await this.comService.getCompanyByAccount(accId).toPromise().then(res=>{
       this.company = res;
+      console.log(res);
     })
   }
 

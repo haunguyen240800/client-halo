@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
   provinces: any[]=[];
   districts: any[]=[];
   wards: any[]=[];
+  uploadedFiles: any[] = [];
+  file!: File; 
 
   constructor(private loginService: LoginService,
     private form: FormBuilder,
@@ -99,7 +101,18 @@ export class LoginComponent implements OnInit {
     gender: ["",[Validators.required]],
     password: ["",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")]],
     confirmPassword: ["",[Validators.required]],
-    role: ["",[Validators.required]]
+    role: ["",[Validators.required]],
+    emailCom: ["",[Validators.required]],
+    companyName: ["",[Validators.required]],
+    telephoneCom: ["",[Validators.required]],
+    websiteUrl: ["",[Validators.required]],
+    companySize: ["",[Validators.required]],
+    founderDate: ["",[Validators.required]],
+    description: ["",[Validators.required]],
+    cityName: ["",[Validators.required]],
+    districtName: ["",[Validators.required]],
+    wardName: ["",[Validators.required]],
+    fullAddress: ["",[Validators.required]]
   },{ 
       validator: ConfirmedValidator('password', 'confirmPassword')
     }
@@ -109,9 +122,16 @@ export class LoginComponent implements OnInit {
     return this.formRegister.controls;
   }
 
-  ngSubmit(){
-    console.log(this.formRegister.value);
+  async ngSubmit(){
     if (this.formRegister.valid){
+      let objImage: any = {};
+      if (this.selected){
+        await this.comService.uploadLogo(this.file).toPromise().then(res =>{
+          objImage = res;
+          this.formRegister.controls.imageUrl.setValue(objImage.body.id);
+        })
+      }
+      console.log(objImage);
       this.accService.createAcc(this.formRegister.value).subscribe(res=>{
         this.commonService.getAlertSuccess("Đăng ký thành công");
       },( error:HttpErrorResponse) =>{
@@ -160,6 +180,10 @@ export class LoginComponent implements OnInit {
         ? t.attr("type", "text")
         : t.attr("type", "password");
     });
+  }
+
+  onUpload(event: any){
+    this.file = event.currentFiles[0];
   }
 
 }
