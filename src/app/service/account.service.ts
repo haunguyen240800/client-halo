@@ -42,6 +42,10 @@ export class AccountService {
     return this.http.get<any>(this.apiUrl+"users");
   }
 
+  search(request: any):Observable<any>{
+    return this.http.get<any>(this.apiUrl+"users/search?role="+request.role+"&username="+request.name);
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(error);
   }

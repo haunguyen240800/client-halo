@@ -28,8 +28,11 @@ export class HeaderComponent implements OnInit {
 
   getAlert(){
     let status = 1;
-    this.alertService.getAlert(this.accId, status).toPromise().then(res=>{
-      this.alerts =res;
+    this.alertService.alertResponse$.subscribe(res=>{
+      this.alertService.getAlert(this.accId, status).toPromise().then(res=>{
+        this.alerts =res;
+      })
     })
+    
   }
 }

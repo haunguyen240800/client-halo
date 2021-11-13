@@ -175,7 +175,21 @@
                                 <div class="col-lg-12">
                                     <div class="input-box">
                                         <label class="label-text">Mục tiêu nghề nghiệp</label>
-                                        <div class="form-group mb-0">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="7" formControlName="targetDescription"></textarea>
+                                        </div>
+                                        <div *ngIf="getData.targetDescription.invalid &&(getData.targetDescription.dirty || getData.targetDescription.touched)">
+                                            <div *ngIf="getData.targetDescription.errors">
+                                                <div *ngIf="getData.targetDescription.errors.required">
+                                                    <span class="err">Mục tiêu nghề nghiệp còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="input-box">
+                                        <label class="label-text">Mục tiêu nghề nghiệp</label>
+                                        <div class="form-group">
+                                            <textarea formControlName="targetDescription" rows="7" style="width: 100%;"></textarea>
                                             <p-editor formControlName="targetDescription" [style]="{'height':'320px'}">
                                                 
                                             </p-editor>
@@ -187,9 +201,100 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div> -->
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <div class="input-box">
+                                        <label class="label-text">Tỉnh / Thành phố</label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="provinces" (onChange)="onChangeCity($event.value)" optionLabel="provinceName" formControlName="cityName" optionValue="provinceName" [filter]="true" filterBy="provinceName" name="provinceName" placeholder="Chọn thành phố">
+                                            </p-dropdown>
+                                        </div>
+                                        <div
+                                            *ngIf="getData.cityName.invalid &&
+                                                (getData.cityName.dirty || getData.cityName.touched)">
+                                            <div *ngIf="getData.cityName.errors">
+                                                <div *ngIf="getData.cityName.errors.required">
+                                                    <span class="err">Tỉnh / Thành phố còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                
+                                <div class="col-lg-6 column-lg-full">
+                                    <div class="input-box">
+                                        <label class="label-text">Quận / Huyện</label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="districts" (onChange)="onChangeDistrict($event.value)" optionLabel="districtName" optionValue="districtName" [filter]="true" filterBy="districtName" formControlName="districtName" name="districtName" placeholder="Chọn thành phố">
+                                            </p-dropdown>
+                                        </div>
+                                        <div
+                                            *ngIf="getData.districtName.invalid &&
+                                                (getData.districtName.dirty || getData.districtName.touched)">
+                                            <div *ngIf="getData.districtName.errors">
+                                                <div *ngIf="getData.districtName.errors.required">
+                                                    <span class="err">Quận / Huyện còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 column-lg-full">
+                                    <div class="input-box">
+                                        <label class="label-text">Phường / Xã </label>
+                                        <div class="form-group">
+                                            <p-dropdown [options]="wards"  optionLabel="wardName" optionValue="wardName" [filter]="true" formControlName="wardName" filterBy="wardName" name="wardName" placeholder="Chọn thành phố">
+                                            </p-dropdown>
+                                        </div>
+                                        <div
+                                            *ngIf="getData.wardName.invalid &&
+                                                (getData.wardName.dirty || getData.wardName.touched)">
+                                            <div *ngIf="getData.wardName.errors">
+                                                <div *ngIf="getData.wardName.errors.required">
+                                                    <span class="err">Phường / Xã còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="col-lg-6 column-lg-full">
+                                    <div class="input-box">
+                                        <label class="label-text">Địa chỉ chi tiết</label>
+                                        <div class="form-group">
+                                            <span class="la la-map-marker form-icon"></span>
+                                            <input class="form-control" type="text" formControlName="fullAddress" name="fullAddress" placeholder="Đại chỉ chi tiết">
+                                        </div>
+                                        <div
+                                            *ngIf="getData.fullAddress.invalid &&
+                                                (getData.fullAddress.dirty || getData.fullAddress.touched)">
+                                            <div *ngIf="getData.fullAddress.errors">
+                                                <div *ngIf="getData.fullAddress.errors.required">
+                                                    <span class="err">Địa chỉ chi tiết còn trống !</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-box">
+                                        <label class="label-text">Ảnh đại diện</label>
+                                        <div class="form-group">
+                                            <p-fileUpload name="demo[]" (uploadHandler)="onUpload($event)" [customUpload]="true" [showUploadButton]="false" chooseLabel="Chọn ảnh"
+                                            [showCancelButton]="false" [multiple]= "false" accept="image/*" [maxFileSize]="1000000" (onSelect)="onUpload($event)">
+                                                <ng-template pTemplate="content">
+                                                    <div *ngIf ="uploadedFiles.length == 0">
+                                                        <img src="{{linkImg}}{{resume.imageUrl}}" alt="" >
+                                                    </div>               
+                                                    <ul *ngIf="uploadedFiles.length">
+                                                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                                    </ul>
+                                                </ng-template>
+                                            </p-fileUpload>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div> 
                                 <!-- <div class="col-lg-4">
                                     <div class="input-box">
                                         <label class="label-text">Upload your photo <i class="la la-question tip ml-1" data-toggle="tooltip" data-placement="top" title="Max. file size: 10 MB"></i></label>
@@ -208,6 +313,13 @@
                 
                 <div class="btn-box mt-4">
                     <button type="button" (click)="onSubmit()" class="theme-btn border-0"><i class="la la-plus"></i> Lưu thông tin</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class=" margin-top-30px padding-top-20px padding-bottom-20px">
+    
+                    </div>
                 </div>
             </div>
         </div>

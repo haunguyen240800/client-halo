@@ -8,13 +8,19 @@ import { AuthService } from 'src/app/core/service/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  roles: any[] = [];
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.getRole();
   }
 
   logout(){
     this.authService.logout();
   }
 
+  getRole(){
+    this.roles = this.authService.getRoles();
+  }
 }

@@ -60,7 +60,7 @@ export class EducationComponent implements OnInit {
   async findResumeByAccId() {
     if (this.authService.isLoggedIn()) {
       await this.resumeService
-        .findByAccId(this.authService.getAccId())
+        .findByAccId2(this.authService.getAccId())
         .toPromise()
         .then((res) => {
           console.log(res);

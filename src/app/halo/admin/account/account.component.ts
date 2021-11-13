@@ -36,7 +36,10 @@ export class AccountComponent implements OnInit {
   }
 
   doSearch(){
-
+    this.accService.search(this.search).subscribe(res=>{
+      this.accounts = res;
+      this.accountPagi = this.accounts.slice(0,10);
+    })
   }
 
   remove(acc: any){
@@ -44,7 +47,9 @@ export class AccountComponent implements OnInit {
   }
 
   onChangePage(event: any){
-
+    let start = event.page * event.rows;
+    let end = (event.page * event.rows) + event.rows;
+    this.accountPagi = this.accounts.slice(start,end);
   }
 
 }

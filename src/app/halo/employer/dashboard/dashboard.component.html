@@ -7,7 +7,7 @@
                         <h2 class="sec__title line-height-45">Chào mừng, {{username}}!</h2>
                     </div>
                     <ul class="list-items d-flex align-items-center">
-                        <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="active__list-item"><a href="javascript:void(0)">Trang chủ</a></li>
                         <!-- <li class="active__list-item">Employers</li> -->
                         <li>Thống kê</li>
                     </ul>
@@ -15,46 +15,46 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-lg-6 column-lg-half responsive-column">
+            <div class="col-lg-4 column-lg-half responsive-column">
                 <div class="overview-item">
                     <div class="icon-box bg-1 mb-0 d-flex align-items-center">
                         <div class="icon-element flex-shrink-0">
                             <i class="la la-cloud-upload"></i>
                         </div>
                         <div class="info-content">
-                            <span class="info__count">11</span>
+                            <span class="info__count">{{jobs.length}}</span>
                             <h4 class="info__title font-size-16 mt-2">Công việc đã đăng</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 column-lg-half responsive-column">
+            <div class="col-lg-4 column-lg-half responsive-column">
                 <div class="overview-item">
                     <div class="icon-box bg-2 mb-0 d-flex align-items-center">
                         <div class="icon-element flex-shrink-0">
                             <i class="la la-file-text-o"></i>
                         </div>
                         <div class="info-content">
-                            <span class="info__count">121</span>
+                        <span class="info__count">{{candidates.length}}</span>
                             <h4 class="info__title font-size-16 mt-2">Ứng viên</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-3 column-lg-half responsive-column">
+            <div class="col-lg-4 column-lg-half responsive-column">
                 <div class="overview-item">
                     <div class="icon-box bg-3 mb-0 d-flex align-items-center">
                         <div class="icon-element flex-shrink-0">
                             <i class="la la-eye"></i>
                         </div>
                         <div class="info-content">
-                            <span class="info__count">504</span>
-                            <h4 class="info__title font-size-16 mt-2">This Month Views</h4>
+                            <span class="info__count">{{accounts.jobNumber}}</span>
+                            <h4 class="info__title font-size-16 mt-2">Số tin tuyển dụng còn lại</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 column-lg-half responsive-column">
+            <!-- <div class="col-lg-3 column-lg-half responsive-column">
                 <div class="overview-item">
                     <div class="icon-box bg-4 mb-0 d-flex align-items-center">
                         <div class="icon-element flex-shrink-0">
@@ -174,7 +174,7 @@
             </div> -->
         </div>
         <div class="row margin-top-30px">
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-6">
                 <div class="chart-box">
                     <div class="chart-headline margin-bottom-40px">
                         <h3 class="widget-title font-size-16 pb-0"><i class="font-size-20 la la-chart-line mr-1"></i>Thống kê công việc</h3>
@@ -189,7 +189,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col-lg-6">
                 <div class="dashboard-shared note-dashboard">
                     <div class="mess-dropdown">

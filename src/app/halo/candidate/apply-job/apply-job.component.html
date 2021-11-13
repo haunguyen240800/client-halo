@@ -7,8 +7,8 @@
                         <h2 class="sec__title">Công việc đã ứng tuyển</h2>
                     </div>
                     <ul class="list-items d-flex align-items-center">
-                        <li class="active__list-item"><a href="index.html">Trang chủ</a></li>
-                        <li class="active__list-item"><a href="index.html">Thống kê</a></li>
+                        <li class="active__list-item"><a href="/">Trang chủ</a></li>
+                        <!-- <li class="active__list-item"><a href="index.html">Thống kê</a></li> -->
                         <li>Công việc đã ứng tuyển</li>
                     </ul>
                 </div>
@@ -53,13 +53,17 @@
                                                     </div>
                                                 </td>
                                                 <td>{{job.applyDate | date: 'dd-MM-yyyy'}}</td>
-                                                <td></td>
+                                                <td>
+                                                    <span *ngIf= "job.status == 'PENDING'" class="badge badge-primary p-1 ng-star-inserted" style="font-size: 11px;"> Đang chờ duyệt</span>
+                                                    <span *ngIf= "job.status == 'REJECTED'" class="badge badge-danger p-1 ng-star-inserted" style="font-size: 11px;"> Đã từ chối</span>
+                                                    <span *ngIf= "job.status == 'AGREE'" class="badge badge-success p-1 ng-star-inserted" style="font-size: 11px;"> Đã đồng ý</span>
+                                                </td>
                                                 <td class="text-center">
                                                     <div class="manage-candidate-wrap">
                                                         <div class="bread-action pt-0">
                                                             <ul class="info-list">
                                                                 <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerJob(job.id)"><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="View"></i></a></li>
-                                                                <li class="d-inline-block"><a href="javascript:void(0)" (click)="removeJobApply(job.id)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i></a>
+                                                                <li class="d-inline-block"><a href="javascript:void(0)" (click)="removeJobApply(job)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -93,3 +97,5 @@
         </div>
     </div>
 </div>
+
+<p-toast position="top-right"></p-toast>

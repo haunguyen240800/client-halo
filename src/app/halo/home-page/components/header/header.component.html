@@ -59,7 +59,7 @@
                                                     <div class="mess__body">
                                                         <ul class="list-items" *ngIf="roles[0].name == 'ROLE_CANDIDATE'">
                                                             <li class="mb-0">
-                                                                <a href="can/dashboard" class="d-block">
+                                                                <a href="can/apply-job" class="d-block">
                                                                     <i class="la la-user"></i> Trang quản trị
                                                                 </a>
                                                             </li>
@@ -75,16 +75,16 @@
                                                                     <i class="la la-user"></i> Trang quản trị
                                                                 </a>
                                                             </li>
-                                                            <li class="mb-0">
+                                                            <!-- <li class="mb-0">
                                                                 <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-plus"></i> Đăng tin tuyển dụng
                                                                 </a>
-                                                            </li>
-                                                            <li class="mb-0">
+                                                            </li> -->
+                                                            <!-- <li class="mb-0">
                                                                 <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-users"></i> Quản lý ứng viên
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li class="mb-0">
                                                                 <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-power-off"></i> Đăng xuất
@@ -124,12 +124,10 @@
                         <div class="logo-right-content" *ngIf="!isLogin">
                             <ul class="author-access-list">
                                 <li *ngIf="!username">
-                                    <a href="javascript:void()" (click)="routerLogin()">Đăng nhập</a>
-                                    <span class="or-text">/</span>
-                                    <a routerLink="register">Đăng ký</a>
+                                    <a href="javascript:void()" (click) = "routerLogin()">Đăng nhập</a>
                                 </li>
                                 <li>
-                                    <a href="employer-dashboard-post-job.html" class="theme-btn">
+                                    <a href="javascript:void()" (click) = "onClickPostJob()" class="theme-btn">
                                         <span class="la la-plus"></span>
                                         Đăng tin
                                     </a>

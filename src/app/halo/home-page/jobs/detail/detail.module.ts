@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ToastModule} from 'primeng/toast';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
@@ -11,7 +12,8 @@ import { DetailComponent } from './detail.component';
   ],
   imports: [
     CommonModule,
-    DetailRoutingModule
+    DetailRoutingModule,
+    ToastModule
   ]
 })
 export class DetailModule { }

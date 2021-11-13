@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DropdownModule} from 'primeng/dropdown';
 import {EditorModule} from 'primeng/editor';
+import {FileUploadModule} from 'primeng/fileupload';
 
 import { MyResumeRoutingModule } from './my-resume-routing.module';
 import { MyResumeComponent } from './my-resume.component';
@@ -32,7 +33,8 @@ import {SliderModule} from 'primeng/slider';
     EditorModule,
     ShareModule,
     DialogModule,
-    SliderModule
+    SliderModule,
+    FileUploadModule
   ]
 })
 export class MyResumeModule { }

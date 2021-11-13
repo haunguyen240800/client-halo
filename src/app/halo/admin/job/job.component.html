@@ -64,68 +64,59 @@
                   </div>
                   <div class="billing-content pb-0">
                       <div class="manage-job-wrap">
-                          <!-- <div class="manage-job-header mt-3 mb-5">
-                              <div class="manage-job-count">
-                                  <span class="font-weight-medium color-text-2 mr-1">12</span>
-                                  <span class="font-weight-medium">job(s) Posted</span>
-                              </div>
-                              <div class="manage-job-count">
-                                  <span class="font-weight-medium color-text-2 mr-1">8</span>
-                                  <span class="font-weight-medium">Application(s)</span>
-                              </div>
-                              <div class="manage-job-count">
-                                  <span class="font-weight-medium color-text-2 mr-1">6</span>
-                                  <span class="font-weight-medium">Active Job(s)</span>
-                              </div>
-                          </div> -->
-                          <div class="table-responsive">
-                              <table class="table">
-                                  <thead>
-                                      <tr>
-                                          <th>Tên công việc</th>
-                                          <th>Ngày đăng</th>
-                                          <th>Ngày hết hạn</th>
-                                          <th>Trạng thái</th>
-                                          <th class="text-center">Action</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr *ngFor="let job of jobPagi">
-                                          <td>
-                                              <div class="manage-candidate-wrap">
-                                                  <h2 class="widget-title pb-1"><a href="javascript:void(0)" class="color-text-2">{{job.jobTitle}}</a></h2>
-                                              </div>
-                                          </td>
-                                          <td>{{job.createDate | date: "dd-MM-yyy"}}</td>
-                                          <td>{{job.deadline | date: "dd-MM-yyy"}}</td>
-                                          <td>
-                                            <span *ngIf="job.status == 'PENDING' " class="badge badge-primary p-1">{{job.status}}</span>
-                                            <span *ngIf="job.status == 'ACTIVE' " class="badge badge-success p-1">{{job.status}}</span>
-                                            <span *ngIf="job.status == 'DELETED' " class="badge badge-danger p-1">{{job.status}}</span>
-                                            <span *ngIf="job.status == 'EXPIRE' " class="badge badge-secondary p-1">{{job.status}}</span>
-                                          </td>
-                                          <td class="text-center">
-                                              <div class="manage-candidate-wrap">
-                                                  <div class="bread-action pt-0">
-                                                      <ul class="info-list">
-                                                          <!-- <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerDetail(job.id)" ><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Chi tiết công việc"></i></a></li> -->
-                                                          <li class="d-inline-block"><a href="javascript:void(0)" (click)="approve(job)"><i class="la la-edit" data-toggle="tooltip" data-placement="top" title="Duyệt tin"></i></a></li>
-                                                          <li class="d-inline-block"><a href="javascript:void(0)" (click)="remove(job)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Từ chối tin"></i></a></li>
-                                                      </ul>
-                                                  </div>
-                                              </div>
-                                          </td>
-                                      </tr>
-
-                                  </tbody>
-                              </table>
-                          </div>
+                          <ng-container *ngIf="jobs.length > 0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên công việc</th>
+                                            <th>Ngày đăng</th>
+                                            <th>Ngày hết hạn</th>
+                                            <th>Trạng thái</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let job of jobPagi">
+                                            <td>
+                                                <div class="manage-candidate-wrap">
+                                                    <h2 class="widget-title pb-1"><a href="javascript:void(0)" class="color-text-2">{{job.jobTitle}}</a></h2>
+                                                </div>
+                                            </td>
+                                            <td>{{job.createDate | date: "dd-MM-yyy"}}</td>
+                                            <td>{{job.deadline | date: "dd-MM-yyy"}}</td>
+                                            <td>
+                                              <span *ngIf="job.status == 'PENDING' " class="badge badge-primary p-1">{{job.status}}</span>
+                                              <span *ngIf="job.status == 'ACTIVE' " class="badge badge-success p-1">{{job.status}}</span>
+                                              <span *ngIf="job.status == 'DELETED' " class="badge badge-danger p-1">{{job.status}}</span>
+                                              <span *ngIf="job.status == 'EXPIRE' " class="badge badge-secondary p-1">{{job.status}}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="manage-candidate-wrap">
+                                                    <div class="bread-action pt-0">
+                                                        <ul class="info-list">
+                                                            <!-- <li class="d-inline-block"><a href="javascript:void(0)" (click)="routerDetail(job.id)" ><i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Chi tiết công việc"></i></a></li> -->
+                                                            <li class="d-inline-block"><a href="javascript:void(0)" (click)="approve(job)"><i class="la la-edit" data-toggle="tooltip" data-placement="top" title="Duyệt tin"></i></a></li>
+                                                            <li class="d-inline-block"><a href="javascript:void(0)" (click)="remove(job)"><i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Từ chối tin"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+  
+                                    </tbody>
+                                </table>
+                            </div>
+                          </ng-container>
+                          <ng-container *ngIf="jobs.length == 0">
+                              <p>Không có công việc nào</p>
+                          </ng-container>
                       </div>
                   </div>
               </div>
           </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="jobs.length > 0">
           <div class="col-lg-12">
               <app-pagination [rows]="10" [totalRecords]="jobs.length" (onChange)="onChangePage($event)"></app-pagination>
           </div>

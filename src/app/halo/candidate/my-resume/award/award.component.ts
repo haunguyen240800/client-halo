@@ -51,7 +51,7 @@ export class AwardComponent implements OnInit {
   async findResumeByAccId() {
     if (this.authService.isLoggedIn()) {
       await this.resumeService
-        .findByAccId(this.authService.getAccId())
+        .findByAccId2(this.authService.getAccId())
         .toPromise()
         .then((res) => {
           if (res != null) {

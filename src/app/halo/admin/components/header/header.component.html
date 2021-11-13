@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="menu-full-width">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images//logo.png" alt="logo"></a>
+                            <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
                         </div>
 
                         <div class="logo-right-content">
@@ -15,59 +15,25 @@
                                         <div class="dropdown">
                                             <button class="notification-btn dropdown-toggle" type="button" id="notificationDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la la-bell"></i>
-                                                <span class="quantity">5</span>
+                                                <span class="quantity">{{alerts.length}}</span>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="notificationDropdownMenu">
                                                 <div class="mess-dropdown">
                                                     <div class="mess__title">
                                                         <h4 class="widget-title d-flex align-items-center justify-content-between">Thông báo<a href="#" class="font-size-12 color-text-3">Đánh dấu tất cả đã đọc</a></h4>
-                                                        <p class="font-size-12 font-weight-medium">Bạn có 5 thông báo</p>
+                                                        <p class="font-size-12 font-weight-medium">Bạn có {{alerts.length}} thông báo mới</p>
                                                     </div>
                                                     <div class="mess__body">
-                                                        <a href="#" class="d-block">
+                                                        <a href="#" class="d-block" *ngFor="let a of alerts">
                                                             <div class="mess__item">
                                                                 <div class="icon-element">
                                                                     <i class="la la-bolt"></i>
                                                                 </div>
                                                                 <div class="content">
-                                                                    <p class="text">Hồ sơ Cv của bạn đã được cập nhật!</p>
-                                                                    <span class="time">5 giờ trước</span>
+                                                                    <p class="text">{{a.content}}</p>
+                                                                    <span class="time">{{a.createDate}}</span>
                                                                 </div>
                                                             </div><!-- end mess__item -->
-                                                        </a>
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-lock"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">Mật khẩu của bạn đã được thay đổi</p>
-                                                                    <span class="time">2 ngày trước</span>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-check-circle"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">Bạn đã ứng tuyển vào 1 công việc <span class="color-text">Front-end Developer</span></p>
-                                                                    <span class="time">1 ngày trước</span>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-
-                                                        <a href="#" class="d-block">
-                                                            <div class="mess__item">
-                                                                <div class="icon-element">
-                                                                    <i class="la la-download"></i>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <p class="text">1 nhà tuyển dụng đã đồng ý hồ sơ của bạn</p>
-                                                                    <span class="time">1 ngày trước</span>
-                                                                </div>
-                                                            </div>
                                                         </a>
                                                     </div>
                                                     <div class="mess__item border-bottom-0 text-center">
@@ -82,19 +48,19 @@
                                     <div class="notification-item">
                                         <div class="dropdown">
                                             <button class="notification-btn dot-status online-status dropdown-toggle" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img src="assets/images//small-team1.jpg" alt="John-doe">
+                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="John-doe">
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="userDropdownMenu">
                                                 <div class="mess-dropdown">
                                                     <div class="mess__title d-flex align-items-center">
                                                         <div class="image dot-status online-status">
                                                             <a href="#">
-                                                                <img src="assets/images//small-team1.jpg" alt="John Doe">
+                                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="">
                                                             </a>
                                                         </div>
                                                         <div class="content">
                                                             <h4 class="widget-title font-size-16">
-                                                                <a href="#">Nguyễn Văn Hậu</a>
+                                                                <a href="javascript:void(0)">Nguyễn Văn Hậu</a>
                                                             </h4>
                                                             <span class="email">nguyevan@gmail.com</span>
                                                         </div>
@@ -102,35 +68,15 @@
                                                     <div class="mess__body">
                                                         <ul class="list-items">
                                                             <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                <a href="javascript:void(0)" class="d-block">
                                                                     <i class="la la-user"></i> Tài khoản
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard-bookmark.html" class="d-block">
-                                                                    <i class="la la-bookmark"></i> Công việc đã lưu
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-add-resume.html" class="d-block">
-                                                                    <i class="la la-plus"></i> Thêm Cv
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-question"></i> Trợ giúp
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-gear"></i> Cài đặt
                                                                 </a>
                                                             </li>
                                                             <li class="mb-0">
                                                                 <div class="section-block mt-2 mb-2"></div>
                                                             </li>
                                                             <li class="mb-0">
-                                                                <a href="index.html" class="d-block">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-power-off"></i> Đăng xuất
                                                                 </a>
                                                             </li>

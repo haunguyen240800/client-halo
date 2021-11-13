@@ -37,30 +37,22 @@
                 </li> -->
 
 
-                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                <!-- <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
                     <a routerLink="contact"><i class="la la-envelope icon-element"></i> Liên hệ</a>
-                </li>
-                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
-                    <a routerLink="alert"><i class="la la-bell-o icon-element"></i>Thông báo</a>
-                </li>
+                </li> -->
 
-                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}" *ngIf="roles[0].name == 'ROLE_ADMIN' ">
                   <a routerLink="account">
                     <i class="la la-users icon-element"></i>Quản lý tài khoản </a>
                   <!-- <ul class="dropdown-menu-item">
                     <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
-                      <a routerLink="account">Nhà tuyển dụng</a>
-                    </li>
-                    <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
-                      <a routerLink="account">Ứng viên</a>
-                    </li>
-                    <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
-                      <a routerLink="account">Nhân viên</a>
-                    </li>
-                    <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
                       <a routerLink="account/change-password">Thêm tài khoản</a>
                     </li>
                   </ul> -->
+                </li>
+
+                <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="alert"><i class="la la-bell-o icon-element"></i>Thông báo</a>
                 </li>
 
                 <li routerLinkActive="page-active" [routerLinkActiveOptions]="{exact: true}">

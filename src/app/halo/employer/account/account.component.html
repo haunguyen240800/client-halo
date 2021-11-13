@@ -1,1 +1,148 @@
-<p>account works!</p>
+<div class="dashboard-content-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-content d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="section-heading">
+                        <h2 class="sec__title">Thông tin tài khoản</h2>
+                    </div>
+                    <ul class="list-items d-flex align-items-center">
+                        <li class="active__list-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                        <li class="active__list-item">Thông kê</li>
+                        <li>Tài khoản</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="user-form-action">
+                    <div class="billing-form-item">
+                        <div class="billing-title-wrap">
+                            <h3 class="widget-title pb-0">Thông tin tài khoản</h3>
+                            <div class="title-shape margin-top-10px"></div>
+                        </div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <form [formGroup]="infoAcc" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Tên tài khoản</label>
+                                                <div class="form-group">
+                                                    <span class="la la-user form-icon"></span>
+                                                    <input class="form-control" type="text" placeholder="Tên tài khoản" formControlName="username">
+                                                </div>
+                                                <div *ngIf=" getInfoAcc.username.invalid && (getInfoAcc.username.dirty || getInfoAcc.username.touched)">
+                                                    <div *ngIf="getInfoAcc.username.errors">
+                                                        <div *ngIf="getInfoAcc.username.errors.required">
+                                                            <span class="err">Tên tài khoản còn trống !</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Số điện thoại</label>
+                                                <div class="form-group">
+                                                    <span class="la la-phone form-icon"></span>
+                                                    <input class="form-control" type="text" placeholder="Số điện thoại..." formControlName="telephone">
+                                                </div>
+                                                <div *ngIf=" getInfoAcc.telephone.invalid && (getInfoAcc.telephone.dirty || getInfoAcc.telephone.touched)">
+                                                    <div *ngIf="getInfoAcc.telephone.errors">
+                                                        <div *ngIf="getInfoAcc.telephone.errors.required">
+                                                            <span class="err">Số điện thoại còn trống !</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Địa chỉ email</label>
+                                                <div class="form-group">
+                                                    <span class="la la-envelope form-icon"></span>
+                                                    <input class="form-control" type="text" placeholder="Địa chỉ email" formControlName="email">
+                                                </div>
+                                                <div *ngIf=" getInfoAcc.email.invalid && (getInfoAcc.email.dirty || getInfoAcc.email.touched)">
+                                                    <div *ngIf="getInfoAcc.email.errors">
+                                                        <div *ngIf="getInfoAcc.email.errors.required">
+                                                            <span class="err">Email còn trống !</span>
+                                                        </div>
+                                                        <div *ngIf="getInfoAcc.email.errors.email">
+                                                            <span class="err">Email không đúng định dạng !</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Ngày sinh</label>
+                                                <div class="form-group">
+                                                    <i class="la la-calendar form-icon"></i>
+                                                    <input class="form-control" type="date" formControlName="birthday">
+                                                </div>
+                                                <div *ngIf=" getInfoAcc.birthday.invalid && (getInfoAcc.birthday.dirty || getInfoAcc.birthday.touched)">
+                                                    <div *ngIf="getInfoAcc.birthday.errors">
+                                                        <div *ngIf="getInfoAcc.birthday.errors.required">
+                                                            <span class="err">Ngày sinh còn trống còn trống !</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="input-box">
+                                                <label class="label-text">Giới tính</label>
+                                                <div class="custom-label">
+                                                    <div class="form-group mb-0 d-flex align-items-center">
+                                                        <div class="label-wrap mr-3">
+                                                            <label class="label-container">
+                                                                <input type="radio" value="Nam" formControlName="gender">
+                                                                <span class="label-mark"></span>
+                                                                Nam
+                                                            </label>
+                                                        </div>
+                                                        <div class="label-wrap">
+                                                            <label class="label-container">
+                                                                <input type="radio"  value="Nữ" formControlName="gender">
+                                                                <span class="label-mark"></span>
+                                                                Nữ
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf=" getInfoAcc.gender.invalid && (getInfoAcc.gender.dirty || getInfoAcc.gender.touched)">
+                                                    <div *ngIf="getInfoAcc.gender.errors">
+                                                        <div *ngIf="getInfoAcc.gender.errors.required">
+                                                            <span class="err">Giới tính còn trống !</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="btn-box">
+                    <button class="theme-btn border-0" type="button" (click)="onSubmit()">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="margin-top-30px padding-top-20px padding-bottom-20px">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

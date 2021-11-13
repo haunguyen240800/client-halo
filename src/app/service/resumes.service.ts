@@ -27,4 +27,8 @@ export class ResumesService {
   findByAccId(accId: any): Observable<Resumes>{
     return this.http.get<Resumes>(this.apiUrl+"resumes/accId?accId="+accId);
   }
+
+  findByAccId2(accId: any): Observable<Resumes>{
+    return this.http.get<Resumes>(this.apiUrl+"resumes/accId2?accId="+accId);
+  }
 }

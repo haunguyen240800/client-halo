@@ -130,7 +130,7 @@
                                     <div class="notification-item">
                                         <div class="dropdown">
                                             <button class="notification-btn dot-status online-status dropdown-toggle" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img src="assets/images//small-team1.jpg" alt="John-doe">
+                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="">
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="userDropdownMenu">
                                                 <div class="mess-dropdown">
@@ -142,43 +142,24 @@
                                                         </div>
                                                         <div class="content">
                                                             <h4 class="widget-title font-size-16">
-                                                                <a href="#">Nguyễn Văn Hậu</a>
+                                                                <a href="javascript:void(0)">{{acc.username}}</a>
                                                             </h4>
-                                                            <span class="email">nguyevan@gmail.com</span>
+                                                            <span class="email">{{acc.email}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="mess__body">
                                                         <ul class="list-items">
                                                             <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
+                                                                <a routerLink="/emp/account" class="d-block">
                                                                     <i class="la la-user"></i> Tài khoản
                                                                 </a>
                                                             </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard-bookmark.html" class="d-block">
-                                                                    <i class="la la-bookmark"></i> Công việc đã lưu
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-add-resume.html" class="d-block">
-                                                                    <i class="la la-plus"></i> Thêm Cv
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-question"></i> Trợ giúp
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-gear"></i> Cài đặt
-                                                                </a>
-                                                            </li>
+
                                                             <li class="mb-0">
                                                                 <div class="section-block mt-2 mb-2"></div>
                                                             </li>
                                                             <li class="mb-0">
-                                                                <a href="index.html" class="d-block">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-power-off"></i> Đăng xuất
                                                                 </a>
                                                             </li>

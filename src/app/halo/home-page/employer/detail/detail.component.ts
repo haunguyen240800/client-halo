@@ -106,6 +106,7 @@ export class DetailComponent implements OnInit {
     if (this.review.content.length > 0 && this.review.rating){
       this.reviewService.createReview(this.review).subscribe(res=>{
         this.display = false;
+        this.init();
         this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Nhận xét thành công'});
       })
     }

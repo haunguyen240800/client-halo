@@ -1,10 +1,10 @@
+import { MustMatch } from 'src/app/model/validate/confirmed-validator';
+import { CommonService } from './../../../service/common.service';
 import { AccountService } from './../../../service/account.service';
 import { LoginService } from './../../../service/login.service';
 import { AuthService } from './../../../core/service/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/service/common.service';
-import { MustMatch } from 'src/app/model/validate/confirmed-validator';
 
 @Component({
   selector: 'app-change-password',

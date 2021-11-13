@@ -21,7 +21,6 @@ export class ViewCanComponent implements OnInit {
   ngOnInit(): void {
     this.resume.objAdd = {};
     let id = this.activatedRoute.snapshot.params.id;
-    console.log(id);
     if (id){
       this.getResume(id);
     }else{
@@ -30,7 +29,8 @@ export class ViewCanComponent implements OnInit {
   }
 
   getResume(id :any){
-    this.resumeService.findByAccId(id).subscribe(res=>{
+   
+    this.resumeService.findById(id).subscribe(res=>{
       this.resume =res;
       console.log(res);
     })

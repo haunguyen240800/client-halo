@@ -1,4 +1,6 @@
+import { HistoryService } from './../../../service/history.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-transactions',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
 
-  constructor() { }
+  hisList: any[] = [];
+  constructor(private historyService: HistoryService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
+  getAll(){
+    this.historyService.getByAcc(this.authService.getAccId()).subscribe(res=>{
+      this.hisList = res;
+      console.log(res);
+    })
+  }
 }

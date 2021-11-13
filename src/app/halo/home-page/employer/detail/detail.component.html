@@ -116,12 +116,14 @@
                               </div>
                           </div>
                       </div>
-                      <div class="btn-box" style="text-align: center;" *ngIf="length < reviews.length">
-                        <a href="javascript:void(0)" (click)="loadReview()" class="theme-btn">Xem thêm</a>
-                      </div>
-                      <div class="btn-box" style="text-align: center;" *ngIf="length >= reviews.length">
-                        <a href="javascript:void(0)" (click)="refreshReview()" class="theme-btn">Ẩn bớt</a>
-                      </div>
+                      <ng-container *ngIf="reviews.length > 4">
+                        <div class="btn-box" style="text-align: center;" *ngIf="length < reviews.length">
+                            <a href="javascript:void(0)" (click)="loadReview()" class="theme-btn">Xem thêm</a>
+                          </div>
+                          <div class="btn-box" style="text-align: center;" *ngIf="length > reviews.length">
+                            <a href="javascript:void(0)" (click)="refreshReview()" class="theme-btn">Ẩn bớt</a>
+                          </div>
+                      </ng-container>
                     </div>
 
                     <div class="section-block mt-5"></div>

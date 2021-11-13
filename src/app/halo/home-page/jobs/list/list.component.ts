@@ -1,3 +1,5 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { JobPostActivityService } from './../../../../service/job-post-activity.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/core/service/auth.service';
@@ -13,13 +15,16 @@ import { PositionService } from 'src/app/service/position.service';
 import { SavedJobService } from 'src/app/service/saved-job.service';
 import { environment } from 'src/environments/environment';
 import { sortBy } from 'sort-by-typescript';
+import { MessageService } from 'primeng/api';
+import { AlertService } from 'src/app/service/alert.service';
 
 declare var $:any;
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
+  providers: [MessageService]
 })
 export class ListComponent implements OnInit {
 
@@ -42,14 +47,15 @@ export class ListComponent implements OnInit {
     positionId: null,
   }
   constructor(private jobPostService: JobPostService,
-    private form: FormBuilder,
     private authService: AuthService,
-    private savedJobService: SavedJobService,
     private commonService: CommonService,
     private jobTypeService: JobTypeService,
     private cateService: CategoryService,
     private addressService: AddressService,
-    private positionService: PositionService) { }
+    private positionService: PositionService,
+    private jobPostActivityService: JobPostActivityService,
+    private messageService: MessageService,
+    private alertService: AlertService) { }
 
   async ngOnInit(): Promise<void> {
     if (this.commonService.dataSearch){
@@ -122,8 +128,50 @@ export class ListComponent implements OnInit {
     })
   }
 
+  // applyJob(jobId: any,accId: any){
+  //   this.commonService.applyJob(jobId,accId);
+  // }
   applyJob(jobId: any,accId: any){
-    this.commonService.applyJob(jobId,accId);
+    if (this.authService.isLoggedIn()){
+      let decodeToken = this.authService.decodeToken();
+      if (decodeToken.roles[0].name == 'ROLE_CANDIDATE'){
+        let accIdCan = this.authService.getAccId();
+        let data = {
+          accId: accIdCan,
+          jobPostId: jobId
+        }
+        this.jobPostActivityService.createJobApply(data).subscribe(res=>{
+          // this.getAlertSuccess("Ứng tuyển thành công !");
+          this.messageService.add({severity:'success', summary:'Thành công', detail:'Ứng tuyển thành công !'});
+          let username = decodeToken.sub;
+          this.createAlert(accId, username +" đã ứng tuyển vào công việc của bạn", "Ứng viên");
+        },(error:HttpErrorResponse) =>{
+          // this.getAlertError("Công việc đã ứng tuyển !");
+          this.messageService.add({severity:'warn', summary:'Công việc đã ứng tuyển !', detail:''});
+        });
+      }else{
+        // this.getAlertError("Vui lòng đăng nhập vào tài khoản ứng viên !");
+        this.messageService.add({severity:'info', summary:'Vui lòng đăng nhập vào tài khoản ứng viên !', detail:''});
+        
+      }
+
+    }else{
+      // this.getAlertError("Vui lòng đăng nhập !");
+      this.messageService.add({severity:'info', summary:'Vui lòng đăng nhập', detail:''});
+      
+    }
+  }
+
+  async createAlert(accId: any, content: any, title?: any){
+    let alert = {
+      accId: accId,
+      content: content,
+      status: true,
+      title: title
+    }
+    await this.alertService.create(alert).toPromise().then(res=>{
+
+    })
   }
 
   findAllCate(){

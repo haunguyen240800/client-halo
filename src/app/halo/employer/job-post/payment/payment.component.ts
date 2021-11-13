@@ -1,3 +1,4 @@
+import { CommonService } from './../../../../service/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICreateOrderRequest,IPayPalConfig } from 'ngx-paypal';
@@ -8,6 +9,7 @@ import { JobPostService } from 'src/app/service/job-post.service';
 import { PackageService } from 'src/app/service/package.service';
 import { DatePipe } from '@angular/common';
 import { PackageActiveService } from 'src/app/service/package-active.service';
+import { AlertService } from 'src/app/service/alert.service';
 // import { PayPalConfig } from 'ngx-paypal';
 
 
@@ -45,7 +47,9 @@ export class PaymentComponent implements OnInit {
     private messageService: MessageService,
     private historyService: HistoryService,
     private datePipe: DatePipe,
-    private packageActiveService: PackageActiveService) { }
+    private packageActiveService: PackageActiveService,
+    private alertService: AlertService,
+    private commonService: CommonService) { }
 
   ngOnInit(): void {
     let data: any = localStorage.getItem('jobPost');
@@ -83,10 +87,23 @@ export class PaymentComponent implements OnInit {
       if (this.checked){
         this.jobPostService.createJob(this.jobPost).subscribe(res=>{
           localStorage.removeItem("jobPost");
+          this.createAlert("Nhà tuyển dụng đã đăng 1 công việc mới", "Nhà tuyển dụng");
           this.router.navigateByUrl("emp/job-post/confitmation");
         })
       }
     }
+  }
+
+  async createAlert(content: any, title?: any){
+    let alert = {
+      accId: "AD",
+      content: content,
+      status: true,
+      title: title
+    }
+    await this.alertService.create(alert).toPromise().then(res=>{
+
+    })
   }
 
   saveHistory(){
@@ -96,7 +113,7 @@ export class PaymentComponent implements OnInit {
       totalMoney: this.package.price,
       packageId: this.package.id
     }
-    console.log(his);
+    
     this.historyService.save(his).subscribe(res=>{
 
     });
@@ -158,6 +175,7 @@ export class PaymentComponent implements OnInit {
 
   }
 
+
   savePackageActive(){
     let accId = this.authService.getAccId();
     let date = new Date();
@@ -176,4 +194,6 @@ export class PaymentComponent implements OnInit {
       this.saveHistory();
     });
   }
+
+  
 }

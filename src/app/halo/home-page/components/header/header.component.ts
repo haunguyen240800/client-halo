@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigateByUrl("employer/manage/post-job");
       }
     }else{
-
+      this.commonService.getAlertError("Vui lòng đăng nhập vào tài khoản nhà tuyển dụng")
     }
   }
 

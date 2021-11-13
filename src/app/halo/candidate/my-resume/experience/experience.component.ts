@@ -74,7 +74,7 @@ export class ExperienceComponent implements OnInit {
   async findResumeByAccId() {
     if (this.authService.isLoggedIn()) {
       await this.resumeService
-        .findByAccId(this.authService.getAccId())
+        .findByAccId2(this.authService.getAccId())
         .toPromise()
         .then((res) => {
           console.log(res);
@@ -101,7 +101,6 @@ export class ExperienceComponent implements OnInit {
   findExpByResume(){
     this.expService.findExpByResume(this.resume.id).subscribe(res=>{
       this.experiences = res;
-      console.log(res);
     })
   }
 

@@ -1,3 +1,4 @@
+import { AccountService } from './../../../service/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { JobPostService } from 'src/app/service/job-post.service';
@@ -20,37 +21,42 @@ export class DashboardComponent implements OnInit {
   cActive = 0;
   cPending = 0;
   cExpiry = 0;
+  accList: any[] = [];
+  countCan: number = 0;
+  countEmp: number = 0;
 
   constructor(private jobService: JobPostService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private accService: AccountService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.getJob();
+    // await this.getJob();
+    this.getUsername();
     this.init();
+    this.getAllAcc();
 
   }
 
-  getJob(){
-    let accId = this.authService.getAccId();
-    let cActive = 0;
-    let cPending = 0;
-    let cExpiry = 0;
-    this.jobService.getJobPostByAccount(accId).toPromise().then(res=>{
-      this.jobs = res;
-      this.jobs.forEach(item => {
-        if (item.status == 'ACTIVE'){
-          cActive = cActive + 1;
+  getUsername(){
+    let decodeToken: any = this.authService.decodeToken();
+    this.username = decodeToken.sub;
+  }
+
+  getAllAcc(){
+    this.accService.getAll().toPromise().then(res=>{
+      this.accList = res;
+      let can = 0;
+      let emp = 0;
+      for(let i=0;i<this.accList.length;i++){
+        if (this.accList[i].roles[0].name == 'ROLE_CANDIDATE'){
+          can = can +1;
         }
-        if (item.status == 'PENDING'){
-          cPending = cPending + 1;
+        if (this.accList[i].roles[0].name == 'ROLE_EMPLOYER'){
+          emp = emp +1;
         }
-        if (item.status == 'EXPIRE'){
-          cExpiry = cExpiry + 1;
-        }
-      });
-      this.cActive = cActive;
-      this.cPending = cPending;
-      this.cExpiry = cExpiry;
+      }
+      this.countCan = can;
+      this.countEmp = emp;
     })
   }
 

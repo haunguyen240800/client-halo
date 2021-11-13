@@ -1,3 +1,4 @@
+import { AccountService } from './../../../../service/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { AlertService } from 'src/app/service/alert.service';
@@ -13,18 +14,28 @@ export class HeaderComponent implements OnInit {
 
   accId: any;
   alerts: any[]=[];
+  acc: any = {};
 
   constructor(
     private jobPostService: JobPostService,
     private authService: AuthService,
     private commonService: CommonService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private accService: AccountService
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.accId = this.authService.getAccId();
     // await this.getJob();
     this.getAlert();
+    this.getAcc();
+  }
+
+  getAcc(){
+    this.accService.getAccount(this.authService.getAccId()).subscribe(res=>{
+      this.acc = res;
+      console.log(res);
+    })
   }
 
   // async getJob(){
@@ -55,5 +66,9 @@ export class HeaderComponent implements OnInit {
     this.alertService.getAlert(this.accId, status).toPromise().then(res=>{
       this.alerts =res;
     })
+  }
+
+  logout(){
+    this.authService.logout();
   }
 }

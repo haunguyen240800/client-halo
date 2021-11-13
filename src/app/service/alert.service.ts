@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class AlertService {
   apiUrl= environment.apiUrl;
+
+  public alertResponse$ = new BehaviorSubject<any>("");
+  alerts: any[] = [];
   constructor(private http: HttpClient) { }
 
   getAlert(accId: any,status?: any):Observable<any>{

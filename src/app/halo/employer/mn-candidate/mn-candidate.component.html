@@ -22,87 +22,92 @@
                         <div class="title-shape margin-top-10px"></div>
                     </div>
                     <div class="billing-content pb-0">
-                        <ng-container *ngFor="let can of candidates">
-                            <div class="manage-candidate-wrap d-flex align-items-center justify-content-between pb-4">
-                                <div class="bread-details d-flex">
-                                    <div class="bread-img flex-shrink-0">
-                                        <a href="candidate-details.html" class="d-block">
-                                            <img src="assets/images/small-team1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="manage-candidate-content">
-                                        <h2 class="widget-title pb-2">
-                                          <a routerLink="{{can.accId}}" class="color-text-2">{{can.objResume.fullname}}&ensp;
-                                            <span *ngIf= "can.status == 'PENDING'" class="badge badge-primary p-1 ng-star-inserted" style="font-size: 11px;"> Đang chờ duyệt</span>
-                                            <span *ngIf= "can.status == 'REJECTED'" class="badge badge-danger p-1 ng-star-inserted" style="font-size: 11px;"> Đã từ chối</span>
-                                            <span *ngIf= "can.status == 'AGREE'" class="badge badge-success p-1 ng-star-inserted" style="font-size: 11px;"> Đã đồng ý</span>
-                                          </a>
-                                        </h2>
-
-                                        <p class="font-size-15">
-                                            <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.objResume.email}}</a></span>
-
-                                        </p>
-                                        <p class="mt-1 font-size-15">
-                                            <span class="mr-2"><i class="la la-phone mr-1"></i>{{can.objResume.telephone}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="bread-details d-flex">
-                                    <div class="manage-candidate-content">
-                                        <h2 class="widget-title pb-2"><a href="javascript:void(0)" class="color-text-2">{{can.objJob.jobTitle}}</a></h2>
-                                        <p class="font-size-15">
-                                            <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="javascript:void(0)" class="color-text-3">Ngày đăng: {{can.objJob.createDate | date: 'dd/MM/yyyy'}}</a></span>
-
-                                        </p>
-                                        <p class="mt-1 font-size-15">
-                                            <span class="mr-2"><i class="la la-phone mr-1"></i>Hạn ứng tuyển: {{can.objJob.deadline | date: 'dd/MM/yyyy'}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="bread-details d-flex">
-                                    <div class="manage-candidate-content">
-                                        <h2 class="widget-title pb-2">Ngày ứng tuyển</h2>
-                                        <p class="font-size-15">
-                                            <span class="mr-2"><i class="las la-history mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.applyDate | date: 'dd/MM/yyyy'}}</a></span>
-
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="bread-action">
-                                    <ul class="info-list">
-                                        <li class="d-inline-block mb-0">
-                                            <a routerLink="{{can.objResume.id}}" >
-                                                <i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"></i>
+                        <ng-container *ngIf="candidates.length > 0">
+                            <ng-container *ngFor="let can of candidates">
+                                <div class="manage-candidate-wrap d-flex align-items-center justify-content-between pb-4">
+                                    <div class="bread-details d-flex">
+                                        <div class="bread-img flex-shrink-0">
+                                            <a href="candidate-details.html" class="d-block">
+                                                <img src="assets/images/small-team1.jpg" alt="">
                                             </a>
-                                        </li>
-                                        <li class="d-inline-block mb-0">
-                                            <a href="javascript:void(0)" (click)="opentFormContact(can.objResume.email,can.accId,can.jobId)">
-                                                <i class="la la-envelope-o" data-toggle="tooltip" data-placement="top" title="Gửi thông tin phỏng vấn"></i>
-                                            </a>
-                                        </li>
-                                        <li class="d-inline-block mb-0">
-                                            <a href="javascript:void(0)" (click)="remove(can.accId,can.jobId,can.status)">
-                                                <i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                        <div class="manage-candidate-content">
+                                            <h2 class="widget-title pb-2">
+                                              <a routerLink="{{can.accId}}" class="color-text-2">{{can.objResume.fullname}}&ensp;
+                                                <span *ngIf= "can.status == 'PENDING'" class="badge badge-primary p-1 ng-star-inserted" style="font-size: 11px;"> Đang chờ duyệt</span>
+                                                <span *ngIf= "can.status == 'REJECTED'" class="badge badge-danger p-1 ng-star-inserted" style="font-size: 11px;"> Đã từ chối</span>
+                                                <span *ngIf= "can.status == 'AGREE'" class="badge badge-success p-1 ng-star-inserted" style="font-size: 11px;"> Đã đồng ý</span>
+                                              </a>
+                                            </h2>
+    
+                                            <p class="font-size-15">
+                                                <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.objResume.email}}</a></span>
+    
+                                            </p>
+                                            <p class="mt-1 font-size-15">
+                                                <span class="mr-2"><i class="la la-phone mr-1"></i>{{can.objResume.telephone}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="bread-details d-flex">
+                                        <div class="manage-candidate-content">
+                                            <h2 class="widget-title pb-2"><a href="javascript:void(0)" class="color-text-2">{{can.objJob.jobTitle}}</a></h2>
+                                            <p class="font-size-15">
+                                                <span class="mr-2"><i class="la la-envelope-o mr-1"></i><a href="javascript:void(0)" class="color-text-3">Ngày đăng: {{can.objJob.createDate | date: 'dd/MM/yyyy'}}</a></span>
+    
+                                            </p>
+                                            <p class="mt-1 font-size-15">
+                                                <span class="mr-2"><i class="la la-phone mr-1"></i>Hạn ứng tuyển: {{can.objJob.deadline | date: 'dd/MM/yyyy'}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="bread-details d-flex">
+                                        <div class="manage-candidate-content">
+                                            <h2 class="widget-title pb-2">Ngày ứng tuyển</h2>
+                                            <p class="font-size-15">
+                                                <span class="mr-2"><i class="las la-history mr-1"></i><a href="mailto:david@example.com" class="color-text-3">{{can.applyDate | date: 'dd/MM/yyyy'}}</a></span>
+    
+                                            </p>
+    
+                                        </div>
+                                    </div>
+                                    <div class="bread-action">
+                                        <ul class="info-list">
+                                            <li class="d-inline-block mb-0">
+                                                <a routerLink="{{can.objResume.id}}" >
+                                                    <i class="la la-eye" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"></i>
+                                                </a>
+                                            </li>
+                                            <li class="d-inline-block mb-0">
+                                                <a href="javascript:void(0)" (click)="opentFormContact(can.objResume.email,can.accId,can.jobId)">
+                                                    <i class="la la-envelope-o" data-toggle="tooltip" data-placement="top" title="Gửi thông tin phỏng vấn"></i>
+                                                </a>
+                                            </li>
+                                            <li class="d-inline-block mb-0">
+                                                <a href="javascript:void(0)" (click)="remove(can.accId,can.jobId,can.status)">
+                                                    <i class="la la-trash" data-toggle="tooltip" data-placement="top" title="Remove"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="candidates.length == 0">
+                            <p>Chưa có ứng viên nào</p>
                         </ng-container>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="candidates.length > 0">
             <div class="col-lg-12">
                 <app-pagination [rows]="10" [totalRecords]="candidates.length" (onChange)="onChangePage($event)"></app-pagination>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="copy-right margin-top-30px padding-top-20px padding-bottom-20px">
+                <div class="margin-top-30px padding-top-20px padding-bottom-20px">
 
                 </div>
             </div>

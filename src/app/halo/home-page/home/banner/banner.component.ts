@@ -70,9 +70,11 @@ export class BannerComponent implements OnInit {
   }
 
   postJobs(){
-    let role = this.authService.getRoles();
+    
     if (this.authService.isLoggedIn()){
-      if (role == "ROLE_EMPLOYER"){
+      let role = this.authService.getRoles();
+      console.log(role)
+      if (role[0].name == "ROLE_EMPLOYER"){
         this.router.navigateByUrl("emp/job-post/new");
       }else{
         this.commomService.getAlertError("Vui lòng đăng nhập vào tài khoản nhà tuyển dụng");

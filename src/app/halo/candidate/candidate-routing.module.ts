@@ -14,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'apply-job',
         pathMatch: 'full'
       },
       {

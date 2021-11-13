@@ -1,3 +1,5 @@
+import { JobPostActivityService } from './../../../service/job-post-activity.service';
+import { AccountService } from './../../../service/account.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { JobPostService } from 'src/app/service/job-post.service';
@@ -10,6 +12,7 @@ import { JobPostService } from 'src/app/service/job-post.service';
 export class DashboardComponent implements OnInit {
 
   username: any = "";
+  accounts: any = {};
   multiAxisData: any;
   multiAxisOptions: any;
   dataDoughnut: any;
@@ -20,25 +23,41 @@ export class DashboardComponent implements OnInit {
   cActive = 0;
   cPending = 0;
   cExpiry = 0;
+  candidates: any[]=[];
+  thag1: number = 0;
+  thag2: number = 0;
+  thag3: number = 0;
+  thag4: number = 0;
+  thag5: number = 0;
+  thag6: number = 0;
+  thag7: number = 0;
+  thag8: number = 0;
+  thag9: number = 0;
+  thag10: number = 0;
+  thag11: number = 0;
+  thag12: number = 0;
 
   constructor(private authService: AuthService,
-    private jobService: JobPostService
+    private jobService: JobPostService,
+    private accountService: AccountService,
+    private jobPostActivityService: JobPostActivityService
   ) { }
 
   async ngOnInit(): Promise<void> {
     await this.getJob();
     this.getUsername();
+    this.getAllCandidate();
     await this.countJobByMonth();
     this.init();
-
+    this.getAccount();
   }
 
-  getJob(){
+  async getJob(){
     let accId = this.authService.getAccId();
     let cActive = 0;
     let cPending = 0;
     let cExpiry = 0;
-    this.jobService.getJobPostByAccount(accId).toPromise().then(res=>{
+    await this.jobService.getJobPostByAccount(accId).toPromise().then(res=>{
       this.jobs = res;
       for(let i=0;i<this.jobs.length;i++){
         if (this.jobs[i].status == 'ACTIVE'){
@@ -57,6 +76,28 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  getAccount(){
+    this.accountService.getAccount(this.authService.getAccId()).subscribe(res=>{
+      this.accounts = res;
+    })
+  }
+
+  async getAllCandidate(){
+    let data: any[]= [];
+    console.log(this.jobs);
+    for(let i = 0; i< this.jobs.length; i++){
+      await this.jobPostActivityService.getCandidate(this.jobs[i].id).toPromise().then(res=>{
+        data = data.concat(res);
+      })
+    }
+    this.candidates = data;
+    
+    if (this.candidates.length > 0) {
+      this.candidates.forEach(element => {
+        
+      });
+    }
+  }
 
   getUsername(){
     let decodeToken = this.authService.decodeToken();
