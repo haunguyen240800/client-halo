@@ -1,3 +1,4 @@
+import { AccountService } from 'src/app/service/account.service';
 import { CommonService } from './../../../../service/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -28,6 +29,7 @@ export class PaymentComponent implements OnInit {
     description: 'used couch, decent condition',
     img: 'assets/couch.jpg'
   };
+  acc: any = {};
   payPalConfig!: IPayPalConfig;
 
   listPackage: any[]= [];
@@ -49,11 +51,13 @@ export class PaymentComponent implements OnInit {
     private datePipe: DatePipe,
     private packageActiveService: PackageActiveService,
     private alertService: AlertService,
-    private commonService: CommonService) { }
+    private commonService: CommonService,
+    private accService: AccountService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     let data: any = localStorage.getItem('jobPost');
     this.jobPost = JSON.parse(data);
+    await this.getAccount();
     this.init();
 
     if (this.jobPost){
@@ -67,7 +71,6 @@ export class PaymentComponent implements OnInit {
   getAllPackage(){
     this.packageService.getAllPackage().subscribe(res=>{
       this.listPackage = res;
-
     })
   }
 
@@ -87,6 +90,7 @@ export class PaymentComponent implements OnInit {
       if (this.checked){
         this.jobPostService.createJob(this.jobPost).subscribe(res=>{
           localStorage.removeItem("jobPost");
+          this.accService.updateJobNumber(this.authService.getAccId(),this.acc.jobNumber - 1);
           this.createAlert("Nhà tuyển dụng đã đăng 1 công việc mới", "Nhà tuyển dụng");
           this.router.navigateByUrl("emp/job-post/confitmation");
         })
@@ -191,10 +195,16 @@ export class PaymentComponent implements OnInit {
     }
 
     this.packageActiveService.save(tmp).subscribe(res=>{
+      this.accService.updateJobNumber(this.authService.getAccId(),this.acc.jobNumber + 30);
       this.packageAcc.push(this.package);
       this.saveHistory();
     });
   }
 
-  
+  async getAccount(){
+    await this.accService.getAccount(this.authService.getAccId()).toPromise().then(res=>{
+      this.acc = res;
+      console.log(res);
+    })
+  }
 }

@@ -46,6 +46,10 @@ export class AccountService {
     return this.http.get<any>(this.apiUrl+"users/search?role="+request.role+"&username="+request.name);
   }
 
+  updateJobNumber(accId: any, jobNumber: any):Observable<any>{
+    return this.http.put<any>(this.apiUrl+"users/updateJobNumber?accId=",accId+"&jobNumber="+jobNumber);
+  }
+
   dashboard(request: any){
     return this.http.get<any>(this.apiUrl+"users/dashboard?roleName="+request);
   }

@@ -24,7 +24,7 @@
                                 <div class="bread-details">
                                     <div class="bread-candidate-detail d-flex align-items-center">
                                         <div class="bread-img radius--rounded">
-                                            <img src="assets/images/small-team1.jpg" alt="" class="radius--rounded">
+                                            <img src="assets/images/avatar-mac-dinh-1.png" alt="" class="radius--rounded">
                                         </div>
                                         <div class="bread-candidate-inner">
                                             <div class="candidate-content">
@@ -152,13 +152,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="candidate-education padding-bottom-40px">
-                                <h2 class="widget-title">Trình độ học vấn</h2>
+                            <div class="candidate-education padding-bottom-40px" >
+                                <h2 class="widget-title" *ngIf="edus.length > 0">Trình độ học vấn</h2>
                                 <div class="title-shape"></div>
-                                <div class="timeline-dashboard padding-bottom-40px">
+                                <div class="timeline-dashboard padding-bottom-40px" *ngIf="edus.length > 0">
                                     <div class="timeline-body pt-3">
                                         <div class="mess__body">
-                                            <div class="mess__item" *ngFor="let edu of resume.listEdu">
+                                            <div class="mess__item" *ngFor="let edu of edus">
                                                 <div class="ring-icon ring-bg-1"></div>
                                                 <div class="content">
                                                     <p class="color-text-2">{{edu.educationTitle}} <span class="color-text-3" style="float: right;">{{edu.startDate | date: 'dd-MM-yyyy'}} / {{edu.endDate | date: 'dd-MM-yyyy'}}</span></p>
@@ -171,12 +171,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="widget-title">Kinh nghiệp làm việc</h2>
+                                <h2 class="widget-title" *ngIf="exps.length > 0">Kinh nghiệp làm việc</h2>
                                 <div class="title-shape"></div>
-                                <div class="timeline-dashboard">
+                                <div class="timeline-dashboard" *ngIf="exps.length > 0">
                                     <div class="timeline-body pt-3">
                                         <div class="mess__body">
-                                            <div class="mess__item" *ngFor="let exp of resume.listExp">
+                                            <div class="mess__item" *ngFor="let exp of exps">
                                                 <div class="ring-icon ring-bg-1"></div>
                                                 <div class="content">
                                                     <p class="color-text-2">{{exp.jobTitle}} <span class="color-text-3" style="float: right;">{{exp.startDate | date: 'dd-MM-yyyy'}} / {{exp.endDate | date: 'dd-MM-yyyy'}}</span></p>
@@ -190,12 +190,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="widget-title">Giải thưởng đạt được</h2>
+                                <h2 class="widget-title" *ngIf="awards.length > 0">Giải thưởng đạt được</h2>
                                 <div class="title-shape"></div>
-                                <div class="timeline-dashboard">
+                                <div class="timeline-dashboard" *ngIf="awards.length > 0">
                                     <div class="timeline-body pt-3">
                                         <div class="mess__body">
-                                            <div class="mess__item" *ngFor="let a of resume.listAward">
+                                            <div class="mess__item" *ngFor="let a of awards">
                                                 <div class="ring-icon ring-bg-1"></div>
                                                 <div class="content">
                                                     <p class="color-text-2">{{a.awardName}} <span class="color-text-3" style="float: right;">{{a.date | date: 'dd-MM-yyyy'}}</span></p>
@@ -210,11 +210,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="circle-bar-wrap padding-bottom-30px">
+                            <div class="circle-bar-wrap padding-bottom-30px" *ngIf="skills.length > 0">
                                 <h2 class="widget-title">Kỹ năng</h2>
                                 <div class="title-shape"></div>
                                 <div class="row ">
-                                    <div class="col-lg-12 responsive-column margin-top-30px" *ngFor="let skill of resume.listSkill">
+                                    <div class="col-lg-12 responsive-column margin-top-30px" *ngFor="let skill of skills">
                                         {{skill.skillName}}
                                         <p-slider [(ngModel)]="skill.percent" [min]="0" [max]="100" [disabled] = "true"></p-slider>
                                         <!-- <div class="circlechart circlechart-bg1" data-percentage="90">

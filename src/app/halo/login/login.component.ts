@@ -102,17 +102,17 @@ export class LoginComponent implements OnInit {
     password: ["",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")]],
     confirmPassword: ["",[Validators.required]],
     role: ["",[Validators.required]],
-    emailCom: ["",[Validators.required]],
-    companyName: ["",[Validators.required]],
-    telephoneCom: ["",[Validators.required]],
-    websiteUrl: ["",[Validators.required]],
-    companySize: ["",[Validators.required]],
-    founderDate: ["",[Validators.required]],
-    description: ["",[Validators.required]],
-    cityName: ["",[Validators.required]],
-    districtName: ["",[Validators.required]],
-    wardName: ["",[Validators.required]],
-    fullAddress: ["",[Validators.required]]
+    emailCom: [""],
+    companyName: [""],
+    telephoneCom: [""],
+    websiteUrl: [""],
+    companySize: [""],
+    founderDate: [""],
+    description: [""],
+    cityName: [""],
+    districtName: [""],
+    wardName: [""],
+    fullAddress: [""]
   },{ 
       validator: ConfirmedValidator('password', 'confirmPassword')
     }
@@ -129,9 +129,8 @@ export class LoginComponent implements OnInit {
         await this.comService.uploadLogo(this.file).toPromise().then(res =>{
           objImage = res;
           this.formRegister.controls.imageUrl.setValue(objImage.body.id);
-        })
+        });
       }
-      console.log(objImage);
       this.accService.createAcc(this.formRegister.value).subscribe(res=>{
         this.commonService.getAlertSuccess("Đăng ký thành công");
       },( error:HttpErrorResponse) =>{

@@ -50,6 +50,7 @@ export class MnCandidateComponent implements OnInit {
       })
     }
     this.candidates = data;
+    console.log(this.candidates);
   }
 
   // async getCandidateByJob(){
