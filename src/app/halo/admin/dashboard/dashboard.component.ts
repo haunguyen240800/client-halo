@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   accList: any[] = [];
   countCan: number = 0;
   countEmp: number = 0;
+  data1: any[] = [];
+  data2: any[] = [];
 
   constructor(private jobService: JobPostService,
     private authService: AuthService,
@@ -31,15 +33,30 @@ export class DashboardComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     // await this.getJob();
+    await this.getData1();
+    await this.getData2();
     this.getUsername();
     this.init();
     this.getAllAcc();
+    
 
   }
 
   getUsername(){
     let decodeToken: any = this.authService.decodeToken();
     this.username = decodeToken.sub;
+  }
+
+  getData1(){
+    this.accService.dashboard("ROLE_CANDIDATE").toPromise().then(res=>{
+      this.data1 = res;
+    })
+  }
+
+  getData2(){
+    this.accService.dashboard("ROLE_EMPLOYER").toPromise().then(res=>{
+      this.data2 = res;
+    })
   }
 
   getAllAcc(){
@@ -61,16 +78,22 @@ export class DashboardComponent implements OnInit {
   }
 
 
+
   init(){
     let data1 = [0,0,0,0,0,0,0,0,0,0,0,0];
     let data2 = [0,0,0,0,0,0,0,0,0,0,0,0];
     let data3 = [0,0,0,0,0,0,0,0,0,0,0,0];
 
-    if(this.dataLine.length > 0){
-        for(let i=0;i< this.dataLine.length;i++){
-            data1[this.dataLine[i].month] = this.dataLine[i].total;
+    if(this.data1.length > 0){
+        for(let i=0;i< this.data1.length;i++){
+            data1[this.data1[i].month] = this.data1[i].total;
         }
     }
+    if(this.data2.length > 0){
+      for(let i=0;i< this.data1.length;i++){
+          data2[this.data2[i].month] = this.data2[i].total;
+      }
+  }
 
     this.multiAxisData = {
       labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],

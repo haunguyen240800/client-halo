@@ -15,7 +15,7 @@
                                         <div class="dropdown">
                                             <button class="notification-btn dropdown-toggle" type="button" id="notificationDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la la-bell"></i>
-                                                <span class="quantity">5</span>
+                                                <span class="quantity">{{alerts.length}}</span>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="notificationDropdownMenu">
                                                 <div class="mess-dropdown">
@@ -129,14 +129,14 @@
                                     <div class="notification-item">
                                         <div class="dropdown">
                                             <button class="notification-btn dot-status online-status dropdown-toggle" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img src="assets/images//small-team1.jpg" alt="John-doe">
+                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="John-doe">
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="userDropdownMenu">
                                                 <div class="mess-dropdown">
                                                     <div class="mess__title d-flex align-items-center">
                                                         <div class="image dot-status online-status">
                                                             <a href="#">
-                                                                <img src="assets/images//small-team1.jpg" alt="John Doe">
+                                                                <img src="assets/images/avatar-mac-dinh-1.png" alt="John Doe">
                                                             </a>
                                                         </div>
                                                         <div class="content">
@@ -153,31 +153,9 @@
                                                                     <i class="la la-user"></i> Tài khoản
                                                                 </a>
                                                             </li>
+                    
                                                             <li class="mb-0">
-                                                                <a href="candidate-dashboard-bookmark.html" class="d-block">
-                                                                    <i class="la la-bookmark"></i> Công việc đã lưu
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-add-resume.html" class="d-block">
-                                                                    <i class="la la-plus"></i> Thêm Cv
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-question"></i> Trợ giúp
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="candidate-dashboard.html" class="d-block">
-                                                                    <i class="la la-gear"></i> Cài đặt
-                                                                </a>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <div class="section-block mt-2 mb-2"></div>
-                                                            </li>
-                                                            <li class="mb-0">
-                                                                <a href="index.html" class="d-block">
+                                                                <a href="javascript:void(0)" (click)="logout()" class="d-block">
                                                                     <i class="la la-power-off"></i> Đăng xuất
                                                                 </a>
                                                             </li>

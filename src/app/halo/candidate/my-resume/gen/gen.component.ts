@@ -16,12 +16,13 @@ import { ResumesService } from 'src/app/service/resumes.service';
 export class GenComponent implements OnInit {
 
   linkImg = environment.urlImg;
-  resume!: Resumes;
+  resume: Resumes = new Resumes();
   provinces: any;
   districts: any;
   wards: any;
   uploadedFiles: any[] = [];
   file!: File; 
+  checkFile = false;
   educations = [
     { label: "Tốt nghiệp trung cấp" },
     { label: "Tốt nghiệp cao đẳng" },
@@ -123,7 +124,9 @@ export class GenComponent implements OnInit {
   }
 
   async onSubmit(){
-    await this.uploadFile();
+    if (this.checkFile){
+      await this.uploadFile();
+    }
     this.dataForm.controls.imageUrl.setValue(this.objImage.body.location);
     if (this.dataForm.valid){
       
@@ -169,6 +172,11 @@ export class GenComponent implements OnInit {
   }
 
   onUpload(event: any){
+    this.checkFile = true;
     this.file = event.currentFiles[0];
+  }
+
+  onRemove(event:any){
+    this.checkFile = false;
   }
 }

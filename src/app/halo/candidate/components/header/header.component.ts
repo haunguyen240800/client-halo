@@ -25,14 +25,21 @@ export class HeaderComponent implements OnInit {
     this.getAlert();
   }
 
+  getAccount(){
+
+  }
 
   getAlert(){
     let status = 1;
     this.alertService.alertResponse$.subscribe(res=>{
-      this.alertService.getAlert(this.accId, status).toPromise().then(res=>{
+      this.alertService.getAlert(this.authService.getAccId(), status).toPromise().then(res=>{
         this.alerts =res;
       })
     })
     
+  }
+
+  logout(){
+    this.authService.logout();
   }
 }

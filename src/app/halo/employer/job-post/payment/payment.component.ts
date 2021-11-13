@@ -191,6 +191,7 @@ export class PaymentComponent implements OnInit {
     }
 
     this.packageActiveService.save(tmp).subscribe(res=>{
+      this.packageAcc.push(this.package);
       this.saveHistory();
     });
   }

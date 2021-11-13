@@ -46,6 +46,10 @@ export class AccountService {
     return this.http.get<any>(this.apiUrl+"users/search?role="+request.role+"&username="+request.name);
   }
 
+  dashboard(request: any){
+    return this.http.get<any>(this.apiUrl+"users/dashboard?roleName="+request);
+  }
+
   handleError(error: HttpErrorResponse){
     return throwError(error);
   }

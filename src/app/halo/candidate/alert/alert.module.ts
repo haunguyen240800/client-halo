@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {DialogModule} from 'primeng/dialog';
 
 import { AlertRoutingModule } from './alert-routing.module';
 import { AlertComponent } from './alert.component';
@@ -11,7 +12,8 @@ import { AlertComponent } from './alert.component';
   ],
   imports: [
     CommonModule,
-    AlertRoutingModule
+    AlertRoutingModule,
+    DialogModule
   ]
 })
 export class AlertModule { }

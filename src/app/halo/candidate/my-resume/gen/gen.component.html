@@ -280,12 +280,13 @@
                                         <label class="label-text">Ảnh đại diện</label>
                                         <div class="form-group">
                                             <p-fileUpload name="demo[]" (uploadHandler)="onUpload($event)" [customUpload]="true" [showUploadButton]="false" chooseLabel="Chọn ảnh"
-                                            [showCancelButton]="false" [multiple]= "false" accept="image/*" [maxFileSize]="1000000" (onSelect)="onUpload($event)">
+                                            [showCancelButton]="false" [multiple]= "false" accept="image/*" [maxFileSize]="1000000" (onSelect)="onUpload($event)" (onRemove)="onUpload($event)">
+                                                  
                                                 <ng-template pTemplate="content">
-                                                    <div *ngIf ="uploadedFiles.length == 0">
+                                                    <div *ngIf ="!checkFile">
                                                         <img src="{{linkImg}}{{resume.imageUrl}}" alt="" >
                                                     </div>               
-                                                    <ul *ngIf="uploadedFiles.length">
+                                                    <ul *ngIf="!checkFile">
                                                         <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
                                                     </ul>
                                                 </ng-template>

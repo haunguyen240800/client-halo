@@ -23,9 +23,7 @@
                                 <th>Chọn</th>
                                 <th>Tên gói</th>
                                 <th>Giá</th>
-                                <th>Jobs Posting</th>
-                                <th>Feature Jobs</th>
-                                <th>Renew Jobs</th>
+                                <th>Số tin tuyển dụng</th>
                                 <th>Thời gian</th>
                             </tr>
                         </thead>
@@ -40,10 +38,9 @@
                                     </div>
                                 </td>
                                 <td><span>{{p.packageName}}</span></td>
-                                <td>{{p.price | currency:'VND'}}</td>
-                                <td>10</td>
-                                <td>5</td>
-                                <td>2</td>
+                                <td>{{p.price | currency:'USD'}}</td>
+                                <td>{{p.jobNumber}}</td>
+                                
                                 <td>{{p.expiry}} ngày</td>
                             </tr>    
                         </tbody>
@@ -57,9 +54,8 @@
                                 <th>Chọn</th>
                                 <th>Tên gói</th>
                                 <th>Giá</th>
-                                <th>Jobs Posting</th>
-                                <th>Feature Jobs</th>
-                                <th>Renew Jobs</th>
+                                <th>Số tin tuyển dụng</th>
+                                
                                 <th>Thời gian</th>
                             </tr>
                         </thead>
@@ -74,10 +70,9 @@
                                     </div>
                                 </td>
                                 <td><span>{{p.packageName}}</span></td>
-                                <td>{{p.price | currency:'VND'}}</td>
-                                <td>10</td>
-                                <td>5</td>
-                                <td>2</td>
+                                <td>{{p.price | currency:'USD'}}</td>
+                                <td>{{p.jobNumber}}</td>
+                                
                                 <td>{{p.expiry}} ngày</td>
                             </tr>    
                         </tbody>
@@ -91,93 +86,6 @@
                 </div>
                 <div class="payment-method-wrap p-4">
                     <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-                    <!-- <div class="radio-option">
-                        <label for="radio-4" class="radio-trigger d-block">
-                            <input type="radio" id="radio-4" name="radio2">
-                            <span class="checkmark"></span>
-                            <span>Thẻ tín dụng / Thẻ ghi nợ</span>
-                            <span class="card-icon float-right"><img src="assets/images/payment-img.png" alt=""></span>
-                            <div class="payment-content payment-active mt-3">
-                                <div class="contact-form-action">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="input-box">
-                                                <label class="label-text">Name on Card</label>
-                                                <div class="form-group">
-                                                    <span class="la la-pencil form-icon"></span>
-                                                    <input class="form-control" placeholder="Card Name" type="text" name="text" required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="input-box">
-                                                <label class="label-text">Card Number</label>
-                                                <div class="form-group">
-                                                    <span class="la la-pencil form-icon"></span>
-                                                    <input class="form-control" name="text" placeholder="1234  5678  9876  5432" required="" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="input-box">
-                                                <label class="label-text">Expiry Month</label>
-                                                <div class="form-group">
-                                                    <span class="la la-pencil form-icon"></span>
-                                                    <input class="form-control" placeholder="MM" required="" name="text" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="input-box">
-                                                <label class="label-text">Expiry Year</label>
-                                                <div class="form-group">
-                                                    <span class="la la-pencil form-icon"></span>
-                                                    <input class="form-control" placeholder="YY" required="" name="text" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="input-box">
-                                                <label class="label-text">CVV</label>
-                                                <div class="form-group">
-                                                    <span class="la la-pencil form-icon"></span>
-                                                    <input class="form-control" placeholder="CVV" required="" name="text" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="radio-option">
-                        <label for="radio-5" class="radio-trigger paypal-option d-block">
-                            <input type="radio" id="radio-5" name="radio2">
-                            <span class="checkmark"></span>
-                            <span>Paypal</span>
-                            <span class="card-icon float-right"><img src="assets/images/paypal.png" alt=""></span>
-                            <div class="payment-content payment-active mt-3">
-                                <div class="contact-form-action">
-                                    <form>
-                                        <div class="input-box">
-                                            <label class="label-text">Email Address</label>
-                                            <div class="form-group">
-                                                <span class="la la-pencil form-icon"></span>
-                                                <input class="form-control" placeholder="Email Address" type="text" name="text" required="">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <p class="color-text-3 font-size-14 font-weight-regular">
-                                    You will be redirected to PayPal to complete payment.
-                                </p>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="section-block-2 mt-4"></div>
-                    <div class="btn-box mt-4">
-                        <button type="submit" class="theme-btn border-0 mt-3">Xác nhận thanh toán</button>
-                    </div> -->
                 </div>
             </div>
         </div>
