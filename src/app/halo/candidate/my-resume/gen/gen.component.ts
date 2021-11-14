@@ -81,7 +81,7 @@ export class GenComponent implements OnInit {
     districtName: ["",[Validators.required]],
     wardName: ["",[Validators.required]],
     fullAddress: ["",[Validators.required]],
-    imageUrl: ["",[Validators.required]]
+    imageUrl: [""]
   })
 
   get getData(){
@@ -104,6 +104,7 @@ export class GenComponent implements OnInit {
     this.dataForm.controls.districtName.setValue(this.resume.objAdd.districtName);
     this.dataForm.controls.wardName.setValue(this.resume.objAdd.wardName);
     this.dataForm.controls.fullAddress.setValue(this.resume.objAdd.fullAddress);
+    // this.dataForm.controls.imageUrl.setValue(this.resume.);
   }
 
   async findResumeByAccId() {
@@ -126,8 +127,9 @@ export class GenComponent implements OnInit {
   async onSubmit(){
     if (this.checkFile){
       await this.uploadFile();
+      this.dataForm.controls.imageUrl.setValue(this.objImage.body.location);
     }
-    this.dataForm.controls.imageUrl.setValue(this.objImage.body.location);
+    
     if (this.dataForm.valid){
       
       if (this.check){
