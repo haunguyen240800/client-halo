@@ -20,7 +20,6 @@ export class TransactionsComponent implements OnInit {
   getAll(){
     this.historyService.getByAcc(this.authService.getAccId()).subscribe(res=>{
       this.hisList = res;
-      console.log(res);
     })
   }
 }
