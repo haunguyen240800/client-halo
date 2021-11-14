@@ -284,7 +284,7 @@
                                                   
                                                 <ng-template pTemplate="content">
                                                     <div *ngIf ="!checkFile">
-                                                        <img src="{{linkImg}}{{resume.imageUrl}}" alt="" >
+                                                        <img src="{{linkImg}}{{resume.imageUrl}}" alt="" width="80px">
                                                     </div>               
                                                     <ul *ngIf="!checkFile">
                                                         <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
